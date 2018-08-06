@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Language" content="zh-cn">
+    <meta charset="utf-8">
+    
+    
+    <link rel="canonical" href="destinytaoer.cn/posts/36a501de/">
+    
+    
+    <title>CSS实现元素的居中显示 | destiny&#39;Note | best for the best!</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    
+    <meta name="theme-color" content="#77AAFF">
+    
+    
+    <meta name="keywords" content="web前端,css">
+
+    
+
+    
+
+    <!-- Baidu Push -->
+<script>
+	(function(){
+		var bp = document.createElement('script');
+		var curProtocol = window.location.protocol.split(':')[0];
+		if (curProtocol === 'https') {
+			bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+		}
+		else {
+			bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+		}
+		var s = document.getElementsByTagName("script")[0];
+		s.parentNode.insertBefore(bp, s);
+	})();
+
+	var _hmt = _hmt || [];
+</script>
+
+
+
+
+    <meta name="description" content="前言元素的水平及垂直居中是在写CSS样式中最常遇到的问题之一。相信会CSS的同学肯定都有自己的解决方法，但是并不一定都能熟练运用，并且知道其中原理。下面，我就将自己总结的实现方法分享给大家。ps：重点是第四，疑惑在第三，第一、第二也较常用  为本文制作的demo：元素居中显示">
+<meta name="keywords" content="web前端,css">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CSS实现元素的居中显示">
+<meta property="og:url" content="http://destinytaoer.cn/posts/36a501de/index.html">
+<meta property="og:site_name" content="destiny&#39;Note">
+<meta property="og:description" content="前言元素的水平及垂直居中是在写CSS样式中最常遇到的问题之一。相信会CSS的同学肯定都有自己的解决方法，但是并不一定都能熟练运用，并且知道其中原理。下面，我就将自己总结的实现方法分享给大家。ps：重点是第四，疑惑在第三，第一、第二也较常用  为本文制作的demo：元素居中显示">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-08-02T00:59:15.485Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="CSS实现元素的居中显示">
+<meta name="twitter:description" content="前言元素的水平及垂直居中是在写CSS样式中最常遇到的问题之一。相信会CSS的同学肯定都有自己的解决方法，但是并不一定都能熟练运用，并且知道其中原理。下面，我就将自己总结的实现方法分享给大家。ps：重点是第四，疑惑在第三，第一、第二也较常用  为本文制作的demo：元素居中显示">
+    
+        <link rel="alternate" type="application/atom+xml" title="destiny&#39;Note" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/img/favicon.ico">
+    <link id="style" rel="stylesheet" href="/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+    <aside id="menu"   >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" >
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/author1.jpg" alt="avatar">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname" id="name">destiny</h5>
+          
+            <div id="mymotto" class="motto">Best for the best!</div>
+          
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+              <li class="waves-block waves-effect">
+                  <a href="/"  >
+                    <i class="icon icon-lg icon-home"></i>
+                    <span>主 页</span><i class="icon icon-lg icon-caret-left"></i>
+                  </a>
+              </li>
+            
+              <li class="waves-block waves-effect">
+                  <a href="/archives"  >
+                    <i class="icon icon-lg icon-archives"></i>
+                    <span>归 档</span><i class="icon icon-lg icon-caret-left"></i>
+                  </a>
+              </li>
+            
+              <li class="waves-block waves-effect">
+                  <a href="/categories"  >
+                    <i class="icon icon-lg icon-th-list"></i>
+                    <span>分 类</span><i class="icon icon-lg icon-caret-left"></i>
+                  </a>
+              </li>
+            
+              <li class="waves-block waves-effect">
+                  <a href="/tags"  >
+                    <i class="icon icon-lg icon-tags"></i>
+                    <span>标 签</span><i class="icon icon-lg icon-caret-left"></i>
+                  </a>
+              </li>
+            
+              <li class="waves-block waves-effect">
+                  <a href="/about"  >
+                    <i class="icon icon-lg icon-user"></i>
+                    <span>关 于</span><i class="icon icon-lg icon-caret-left"></i>
+                  </a>
+              </li>
+            
+      <div class="nav2">
+          
+              <a class="nav2item" data-title="Email" href="mailto:1848765519@qq.com" target="_parent"title="Email" >
+                <i class="icon icon-lg icon-envelope-o envelope-o"></i>
+              </a>
+          
+              <a class="nav2item" data-title="Github" href="https://github.com/destinytaoer" target="_blank"title="Github" >
+                <i class="icon icon-lg icon-github github"></i>
+              </a>
+          
+              <a class="nav2item" data-title="CSDN" href="https://blog.csdn.net/destinytaoer" target="_blank"title="CSDN" >
+                <i class="icon icon-lg icon-book book"></i>
+              </a>
+          
+              <a class="nav2item" data-title="微信" href="/img/wechat.jpg" target="_blank"title="微信" >
+                <i class="icon icon-lg icon-wechat wechat"></i>
+              </a>
+          
+
+            </div>
+
+      </ul>
+
+    </div>
+  </div>
+
+</aside>
+
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">CSS实现元素的居中显示</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        <a href="../../atom.xml" target="_blank" class="header-icon waves-effect waves-circle waves-light" id="Rss">
+            <i class="icon icon-lg icon-rss"></i>
+        </a>
+    </div>
+</header>
+<header class="content-header post-header">
+    
+    
+    <div class="container fade-scale">
+        <div id="myheader">
+            <h1 class="title">
+                
+            </h1>
+            <h5 class="subtitle">
+                
+                
+            </h5>
+        </div>
+    </div>
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#前言"><span class="post-toc-text">前言</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#一、单行文本"><span class="post-toc-text">一、单行文本</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#二、多行文本"><span class="post-toc-text">二、多行文本</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#三、图片"><span class="post-toc-text">三、图片</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#table-cell-vertical-align"><span class="post-toc-text">table-cell + vertical-align</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#vertical-align-font-size"><span class="post-toc-text">vertical-align + font-size</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#其他方法参照下面的块元素实现"><span class="post-toc-text">其他方法参照下面的块元素实现</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#四、盒子"><span class="post-toc-text">四、盒子</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1-position-负margin"><span class="post-toc-text">1. position + 负margin</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-position-translate"><span class="post-toc-text">2.position + translate</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#3-table-cell-vertical-align"><span class="post-toc-text">3. table-cell + vertical-align</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#4-flex"><span class="post-toc-text">4. flex</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+   
+<article id="post-CSS实现元素的居中显示"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">CSS实现元素的居中显示</h1>
+        <ul class="post-meta">
+            <li>
+                <i class="icon icon-lg icon-calendar-o"></i>
+                发表于
+                <time class="post-time" title="2017-10-17 23:26:12" datetime="2017-10-17T15:26:12.000Z"  itemprop="datePublished">2017-10-17</time>
+
+            </li>
+            <li>
+                
+	<i class="icon icon-lg icon-folder-o"></i>
+	分类：<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/前端技术/">前端技术</a></li></ul>
+
+
+            </li>
+            <li>
+                
+<span id="busuanzi_container_page_pv" title="文章总阅读量">
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>次浏览
+</span>
+
+
+            </li>
+        </ul>
+        <div class="post-count-custom">
+            <i class="icon icon-lg icon-comment-o"></i>
+            阅读本文可能花费您&nbsp;<span class="post-count">4</span>&nbsp;分钟
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>元素的水平及垂直居中是在写CSS样式中最常遇到的问题之一。相信会CSS的同学肯定都有自己的解决方法，但是并不一定都能熟练运用，并且知道其中原理。下面，我就将自己总结的实现方法分享给大家。<br>ps：重点是第四，疑惑在第三，第一、第二也较常用</p>
+<blockquote>
+<p>为本文制作的demo：<a href="https://codepen.io/destiny0904/pen/rGomoB" target="_blank" rel="noopener">元素居中显示</a><br><a id="more"></a></p>
+</blockquote>
+<h1 id="一、单行文本"><a href="#一、单行文本" class="headerlink" title="一、单行文本"></a>一、单行文本</h1><p>这里的单行文本不仅是指单行显示的文本以及<strong>行内元素</strong>（设置了<code>display: inline;</code>的也是行内元素），当然这些元素也只有包含文本才有意义，才能显示出来。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* 父元素*/</span></span><br><span class="line"><span class="selector-tag">div</span> &#123;</span><br><span class="line">  text-align: center;//水平居中</span><br><span class="line">  light-height: heightValue;//垂直居中</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>注意</strong>：</p>
+<ul>
+<li>这里的<code>heightValue</code>指的是<code>height</code>属性值，即行高值 = 高度值，才能实现垂直居中。</li>
+<li>另外一种常见的就是不设置高度，直接用行高来撑起高度，这样就不存在行高与高度一致的问题。</li>
+</ul>
+<blockquote>
+<p>具体原因请参考文章：<a href="http://www.jianshu.com/p/dc324a36ba84" target="_blank" rel="noopener">对文字和行高的理解</a></p>
+</blockquote>
+<h1 id="二、多行文本"><a href="#二、多行文本" class="headerlink" title="二、多行文本"></a>二、多行文本</h1><p>这里的多行文本，实际上应该说是<strong>不定行</strong>，这个方法能自适应的居中。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* 父元素*/</span></span><br><span class="line"><span class="selector-tag">div</span> &#123;</span><br><span class="line">  <span class="attribute">text-align</span>: center;</span><br><span class="line">  <span class="attribute">display</span>: table-cell;</span><br><span class="line">  <span class="attribute">vertical-align</span>: middle;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这里设置<code>table-cell</code>，创建类似表格单元的元素，就可以使用<code>vertical-align</code>设置垂直对齐方式。</p>
+<blockquote>
+<p><strong>注意</strong>：在一些文章中，我看到还需要设置其子元素的<code>vertical-align</code>，但是在实践中发现并不需要。与下面使用<code>table-cell</code>的方法有所区别</p>
+</blockquote>
+<h1 id="三、图片"><a href="#三、图片" class="headerlink" title="三、图片"></a>三、图片</h1><p>这里图片泛指<strong>行内块元素</strong></p>
+<ul>
+<li><h3 id="table-cell-vertical-align"><a href="#table-cell-vertical-align" class="headerlink" title="table-cell + vertical-align"></a>table-cell + vertical-align</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* 父元素*/</span></span><br><span class="line"><span class="selector-tag">div</span> &#123;</span><br><span class="line">  <span class="attribute">display</span>: table-cell;</span><br><span class="line">  <span class="attribute">text-align</span>: center;</span><br><span class="line">  <span class="attribute">vertical-align</span>: middle;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/* 子元素img*/</span></span><br><span class="line"><span class="selector-tag">img</span>&#123;</span><br><span class="line">  <span class="attribute">vertical-align</span>:middle;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>这个方法与上面的有区分，子元素必须加上<code>vertical-align</code>，否则不同大小的图片显示效果不一样</p>
+</li>
+<li>不支持img的父元素浮动，因为这样<code>display</code>会自动变为<code>block</code>，所以当多图片显示时需要再在外面嵌套一层标签，不方便</li>
+</ul>
+<blockquote>
+<p><strong>注意</strong>：在一些文章中，在父元素上还添加了<code>font-size</code>的大小控制，在我的实践中，不添加<code>font-size</code>可以实现效果。但是，当<code>font-size</code>达到一定程度的时候，会有影响。</p>
+</blockquote>
+<ul>
+<li><h3 id="vertical-align-font-size"><a href="#vertical-align-font-size" class="headerlink" title="vertical-align + font-size"></a>vertical-align + font-size</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* 父元素*/</span></span><br><span class="line"><span class="selector-tag">div</span> &#123;</span><br><span class="line"><span class="attribute">font-size</span>:<span class="number">128px</span>; </span><br><span class="line"><span class="attribute">vertical-align</span>: middle;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/* 子元素img*/</span></span><br><span class="line"><span class="selector-tag">img</span>&#123;</span><br><span class="line">  <span class="attribute">vertical-align</span>: middle;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><code>font-size</code>达到一定大小就会影响行内元素的垂直位置，具体是什么原因不明确，但是感觉是跟<code>vertical-align</code>以及行高有关。</p>
+<blockquote>
+<p><strong>注意</strong>：这个方法的原本是在父元素上加<code>display: inline-block;</code>的，实践发现并不需要，只要里面的是行内块元素就可以了。使用这个方法特别注意的是父元素<code>font-size</code>与子元素<code>height</code>的比例关系，因为不可控，所以<strong>不推荐使用。</strong></p>
+</blockquote>
+<ul>
+<li><h3 id="其他方法参照下面的块元素实现"><a href="#其他方法参照下面的块元素实现" class="headerlink" title="其他方法参照下面的块元素实现"></a>其他方法参照下面的块元素实现</h3></li>
+</ul>
+<h1 id="四、盒子"><a href="#四、盒子" class="headerlink" title="四、盒子"></a>四、盒子</h1><p>盒子主要指<strong>块元素</strong>和<strong>行内块</strong>，下面分享的是布局中主要用到的。<code>margin: 0 auto</code>就不做介绍了。</p>
+<h2 id="1-position-负margin"><a href="#1-position-负margin" class="headerlink" title="1. position + 负margin"></a>1. position + 负margin</h2><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* 父元素 */</span></span><br><span class="line"><span class="selector-class">.demo</span>&#123;</span><br><span class="line">  <span class="attribute">position</span>: relative;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/* 子元素 */</span></span><br><span class="line"><span class="selector-class">.box</span>&#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">100px</span>;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">100px</span>;</span><br><span class="line">  <span class="attribute">position</span>: absolute;</span><br><span class="line">  <span class="attribute">top</span>: <span class="number">50%</span>;</span><br><span class="line">  <span class="attribute">left</span>: <span class="number">50%</span>;</span><br><span class="line">  <span class="attribute">margin-top</span>: -<span class="number">50px</span>; <span class="comment">/* img高度的一半*/</span></span><br><span class="line">  <span class="attribute">margin-left</span>: -<span class="number">50px</span>;<span class="comment">/* img宽度的一半*/</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>利用<code>position</code>移动父元素宽高的一半，再利用负<code>margin</code>往回移动子元素宽高的一半，刚好居中对齐。适合固定宽高的元素。</p>
+<h2 id="2-position-translate"><a href="#2-position-translate" class="headerlink" title="2.position + translate"></a>2.position + translate</h2><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* 父元素 */</span></span><br><span class="line"><span class="selector-class">.demo</span>&#123;</span><br><span class="line">  <span class="attribute">position</span>: relative;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/* 子元素 */</span></span><br><span class="line"><span class="selector-class">.box</span>&#123;</span><br><span class="line">  <span class="attribute">position</span>: absolute;</span><br><span class="line">  <span class="attribute">top</span>: <span class="number">50%</span>;</span><br><span class="line">  <span class="attribute">left</span>: <span class="number">50%</span>;</span><br><span class="line">  <span class="attribute">transform</span>:<span class="built_in">translate3d</span>(-50%,-50%,0);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>同上理，这里利用<code>translate3d</code>往回移动。子元素不固定宽高也适用。</p>
+<h2 id="3-table-cell-vertical-align"><a href="#3-table-cell-vertical-align" class="headerlink" title="3. table-cell + vertical-align"></a>3. table-cell + vertical-align</h2><p>这就是前面图片提到的方法，只不过要设置子元素为<code>display: inline-block;</code></p>
+<h2 id="4-flex"><a href="#4-flex" class="headerlink" title="4. flex"></a>4. flex</h2><p>这才是真正的布局神器。适用于所有，但也需要灵活应用。<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.demo</span> &#123;</span><br><span class="line">  <span class="attribute">display</span>: flex;</span><br><span class="line">  <span class="attribute">align-items</span>: center;</span><br><span class="line">  <span class="attribute">justify-content</span>: center;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>简洁、高效，在低版本IE存在兼容问题，但是现在几乎不用考虑了。</p>
+<blockquote>
+<p>详细语法请查看我的博文：<a href="http://www.jianshu.com/p/90dbbbecdf3b" target="_blank" rel="noopener">关于Flex布局</a></p>
+</blockquote>
+<blockquote class="blockquote-center">生命的意义不仅是活着，而是我们给别人的生命带来了何种不同。</blockquote>
+        </div>
+
+        <blockquote class="post-copyright">
+    <ul class="content">
+        <li class="post-time">
+            <span>发布时间：</span><time datetime="2017-10-17T15:26:12.000Z" itemprop="dateUpdated">2017-10-17 23:26:12</time>
+        </li>
+        <li class="post-time">
+            <span>更新时间：</span>
+            <time datetime="2017-10-18T15:18:12.000Z" itemprop="dateUpdate">2017-10-18 23:18:12</time>
+        </li>
+        <li class="post-time">
+            
+            <span>本文链接：</span><a href="/posts/36a501de/" target="_blank" rel="external">http://destinytaoer.cn/posts/36a501de/</a>
+            
+        </li>
+        <li class="post-time">
+            <span>版权声明：</span>本站原创内容转载请注明来源
+        </li>
+    </ul>
+</blockquote>
+
+        
+    <div class="page-reward">
+        <nav class="myreward">
+            <a id="rewardBtn" href="javascript:;"><span>打&nbsp;赏</span><span>装成好像很多人打赏的样子</span></a>
+        </nav>
+    </div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css/">css</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/web前端/">web前端</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://destinytaoer.cn/posts/36a501de/&title=《CSS实现元素的居中显示》 — destiny'Note&pic=http://destinytaoer.cnimg/author1.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://destinytaoer.cn/posts/36a501de/&title=《CSS实现元素的居中显示》 — destiny'Note&source=前言元素的水平及垂直居中是在写CSS样式中最常遇到的问题之一。相信会CSS的同学肯定都有自己的解决方法，但是并不一定都能熟练运用，并且知道其中原理。下面，..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://destinytaoer.cn/posts/36a501de/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《CSS实现元素的居中显示》 — destiny'Note&url=http://destinytaoer.cn/posts/36a501de/&via=http://destinytaoer.cn" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://destinytaoer.cn/posts/36a501de/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/posts/ca85f766/" id="post-prev" class="post-nav-link">
+        <h4 class="title" >
+          上一篇：给不了解前端的同学讲前端
+        </h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/posts/4716e729/" id="post-next" class="post-nav-link">
+        <h4 class="title" data-hover="下一篇：关于Flex布局">下一篇：关于Flex布局</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+    
+
+    
+
+    
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'true' == 'true',
+            verify: 'true' == 'true',
+            appId: "BAlEU7J3YXaDNuoOMWC67UT7-gzGzoHsz",
+            appKey: "QjTpNrsX37DRGfvANeuBhGAL",
+            avatar: "mm",
+            placeholder: "来说两句吧~",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "10"
+        })
+    </script>
+    <!-- Valine Comments end -->
+
+
+
+
+</article>
+
+</div>
+
+        <footer class="footer">
+    <div class="footer-content">
+        <span class="power">
+            <i class="icon icon-lg icon-copyright"></i>
+            2016
+            <i class="icon icon-lg icon-heart"></i>
+            <a href="http://destinytaoer.cn">destiny</a>
+            <br/>
+            Power by
+            <a href="https://hexo.io/" target="_blank" rel="external nofollow">Hexo</a>&nbsp;·&nbsp;
+            Theme
+            <a class="tomotoeslink" href="https://github.com/tomotoes/hexo-theme-tomotoes/" target="_blank" rel="external nofollow">tomotoes</a>
+        </span>
+
+        <br/>
+
+        <span id="RunTime" style="color:#a7a7a2;"></span>
+        <br/>
+
+        <span>
+            
+	<i class="icon icon-lg icon-user">
+<span id="busuanzi_container_site_uv" style='display:none'>
+       访问用户：<span id="busuanzi_value_site_uv"></span>
+    </span>人</i>
+    ·
+    <i class="icon icon-lg icon-eye">
+    <span id="busuanzi_container_site_pv" style='display:none'>
+      访问次数：<span id="busuanzi_value_site_pv"></span>
+    </span>次
+    </i>
+
+
+        </span>
+        <br/>
+
+        <span class="license"><a  target="_blank" rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">博客内容遵循 知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+    </div>
+</footer>
+
+    </main>
+    
+        
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        <span>感谢您的鼓励支持！</span>
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" data-img="/img/dog.png" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/weixin.jpg" data-alipay="/img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechatPay">&nbsp;&nbsp;微信&nbsp;&nbsp;</span>
+                <span class="reward-toggle-item alipayPay">支付宝</span>
+            </div>
+        </label>
+        
+        <i class="icon icon-caret-up"></i>
+    </div>
+</div>
+
+
+    
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://destinytaoer.cn/posts/36a501de/&title=《CSS实现元素的居中显示》 — destiny'Note&pic=http://destinytaoer.cnimg/author1.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://destinytaoer.cn/posts/36a501de/&title=《CSS实现元素的居中显示》 — destiny'Note&source=前言元素的水平及垂直居中是在写CSS样式中最常遇到的问题之一。相信会CSS的同学肯定都有自己的解决方法，但是并不一定都能熟练运用，并且知道其中原理。下面，..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://destinytaoer.cn/posts/36a501de/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《CSS实现元素的居中显示》 — destiny'Note&url=http://destinytaoer.cn/posts/36a501de/&via=http://destinytaoer.cn" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://destinytaoer.cn/posts/36a501de/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p class="wechatshare">扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://destinytaoer.cn/posts/36a501de/" alt="微信分享二维码">
+</div>
+
+
+
+
+    <!-- waves按钮特效 -->
+<script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+
+<!-- 主题配置脚本 -->
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+</script>
+
+<!-- jquery -->
+<script src="/js/jquery.min.js"></script>
+
+<!-- 搜索 -->
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item waves-block waves-effect" onclick="location.href='{path}'">
+    <div class="title ellipsis" title="{title}">{title}</div>
+</li>
+</template>
+
+
+<!-- main博客脚本 -->
+<script src="/js/main.min.js" ></script>
+
+<!-- 动画&配置 -->
+<script src="/js/script.min.js" ></script>
+
+<!-- 脚本管理 -->
+<script>
+
+if(window.innerWidth > 800){
+	/* 3D标题 */
+	// $(".content-header").on("mousemove", threedee);
+
+	/* 底部追随鼠标 */
+	// $(".footer").hover(2);
+
+	/* gotop键的涟漪 */
+	// $("#gotop").hover(1);
+
+	/* 赞赏的粒子雨 */
+	$("#reward").hover(3);
+
+	/* 微信公众号的底部渲染 */
+	$("#wechat").hover(4);
+
+    /* 标题跳动 */
+    // $(".archivestitle").bumpyText();
+
+	/* 图片点击放大 */
+	const postimg = jQuery(".post-content img:not(.github-emoji)");
+	postimg.on("click",function(){
+
+		mask.classList.add("in");
+		main.classList.add("Mask");
+		menu.classList.add("Mask");
+		var myimg = this.cloneNode(true);
+		myimg.classList.add("imgShow");
+
+		setTimeout(function(){
+			jQuery(myimg).animate({
+				opacity:"1"
+			},1000);
+		},0);
+
+		document.body.appendChild(myimg);
+
+		myimg.onclick=function(){
+			document.body.removeChild(myimg);
+			mask.classList.remove("in");
+			main.classList.remove("Mask");
+			menu.classList.remove("Mask");
+		};
+
+	});
+
+}
+
+/* 名字跳动 */
+// $("#name").bumpyText();
+
+
+/* 网站运行时间 */
+<!--setInterval(function () {-->
+	<!--setTime("2017/09/20");-->
+<!--}, 1000);-->
+
+/* 文章块的淡出 */
+// postshow();
+
+/* 座右铭 */
+<!---->
+    <!--elasticText({-->
+        <!--id: "mymotto",-->
+        <!--duration: 100,-->
+        <!--effact: "easeOut",-->
+        <!--content: "Best for the best!"-->
+    <!--});-->
+<!---->
+
+
+/* 粘贴提示 */
+G($(".post-content"), location.href, "destiny");
+
+
+/* 控制台 */
+if (window.console && window.console.log) {
+	setTimeout(function () {
+		console.log("\n %c destiny %c http://destinytaoer.com \n\n", "color:#FFFFFB;background:#1abc9c;padding:5px 0;border-radius:.5rem 0 0 .5rem;", "color:#FFFFFB;background:#fffffb;padding:5px 0;border-radius:0 .5rem .5rem 0;");
+	}, 0);
+}
+
+</script>
+
+
+
+
+<!-- 公式渲染 -->
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+</script>
+
+<script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
+
+
+
+<!-- 不蒜子 -->
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js" async></script>
+
+
+</body>
+</html>

@@ -1,0 +1,22 @@
+# 我的博客 destiny'Note
+
+- 博客名：destiny’Note
+- 博主：destiny
+- 博客描述：分享前端技术学习过程中的笔记、一些优质资源以及个人随笔
+- 博客目录：
+  - 博客建站
+  - 前端技术
+  - 资源分享
+  - 个人随笔
+  - 前端视角
+- 博客配置
+  - githubpage
+  - hexo
+  - 主题next——Mist
+  - 百度统计分析
+  - 不蒜子访问量统计
+  - 友言评论
+  - leanclound阅读量统计
+  - jiathis分享
+  - localsearch搜索
+  - wordcount字数统计

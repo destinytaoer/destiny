@@ -1,0 +1,780 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Language" content="zh-cn">
+    <meta charset="utf-8">
+    
+    
+    <link rel="canonical" href="destinytaoer.cn/posts/64f3d682/">
+    
+    
+    <title>Markdown学习总结 | destiny&#39;Note | best for the best!</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    
+    <meta name="theme-color" content="#77AAFF">
+    
+    
+    <meta name="keywords" content="markdown">
+
+    
+
+    
+
+    <!-- Baidu Push -->
+<script>
+	(function(){
+		var bp = document.createElement('script');
+		var curProtocol = window.location.protocol.split(':')[0];
+		if (curProtocol === 'https') {
+			bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+		}
+		else {
+			bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+		}
+		var s = document.getElementsByTagName("script")[0];
+		s.parentNode.insertBefore(bp, s);
+	})();
+
+	var _hmt = _hmt || [];
+</script>
+
+
+
+
+    <meta name="description" content="一、 markdown简介Markdown 是一种用来写作的轻量级标记语言，创始人为约翰·格鲁伯（John Gruber） 优点 纯文本，所以兼容性极强，可以用所有文本编辑器打开 它用简洁的语法代替排版，使我们专心于码字 格式转换方便，Markdown 的文本你可以轻松转换为 html、PDF等 Markdown 的标记语法有极好的可读性   对于从事写作、文字编辑以及想写博客的人来说，非常有学习">
+<meta name="keywords" content="markdown">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Markdown学习总结">
+<meta property="og:url" content="http://destinytaoer.cn/posts/64f3d682/index.html">
+<meta property="og:site_name" content="destiny&#39;Note">
+<meta property="og:description" content="一、 markdown简介Markdown 是一种用来写作的轻量级标记语言，创始人为约翰·格鲁伯（John Gruber） 优点 纯文本，所以兼容性极强，可以用所有文本编辑器打开 它用简洁的语法代替排版，使我们专心于码字 格式转换方便，Markdown 的文本你可以轻松转换为 html、PDF等 Markdown 的标记语法有极好的可读性   对于从事写作、文字编辑以及想写博客的人来说，非常有学习">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://destinytaoer.cn/path/to/img.jpg">
+<meta property="og:updated_time" content="2018-08-02T00:46:17.891Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Markdown学习总结">
+<meta name="twitter:description" content="一、 markdown简介Markdown 是一种用来写作的轻量级标记语言，创始人为约翰·格鲁伯（John Gruber） 优点 纯文本，所以兼容性极强，可以用所有文本编辑器打开 它用简洁的语法代替排版，使我们专心于码字 格式转换方便，Markdown 的文本你可以轻松转换为 html、PDF等 Markdown 的标记语法有极好的可读性   对于从事写作、文字编辑以及想写博客的人来说，非常有学习">
+<meta name="twitter:image" content="http://destinytaoer.cn/path/to/img.jpg">
+    
+        <link rel="alternate" type="application/atom+xml" title="destiny&#39;Note" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/img/favicon.ico">
+    <link id="style" rel="stylesheet" href="/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+    <aside id="menu"   >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" >
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/author1.jpg" alt="avatar">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname" id="name">destiny</h5>
+          
+            <div id="mymotto" class="motto">Best for the best!</div>
+          
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+              <li class="waves-block waves-effect">
+                  <a href="/"  >
+                    <i class="icon icon-lg icon-home"></i>
+                    <span>主 页</span><i class="icon icon-lg icon-caret-left"></i>
+                  </a>
+              </li>
+            
+              <li class="waves-block waves-effect">
+                  <a href="/archives"  >
+                    <i class="icon icon-lg icon-archives"></i>
+                    <span>归 档</span><i class="icon icon-lg icon-caret-left"></i>
+                  </a>
+              </li>
+            
+              <li class="waves-block waves-effect">
+                  <a href="/categories"  >
+                    <i class="icon icon-lg icon-th-list"></i>
+                    <span>分 类</span><i class="icon icon-lg icon-caret-left"></i>
+                  </a>
+              </li>
+            
+              <li class="waves-block waves-effect">
+                  <a href="/tags"  >
+                    <i class="icon icon-lg icon-tags"></i>
+                    <span>标 签</span><i class="icon icon-lg icon-caret-left"></i>
+                  </a>
+              </li>
+            
+              <li class="waves-block waves-effect">
+                  <a href="/about"  >
+                    <i class="icon icon-lg icon-user"></i>
+                    <span>关 于</span><i class="icon icon-lg icon-caret-left"></i>
+                  </a>
+              </li>
+            
+      <div class="nav2">
+          
+              <a class="nav2item" data-title="Email" href="mailto:1848765519@qq.com" target="_parent"title="Email" >
+                <i class="icon icon-lg icon-envelope-o envelope-o"></i>
+              </a>
+          
+              <a class="nav2item" data-title="Github" href="https://github.com/destinytaoer" target="_blank"title="Github" >
+                <i class="icon icon-lg icon-github github"></i>
+              </a>
+          
+              <a class="nav2item" data-title="CSDN" href="https://blog.csdn.net/destinytaoer" target="_blank"title="CSDN" >
+                <i class="icon icon-lg icon-book book"></i>
+              </a>
+          
+              <a class="nav2item" data-title="微信" href="/img/wechat.jpg" target="_blank"title="微信" >
+                <i class="icon icon-lg icon-wechat wechat"></i>
+              </a>
+          
+
+            </div>
+
+      </ul>
+
+    </div>
+  </div>
+
+</aside>
+
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">Markdown学习总结</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        <a href="../../atom.xml" target="_blank" class="header-icon waves-effect waves-circle waves-light" id="Rss">
+            <i class="icon icon-lg icon-rss"></i>
+        </a>
+    </div>
+</header>
+<header class="content-header post-header">
+    
+    
+    <div class="container fade-scale">
+        <div id="myheader">
+            <h1 class="title">
+                
+            </h1>
+            <h5 class="subtitle">
+                
+                
+            </h5>
+        </div>
+    </div>
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#一、-markdown简介"><span class="post-toc-text">一、 markdown简介</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#优点"><span class="post-toc-text">优点</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#编辑器"><span class="post-toc-text">编辑器</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#二、-markdown语法"><span class="post-toc-text">二、 markdown语法</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#标题"><span class="post-toc-text">标题</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#列表"><span class="post-toc-text">列表</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#1-无序列表"><span class="post-toc-text">1.无序列表</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#2-有序列表"><span class="post-toc-text">2.有序列表</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#链接"><span class="post-toc-text">链接</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#图片"><span class="post-toc-text">图片</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#引用"><span class="post-toc-text">引用</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#代码"><span class="post-toc-text">代码</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#强调"><span class="post-toc-text">强调</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#表格"><span class="post-toc-text">表格</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#分割线"><span class="post-toc-text">分割线</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+   
+<article id="post-markdown语法"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">Markdown学习总结</h1>
+        <ul class="post-meta">
+            <li>
+                <i class="icon icon-lg icon-calendar-o"></i>
+                发表于
+                <time class="post-time" title="2017-07-28 18:10:24" datetime="2017-07-28T10:10:24.000Z"  itemprop="datePublished">2017-07-28</time>
+
+            </li>
+            <li>
+                
+	<i class="icon icon-lg icon-folder-o"></i>
+	分类：<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/博客建站/">博客建站</a></li></ul>
+
+
+            </li>
+            <li>
+                
+<span id="busuanzi_container_page_pv" title="文章总阅读量">
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>次浏览
+</span>
+
+
+            </li>
+        </ul>
+        <div class="post-count-custom">
+            <i class="icon icon-lg icon-comment-o"></i>
+            阅读本文可能花费您&nbsp;<span class="post-count">5</span>&nbsp;分钟
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h2 id="一、-markdown简介"><a href="#一、-markdown简介" class="headerlink" title="一、 markdown简介"></a>一、 markdown简介</h2><p>Markdown 是一种用来写作的轻量级标记语言，创始人为约翰·格鲁伯（John Gruber）</p>
+<h3 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h3><ol>
+<li>纯文本，所以兼容性极强，可以用所有文本编辑器打开</li>
+<li>它用简洁的语法代替排版，使我们专心于码字</li>
+<li>格式转换方便，Markdown 的文本你可以轻松转换为 html、PDF等</li>
+<li>Markdown 的标记语法有极好的可读性</li>
+</ol>
+<blockquote>
+<p>对于从事写作、文字编辑以及想写博客的人来说，非常有学习的必要。</p>
+</blockquote>
+<a id="more"></a>
+<h3 id="编辑器"><a href="#编辑器" class="headerlink" title="编辑器"></a>编辑器</h3><ol>
+<li><a href="http://www.sublimetext.com/" target="_blank" rel="noopener">sublime text</a>(本人从事前端开发最喜欢用的一个编辑器，轻量级，但是非常强大)、Mac的mou、Markdownpad等</li>
+<li>很多网站也支持了 Markdown 的文字录入，如<a href="http://www.jianshu.com" title="http://www.jianshu.com" target="_blank" rel="noopener">简书</a></li>
+<li>在线编辑器，推荐<a href="https://stackedit.io/editor" title="https://stackedit.io/editor" target="_blank" rel="noopener">StackEdit</a></li>
+</ol>
+<h2 id="二、-markdown语法"><a href="#二、-markdown语法" class="headerlink" title="二、 markdown语法"></a>二、 markdown语法</h2><p>这里只是简单介绍markdown经常用到的语法标记，也只是个人觉得最简单实用、能够快速入门，如果您想深入学习、了解更多的markdown功能，请点击下面的文档：</p>
+<blockquote>
+<p><a href="https://github.com/riku/Markdown-Syntax-CN/blob/master/syntax.md" title="https://github.com/riku/Markdown-Syntax-CN/blob/master/syntax.md" target="_blank" rel="noopener">Markdown 语法说明 (简体中文版)</a></p>
+</blockquote>
+<hr>
+<h3 id="标题"><a href="#标题" class="headerlink" title="标题"></a>标题</h3><p>在行首插入 1 到 6 个 # ，对应到标题 1 到 6 ：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># 这是 H1</span><br><span class="line">## 这是 H2</span><br><span class="line">###### 这是 H6</span><br></pre></td></tr></table></figure>
+<hr>
+<h3 id="列表"><a href="#列表" class="headerlink" title="列表"></a>列表</h3><h4 id="1-无序列表"><a href="#1-无序列表" class="headerlink" title="1.无序列表"></a>1.无序列表</h4><p>加号“+”或减号“-”都可以作为列表标记，注意后面要跟一个空格。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">- Red</span><br><span class="line"></span><br><span class="line">- Green</span><br><span class="line"></span><br><span class="line">- Blue</span><br></pre></td></tr></table></figure>
+<p>或者<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">+ Red</span><br><span class="line"></span><br><span class="line">+ Green</span><br><span class="line"></span><br><span class="line">+ Blue</span><br></pre></td></tr></table></figure></p>
+<p>或者<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">* Red</span><br><span class="line"></span><br><span class="line">* Green</span><br><span class="line"></span><br><span class="line">* Blue</span><br></pre></td></tr></table></figure></p>
+<p>效果都是一样的：</p>
+<ul>
+<li><p>Red</p>
+</li>
+<li><p>Green</p>
+</li>
+<li><p>Blue</p>
+</li>
+</ul>
+<h4 id="2-有序列表"><a href="#2-有序列表" class="headerlink" title="2.有序列表"></a>2.有序列表</h4><p>使用数字、一个英文句号和一个空格即可。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">1. Red</span><br><span class="line"></span><br><span class="line">2. Green</span><br><span class="line"></span><br><span class="line">3. Blue</span><br></pre></td></tr></table></figure>
+<hr>
+<h2 id="链接"><a href="#链接" class="headerlink" title="链接"></a>链接</h2><p>在方括号写下链接文字，圆括号写下网址即可。也可以在右边加上空格，再用引号加上title属性。（这个title属性可能有些人不知道，就是鼠标移动到链接上会显示的文本）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[好中文的样子](http://www.jianshu.com/p/d409bb2b5d6c &quot;http://www.jianshu.com/p/d409bb2b5d6c&quot;)</span><br></pre></td></tr></table></figure>
+<p>效果：</p>
+<p><a href="http://www.jianshu.com/p/d409bb2b5d6c" title="http://www.jianshu.com/p/d409bb2b5d6c" target="_blank" rel="noopener">好中文的样子</a></p>
+<p>还有一种在文章最后参考式的链接，在链接文字的括号后面再接上另一个方括号，而在第二个方括号里面要填入用以辨识链接的标记：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">This is [an example][id] reference-style link.</span><br></pre></td></tr></table></figure></p>
+<p>你也可以选择性地在两个方括号中间加上一个空格：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">This is [an example] [] reference-style link.</span><br></pre></td></tr></table></figure></p>
+<p>接着，在文件的任意处，你可以把这个标记的链接内容定义出来：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[id]: http://example.com/  &quot;Optional Title Here&quot;</span><br></pre></td></tr></table></figure></p>
+<p>当第二个方括号里面为空格时，定义时应当取第一个方括号<br>同样，可以在定义时，写上title属性</p>
+<hr>
+<h3 id="图片"><a href="#图片" class="headerlink" title="图片"></a>图片</h3><p>Markdown 中可以插入图片，比链接的语法多了一个感叹号。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">![Alt text](/path/to/img.jpg &quot;Alt text&quot;)</span><br></pre></td></tr></table></figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/path/to/img.jpg" alt="Alt text" title="Alt">
+                </div>
+                <div class="image-caption">Alt</div>
+            </figure>
+<p>有些 Markdown 编辑器也支持拖拽插入图片，这就简单多了。例如简书 或者 Ulysses 就有这种功能。不过，在不同的环境下显示效果可能会有差异。</p>
+<hr>
+<h3 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h3><p>可以使用”&gt;” 标记来引用其他人的言论、书籍或报纸的内容。只需要在段落的第一行最前面加上 &gt; 即可：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt; We believe that writing is about content, about what you want to say – not about fancy formatting. </span><br><span class="line">我们坚信写作写的是内容，所思所想，而不是花样格式。</span><br><span class="line">— Ulysses for Mac</span><br></pre></td></tr></table></figure></p>
+<blockquote>
+<p>We believe that writing is about content, about what you want to say – not about fancy formatting.<br>我们坚信写作写的是内容，所思所想，而不是花样格式。<br>— Ulysses for Mac</p>
+</blockquote>
+<p>引用可以嵌套，只要根据层次的不同，加上不同数量的 &gt; 即可：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt;  这是第一级引用。</span><br><span class="line">&gt;&gt;  这是第二级引用。</span><br><span class="line">&gt;  现在回到第一级引用。</span><br></pre></td></tr></table></figure></p>
+<blockquote>
+<p> 这是第一级引用。</p>
+<blockquote>
+<p> 这是第二级引用。<br> 现在回到第一级引用。</p>
+</blockquote>
+</blockquote>
+<p>在引用的区域内，也可以使用其他的 Markdown 语法，包括标题、列表等</p>
+<hr>
+<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><p>标记一小段行内代码，用反引号`左右把它包起来<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Use the `printf()` function.</span><br></pre></td></tr></table></figure></p>
+<p>效果：Use the <code>printf()</code> function.</p>
+<p>如果要标记代码区段，你可以用多于三个反引号来开启和结束代码区段，注意开始和结束的反引号数量必须一致。<br>\<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">There is a literal backtick (`) here.</span><br><span class="line">\</span><br></pre></td></tr></table></figure></p>
+<hr>
+<h3 id="强调"><a href="#强调" class="headerlink" title="强调"></a>强调</h3><p>在Markdown中，可以使用 * 和 _ 来表示斜体和加粗。需要注意的是，“_”是下划线</p>
+<ol>
+<li><p>在需要斜体的文本左右各加一个“*”或“_” </p>
+</li>
+<li><p>在需要加粗的文本左右各加两个“*”或“_” </p>
+</li>
+<li><p>在需要加粗并且斜体的文本左右各加三个“*”或“_” </p>
+</li>
+</ol>
+<hr>
+<h3 id="表格"><a href="#表格" class="headerlink" title="表格"></a>表格</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">|  Tables  |  Are   |  Cool  |</span><br><span class="line">| ---------- |:-------:| --------:|</span><br><span class="line">| col 3 is | right-aligned | $1600 |</span><br><span class="line">| col 2 is | centered | $12 |</span><br><span class="line">| zebra stripes | are neat | $1 |</span><br></pre></td></tr></table></figure>
+<p>显示效果</p>
+<table>
+<thead>
+<tr>
+<th>Tables</th>
+<th style="text-align:center">Are</th>
+<th style="text-align:right">Cool</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>col 3 is</td>
+<td style="text-align:center">right-aligned</td>
+<td style="text-align:right">$1600</td>
+</tr>
+<tr>
+<td>col 2 is</td>
+<td style="text-align:center">centered</td>
+<td style="text-align:right">$12</td>
+</tr>
+<tr>
+<td>zebra stripes</td>
+<td style="text-align:center">are neat</td>
+<td style="text-align:right">$1</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h3 id="分割线"><a href="#分割线" class="headerlink" title="分割线"></a>分割线</h3><p>在一行中用三个以上的星号、减号、底线来建立一个分隔线，行内不能有其他东西。你也可以在星号或是减号中间插入空格。</p>
+<blockquote class="blockquote-center">生命的意义不仅是活着，而是我们给别人的生命带来了何种不同。</blockquote>
+        </div>
+
+        <blockquote class="post-copyright">
+    <ul class="content">
+        <li class="post-time">
+            <span>发布时间：</span><time datetime="2017-07-28T10:10:24.000Z" itemprop="dateUpdated">2017-07-28 18:10:24</time>
+        </li>
+        <li class="post-time">
+            <span>更新时间：</span>
+            <time datetime="2017-07-28T10:10:24.000Z" itemprop="dateUpdate">2017-07-28 18:10:24</time>
+        </li>
+        <li class="post-time">
+            
+            <span>本文链接：</span><a href="/posts/64f3d682/" target="_blank" rel="external">http://destinytaoer.cn/posts/64f3d682/</a>
+            
+        </li>
+        <li class="post-time">
+            <span>版权声明：</span>本站原创内容转载请注明来源
+        </li>
+    </ul>
+</blockquote>
+
+        
+    <div class="page-reward">
+        <nav class="myreward">
+            <a id="rewardBtn" href="javascript:;"><span>打&nbsp;赏</span><span>装成好像很多人打赏的样子</span></a>
+        </nav>
+    </div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/markdown/">markdown</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://destinytaoer.cn/posts/64f3d682/&title=《Markdown学习总结》 — destiny'Note&pic=http://destinytaoer.cnimg/author1.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://destinytaoer.cn/posts/64f3d682/&title=《Markdown学习总结》 — destiny'Note&source=一、 markdown简介Markdown 是一种用来写作的轻量级标记语言，创始人为约翰·格鲁伯（John Gruber）
+优点
+纯文本，所以兼容性极强，..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://destinytaoer.cn/posts/64f3d682/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Markdown学习总结》 — destiny'Note&url=http://destinytaoer.cn/posts/64f3d682/&via=http://destinytaoer.cn" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://destinytaoer.cn/posts/64f3d682/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/posts/eacfc1ff/" id="post-prev" class="post-nav-link">
+        <h4 class="title" >
+          上一篇：初学者资源推荐
+        </h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/posts/429b6dfd/" id="post-next" class="post-nav-link">
+        <h4 class="title" data-hover="下一篇：gulp 自动化构建工具">下一篇：gulp 自动化构建工具</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+    
+
+    
+
+    
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'true' == 'true',
+            verify: 'true' == 'true',
+            appId: "BAlEU7J3YXaDNuoOMWC67UT7-gzGzoHsz",
+            appKey: "QjTpNrsX37DRGfvANeuBhGAL",
+            avatar: "mm",
+            placeholder: "来说两句吧~",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "10"
+        })
+    </script>
+    <!-- Valine Comments end -->
+
+
+
+
+</article>
+
+</div>
+
+        <footer class="footer">
+    <div class="footer-content">
+        <span class="power">
+            <i class="icon icon-lg icon-copyright"></i>
+            2016
+            <i class="icon icon-lg icon-heart"></i>
+            <a href="http://destinytaoer.cn">destiny</a>
+            <br/>
+            Power by
+            <a href="https://hexo.io/" target="_blank" rel="external nofollow">Hexo</a>&nbsp;·&nbsp;
+            Theme
+            <a class="tomotoeslink" href="https://github.com/tomotoes/hexo-theme-tomotoes/" target="_blank" rel="external nofollow">tomotoes</a>
+        </span>
+
+        <br/>
+
+        <span id="RunTime" style="color:#a7a7a2;"></span>
+        <br/>
+
+        <span>
+            
+	<i class="icon icon-lg icon-user">
+<span id="busuanzi_container_site_uv" style='display:none'>
+       访问用户：<span id="busuanzi_value_site_uv"></span>
+    </span>人</i>
+    ·
+    <i class="icon icon-lg icon-eye">
+    <span id="busuanzi_container_site_pv" style='display:none'>
+      访问次数：<span id="busuanzi_value_site_pv"></span>
+    </span>次
+    </i>
+
+
+        </span>
+        <br/>
+
+        <span class="license"><a  target="_blank" rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">博客内容遵循 知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+    </div>
+</footer>
+
+    </main>
+    
+        
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        <span>感谢您的鼓励支持！</span>
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" data-img="/img/dog.png" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/weixin.jpg" data-alipay="/img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechatPay">&nbsp;&nbsp;微信&nbsp;&nbsp;</span>
+                <span class="reward-toggle-item alipayPay">支付宝</span>
+            </div>
+        </label>
+        
+        <i class="icon icon-caret-up"></i>
+    </div>
+</div>
+
+
+    
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://destinytaoer.cn/posts/64f3d682/&title=《Markdown学习总结》 — destiny'Note&pic=http://destinytaoer.cnimg/author1.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://destinytaoer.cn/posts/64f3d682/&title=《Markdown学习总结》 — destiny'Note&source=一、 markdown简介Markdown 是一种用来写作的轻量级标记语言，创始人为约翰·格鲁伯（John Gruber）
+优点
+纯文本，所以兼容性极强，..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://destinytaoer.cn/posts/64f3d682/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Markdown学习总结》 — destiny'Note&url=http://destinytaoer.cn/posts/64f3d682/&via=http://destinytaoer.cn" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://destinytaoer.cn/posts/64f3d682/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p class="wechatshare">扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://destinytaoer.cn/posts/64f3d682/" alt="微信分享二维码">
+</div>
+
+
+
+
+    <!-- waves按钮特效 -->
+<script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+
+<!-- 主题配置脚本 -->
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+</script>
+
+<!-- jquery -->
+<script src="/js/jquery.min.js"></script>
+
+<!-- 搜索 -->
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item waves-block waves-effect" onclick="location.href='{path}'">
+    <div class="title ellipsis" title="{title}">{title}</div>
+</li>
+</template>
+
+
+<!-- main博客脚本 -->
+<script src="/js/main.min.js" ></script>
+
+<!-- 动画&配置 -->
+<script src="/js/script.min.js" ></script>
+
+<!-- 脚本管理 -->
+<script>
+
+if(window.innerWidth > 800){
+	/* 3D标题 */
+	// $(".content-header").on("mousemove", threedee);
+
+	/* 底部追随鼠标 */
+	// $(".footer").hover(2);
+
+	/* gotop键的涟漪 */
+	// $("#gotop").hover(1);
+
+	/* 赞赏的粒子雨 */
+	$("#reward").hover(3);
+
+	/* 微信公众号的底部渲染 */
+	$("#wechat").hover(4);
+
+    /* 标题跳动 */
+    // $(".archivestitle").bumpyText();
+
+	/* 图片点击放大 */
+	const postimg = jQuery(".post-content img:not(.github-emoji)");
+	postimg.on("click",function(){
+
+		mask.classList.add("in");
+		main.classList.add("Mask");
+		menu.classList.add("Mask");
+		var myimg = this.cloneNode(true);
+		myimg.classList.add("imgShow");
+
+		setTimeout(function(){
+			jQuery(myimg).animate({
+				opacity:"1"
+			},1000);
+		},0);
+
+		document.body.appendChild(myimg);
+
+		myimg.onclick=function(){
+			document.body.removeChild(myimg);
+			mask.classList.remove("in");
+			main.classList.remove("Mask");
+			menu.classList.remove("Mask");
+		};
+
+	});
+
+}
+
+/* 名字跳动 */
+// $("#name").bumpyText();
+
+
+/* 网站运行时间 */
+<!--setInterval(function () {-->
+	<!--setTime("2017/09/20");-->
+<!--}, 1000);-->
+
+/* 文章块的淡出 */
+// postshow();
+
+/* 座右铭 */
+<!---->
+    <!--elasticText({-->
+        <!--id: "mymotto",-->
+        <!--duration: 100,-->
+        <!--effact: "easeOut",-->
+        <!--content: "Best for the best!"-->
+    <!--});-->
+<!---->
+
+
+/* 粘贴提示 */
+G($(".post-content"), location.href, "destiny");
+
+
+/* 控制台 */
+if (window.console && window.console.log) {
+	setTimeout(function () {
+		console.log("\n %c destiny %c http://destinytaoer.com \n\n", "color:#FFFFFB;background:#1abc9c;padding:5px 0;border-radius:.5rem 0 0 .5rem;", "color:#FFFFFB;background:#fffffb;padding:5px 0;border-radius:0 .5rem .5rem 0;");
+	}, 0);
+}
+
+</script>
+
+
+
+
+<!-- 公式渲染 -->
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+</script>
+
+<script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
+
+
+
+<!-- 不蒜子 -->
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js" async></script>
+
+
+</body>
+</html>

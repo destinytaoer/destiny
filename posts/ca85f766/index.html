@@ -1,0 +1,1035 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Language" content="zh-cn">
+    <meta charset="utf-8">
+    
+    
+    <link rel="canonical" href="destinytaoer.cn/posts/ca85f766/">
+    
+    
+    <title>给不了解前端的同学讲前端 | destiny&#39;Note | best for the best!</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    
+    <meta name="theme-color" content="#77AAFF">
+    
+    
+    <meta name="keywords" content="web前端">
+
+    
+
+    
+
+    <!-- Baidu Push -->
+<script>
+	(function(){
+		var bp = document.createElement('script');
+		var curProtocol = window.location.protocol.split(':')[0];
+		if (curProtocol === 'https') {
+			bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+		}
+		else {
+			bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+		}
+		var s = document.getElementsByTagName("script")[0];
+		s.parentNode.insertBefore(bp, s);
+	})();
+
+	var _hmt = _hmt || [];
+</script>
+
+
+
+
+    <meta name="description" content="前言这篇文章，是在前几天逛知乎的时候看到的文章，觉得很棒，正好也有这个需求，想向不了解前端的人介绍何为“前端”。不然，自己所在的群体中好像很少人能明白我一天到晚钻研的东西是什么。下面与大">
+<meta name="keywords" content="web前端">
+<meta property="og:type" content="article">
+<meta property="og:title" content="给不了解前端的同学讲前端">
+<meta property="og:url" content="http://destinytaoer.cn/posts/ca85f766/index.html">
+<meta property="og:site_name" content="destiny&#39;Note">
+<meta property="og:description" content="前言这篇文章，是在前几天逛知乎的时候看到的文章，觉得很棒，正好也有这个需求，想向不了解前端的人介绍何为“前端”。不然，自己所在的群体中好像很少人能明白我一天到晚钻研的东西是什么。下面与大">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/7295449-a32431796217fe4b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/7295449-e1b62c7aaa0cf962.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/7295449-1e3cd46619cae95f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/7295449-2e531aa775d58cda.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/7295449-74853a55246253ec.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/7295449-6dd15a6bb60eaede.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/7295449-7d02305025990c0a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/7295449-863d6450ba3fdd2d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/7295449-0ce52d2f69355404.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/7295449-c2f676e873ca588c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/7295449-08673afef357683c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/7295449-6347610eb7e16e7f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/7295449-589dafeec7103eb8.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/7295449-1dbd1eb36ca4d0b1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/7295449-0800b1697e6f776c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/7295449-72d7b3bfd4914135.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/7295449-c9e29dc04490fceb.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/7295449-2a2efacdf59d261d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/7295449-8ef78f51137fe1e0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/7295449-75ce8bb7db024341.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/7295449-acdfd5c9b2d8792e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/7295449-e12f34acf0573ec6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/7295449-34b472450ec69e3e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/7295449-1ce0a5c2f93a5d9b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/7295449-42d1b15fc47467ff.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/7295449-561fd9483ef499af.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/7295449-0d378b40785090f3.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/7295449-85e63e473375b874.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/7295449-7af374273e337e9f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/7295449-ca20fd0b221269c8.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2018-08-06T09:37:34.065Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="给不了解前端的同学讲前端">
+<meta name="twitter:description" content="前言这篇文章，是在前几天逛知乎的时候看到的文章，觉得很棒，正好也有这个需求，想向不了解前端的人介绍何为“前端”。不然，自己所在的群体中好像很少人能明白我一天到晚钻研的东西是什么。下面与大">
+<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/7295449-a32431796217fe4b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+    
+        <link rel="alternate" type="application/atom+xml" title="destiny&#39;Note" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/img/favicon.ico">
+    <link id="style" rel="stylesheet" href="/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+    <aside id="menu"   >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" >
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/author1.jpg" alt="avatar">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname" id="name">destiny</h5>
+          
+            <div id="mymotto" class="motto">Best for the best!</div>
+          
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+              <li class="waves-block waves-effect">
+                  <a href="/"  >
+                    <i class="icon icon-lg icon-home"></i>
+                    <span>主 页</span><i class="icon icon-lg icon-caret-left"></i>
+                  </a>
+              </li>
+            
+              <li class="waves-block waves-effect">
+                  <a href="/archives"  >
+                    <i class="icon icon-lg icon-archives"></i>
+                    <span>归 档</span><i class="icon icon-lg icon-caret-left"></i>
+                  </a>
+              </li>
+            
+              <li class="waves-block waves-effect">
+                  <a href="/categories"  >
+                    <i class="icon icon-lg icon-th-list"></i>
+                    <span>分 类</span><i class="icon icon-lg icon-caret-left"></i>
+                  </a>
+              </li>
+            
+              <li class="waves-block waves-effect">
+                  <a href="/tags"  >
+                    <i class="icon icon-lg icon-tags"></i>
+                    <span>标 签</span><i class="icon icon-lg icon-caret-left"></i>
+                  </a>
+              </li>
+            
+              <li class="waves-block waves-effect">
+                  <a href="/about"  >
+                    <i class="icon icon-lg icon-user"></i>
+                    <span>关 于</span><i class="icon icon-lg icon-caret-left"></i>
+                  </a>
+              </li>
+            
+      <div class="nav2">
+          
+              <a class="nav2item" data-title="Email" href="mailto:1848765519@qq.com" target="_parent"title="Email" >
+                <i class="icon icon-lg icon-envelope-o envelope-o"></i>
+              </a>
+          
+              <a class="nav2item" data-title="Github" href="https://github.com/destinytaoer" target="_blank"title="Github" >
+                <i class="icon icon-lg icon-github github"></i>
+              </a>
+          
+              <a class="nav2item" data-title="CSDN" href="https://blog.csdn.net/destinytaoer" target="_blank"title="CSDN" >
+                <i class="icon icon-lg icon-book book"></i>
+              </a>
+          
+              <a class="nav2item" data-title="微信" href="/img/wechat.jpg" target="_blank"title="微信" >
+                <i class="icon icon-lg icon-wechat wechat"></i>
+              </a>
+          
+
+            </div>
+
+      </ul>
+
+    </div>
+  </div>
+
+</aside>
+
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">给不了解前端的同学讲前端</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        <a href="../../atom.xml" target="_blank" class="header-icon waves-effect waves-circle waves-light" id="Rss">
+            <i class="icon icon-lg icon-rss"></i>
+        </a>
+    </div>
+</header>
+<header class="content-header post-header">
+    
+    
+    <div class="container fade-scale">
+        <div id="myheader">
+            <h1 class="title">
+                
+            </h1>
+            <h5 class="subtitle">
+                
+                
+            </h5>
+        </div>
+    </div>
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#前言"><span class="post-toc-text">前言</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#简介"><span class="post-toc-text">简介</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#前端是什么？"><span class="post-toc-text">前端是什么？</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#前端需要用到哪些技术？"><span class="post-toc-text">前端需要用到哪些技术？</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#前端的开发方式是怎样的？"><span class="post-toc-text">前端的开发方式是怎样的？</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#作者简介"><span class="post-toc-text">作者简介</span></a></li></ol>
+        </nav>
+    </aside>
+   
+<article id="post-给不了解前端的同学讲前端"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">给不了解前端的同学讲前端</h1>
+        <ul class="post-meta">
+            <li>
+                <i class="icon icon-lg icon-calendar-o"></i>
+                发表于
+                <time class="post-time" title="2017-10-17 23:54:28" datetime="2017-10-17T15:54:28.000Z"  itemprop="datePublished">2017-10-17</time>
+
+            </li>
+            <li>
+                
+	<i class="icon icon-lg icon-folder-o"></i>
+	分类：<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/前端视角/">前端视角</a></li></ul>
+
+
+            </li>
+            <li>
+                
+<span id="busuanzi_container_page_pv" title="文章总阅读量">
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>次浏览
+</span>
+
+
+            </li>
+        </ul>
+        <div class="post-count-custom">
+            <i class="icon icon-lg icon-comment-o"></i>
+            阅读本文可能花费您&nbsp;<span class="post-count">15</span>&nbsp;分钟
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://upload-images.jianshu.io/upload_images/7295449-a32431796217fe4b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>这篇文章，是在前几天逛知乎的时候看到的文章，觉得很棒，正好也有这个需求，想向不了解前端的人介绍何为“前端”。不然，自己所在的群体中好像很少人能明白我一天到晚钻研的东西是什么。下面与大家分享。</p>
+<p>ps：本文为 PPT 演讲的形式所作的图文介绍，图片较多。</p>
+<blockquote>
+<p>本文转自知乎：<a href="https://zhuanlan.zhihu.com/p/29468137" target="_blank" rel="noopener">前端 101：给不了解前端的同学讲前端</a><br>本演讲原作者<strong>css魔法</strong>，文末有作者简介</p>
+</blockquote>
+<a id="more"></a>
+<h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><blockquote>
+<p>本文改编自魔法哥为 “百姓网暑期实习生训练营” 所作的前端入门讲座。此讲座面向在校大学生，内容比较初级，高手请飘过～</p>
+</blockquote>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://upload-images.jianshu.io/upload_images/7295449-e1b62c7aaa0cf962.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>大家好，今天的分享主要分为以下三个部分：</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://upload-images.jianshu.io/upload_images/7295449-1e3cd46619cae95f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>由于目前计算机专业还没有为 Web 前端技术设立专门的课程，每位同学对前端的了解程度也不一样，今天的讲座会以最浅显的方式来为大家介绍 “前端”，帮助大家建立一个基本的概念。</p>
+<h1 id="前端是什么？"><a href="#前端是什么？" class="headerlink" title="前端是什么？"></a>前端是什么？</h1><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://upload-images.jianshu.io/upload_images/7295449-2e531aa775d58cda.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>在回答这个问题之前，我想到了一道面试题：</p>
+<p>当我们在浏览器中输入网址并按回车之后，接下来会发生什么？</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://upload-images.jianshu.io/upload_images/7295449-74853a55246253ec.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>我们来简单地看一看 “网页展现” 的整个过程。</p>
+<p>比如这里有一个用户，它需要访问<a href="">abc.com</a>这个网址。一般来说，当用户输入一个域名时，是在请求一个 HTML 资源。当他完成域名解析之后，他的浏览器会向<a href="">abc.com</a>这个域名所指向的 Web 服务器发出请求。</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://upload-images.jianshu.io/upload_images/7295449-6dd15a6bb60eaede.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>有时候 Web 服务器直接就可以返回用户的请求了；有时候 Web 服务器还需要向数据库查询一些数据，然后才能把处理结果返回给用户。</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://upload-images.jianshu.io/upload_images/7295449-7d02305025990c0a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>当用户的浏览器拿到服务器返回的 HTML 资源之后，就开始解析并显示 HTML 的内容了。</p>
+<p>一般来说，HTML 页面需要 CSS 资源来描述页面的样式。比如浏览器在解析 HTML 时发现了一个 CSS 外链 <a href="">abc.com/a.css</a>，它就会去请求这个资源。</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/7295449-863d6450ba3fdd2d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p>HTML 页面往往还需要加载外部的 JS 资源，比如 <a href="">abc.com/a.js</a>，此时浏览器同样会向服务器请求这个资源。</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://upload-images.jianshu.io/upload_images/7295449-0ce52d2f69355404.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>当所需的资源都加载完成之后，这个页面就可以提供完整的外观和功能了。整个过程差不多就是这个样子了。</p>
+<p>我们看一看这张流程图，可以在中间画一道竖线，把它分成左右两个部分。</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://upload-images.jianshu.io/upload_images/7295449-c2f676e873ca588c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>我们会发现，这道线左侧的事情发生在浏览器端，我们称之为 “前端”；右侧的事情发生在服务器端，称为 “后端”。（“前端” 之所以叫 “前端”，是因为它离用户更近一些。）</p>
+<p>大家都学过后端开发的相关课程，对后端这一块应该都比较熟悉了。那问题来了：在上面这个过程中，后端有哪些局限？</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://upload-images.jianshu.io/upload_images/7295449-08673afef357683c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<ul>
+<li>服务器一旦把资源提供给浏览器之后，便失去对内容的影响。</li>
+<li>服务器无法得知用户在浏览器里做了什么，无法与用户交互。</li>
+</ul>
+<p>这意味着，只有当用户下一次向服务器请求资源时，服务器才有机会再次决定用户看到的内容。那么，用户什么时候再向后端请求资源呢？</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://upload-images.jianshu.io/upload_images/7295449-6347610eb7e16e7f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<ul>
+<li><p>第一种情况是 “导航动作”。比如用户刷新页面、点击链接、点击浏览器的前进/后退等等。</p>
+</li>
+<li><p>第二种情况是用户提交表单。表单是最传统的页面交互方式之一，提交表单时浏览器会向服务器发出新请求——这意味着浏览器会跳转到一个新的地址，服务器会在新页面中显示表单的处理结果。</p>
+</li>
+<li><p>还有一种特殊情况，就是服务器在给浏览器返回 HTML 资源时，在页面中插入一个特殊的标记，浏览器看到这个标记就会在一定的时间后自动刷新当前页面或跳转到其它页面，相当于服务器强制用户再次发出请求。可想而知，这种非用户意愿驱动的页面跳转行为并不讨人喜欢，因此已经不常用了。</p>
+</li>
+</ul>
+<p>在传统网页中，上述几种用户与服务器之间的交互方式也算够用了。不过随着网页形态的不断演进，用户对网页体验提出了更高的要求，很多时候网页不仅仅是一篇静止的文档，而更像是一个应用程序，用户随时可能与之互动。这个时候，前端的价值就体现出来了。</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://upload-images.jianshu.io/upload_images/7295449-589dafeec7103eb8.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<ul>
+<li>用户从停留在当前页面到发起新请求的这段时间内，前端可以<strong>控制页面内容</strong>。</li>
+<li>当用户停留在当前页面时，前端有能力与用户交互。由于前端的 JS 可以<strong>监听用户在浏览器中的各种行为</strong>（比如鼠标点击、键盘输入、滚动页面等等），前端就可以针对这些行为作出相应的反馈。</li>
+</ul>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://upload-images.jianshu.io/upload_images/7295449-1dbd1eb36ca4d0b1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<ul>
+<li><p>在前端与用户的交互过程中，有些事情光靠前端就可以做出响应。比如我们在网页上做了一个计算器的功能，当用户输入算式之后，JS 就可以直接计算出结果并显示给用户。整个过程不需要服务器的参与就可以完成。</p>
+</li>
+<li><p>但有些事情，光有前端是无法完成的。此时前端就需要交给后端来处理，拿到处理结果之后再交给用户。在这个过程中，前端可以让用户一直停留在当前页面，交互过程具有良好的连续性。</p>
+</li>
+</ul>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://upload-images.jianshu.io/upload_images/7295449-0800b1697e6f776c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>那么，前端如何把任务交给后端并拿到后端处理的结果呢？主要有两种方式：<strong>Ajax</strong>和 <strong>Socket</strong>连接。</p>
+<ul>
+<li><p>Ajax 是最常见的前后端交互方式。它以 “请求→响应” 的方式来完成前后端的信息传递。传统的表单交互需求几乎都可以由 Ajax 改造为 “原地提交并获取反馈” 的交互方式，不需要跳转页面，从而有效提升用户体验。</p>
+</li>
+<li><p>而对于实时性比较高的场景，Socket 连接就是一个更好的选择。它的工作方式是前后端建立一个持续的连接，信息可以随时由前端发向后端，或由后端推送到前端。如果我们要建立一个实时对话的应用，通常就会用到 Socket 连接了。</p>
+</li>
+</ul>
+<h1 id="前端需要用到哪些技术？"><a href="#前端需要用到哪些技术？" class="headerlink" title="前端需要用到哪些技术？"></a>前端需要用到哪些技术？</h1><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://upload-images.jianshu.io/upload_images/7295449-72d7b3bfd4914135.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>说到前端技术，我们通常都会说到 “三大块”：</p>
+<ul>
+<li><strong>HTML</strong></li>
+<li><strong>CSS</strong></li>
+<li><strong>JS</strong></li>
+</ul>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://upload-images.jianshu.io/upload_images/7295449-c9e29dc04490fceb.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>这是前端最核心的三项技术。</p>
+<p>接下来，我们就会说到 “前端的分层架构”。这个架构的原则就是 “让合适的技术去做合适的事情”。一个网页从逻辑上可以视为这三层的有机结合体：</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://upload-images.jianshu.io/upload_images/7295449-2a2efacdf59d261d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<ul>
+<li><p><strong>结构层</strong>：这一层的作用是表述一个页面中有哪些信息，以及这些信息之间的关系是什么。这一层在技术上是由 HTML 来实现的。</p>
+</li>
+<li><p><strong>表现层</strong>：这一层决定了页面中的信息会以什么样的外观呈现出来。这一层由 CSS 来实现。</p>
+</li>
+<li><p><strong>行为层</strong>：这一层控制了页面如何与用户进行交互。在传统的展示型网页中，可能只需要 “结构层” 和 “表现层” 就足以提供完整的功能；而现代网页承载了越来越多的交互，这就推动 “行为层” 的能力不断增强。这一层由 JS 来实现。<br>我们通过一个实例来理解这个分层架构。</p>
+</li>
+</ul>
+<p>比如我是一个百姓网的用户，我打开了 “用户中心” 中的 “我发布的信息” 这个页面。</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://upload-images.jianshu.io/upload_images/7295449-8ef78f51137fe1e0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>这个页面的 HTML 描述了信息以及信息的结构。即使没有 CSS 和 JS 的辅助，这个页面仍然可以呈现出可理解的内容（参见上图）。页面顶部是一些导航元素，接下来的 “显示中的信息” 是一个标题，它又引出了一个列表。这个列表自然就是我在百姓网发布的所有信息了。（除了 “显示中的信息” 以外，页面后半段还有 “已删除的信息”，这里不再赘述。）</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://upload-images.jianshu.io/upload_images/7295449-75ce8bb7db024341.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>接下来，我们会在表现层下功夫，通过 CSS 来为页面中的各个元素设定外观。经过这一层的修饰之后，页面中的内容更加美观了；更重要的是，各元素的功能职责也更加直观易懂了（参见上图）。</p>
+<p>这已经是一个挺不错的网页了，但接下来，我们还会通过 JS 来丰富它的功能，提升用户的使用效率。</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://upload-images.jianshu.io/upload_images/7295449-acdfd5c9b2d8792e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>作为信息的发布者，我可能需要修改某条信息的内容，或对它进行 “刷新” 之类的操作。在传统的交互中，我需要在这个列表中点击需要操作的信息，然后在信息的详情页选择合适的操作。</p>
+<p>我们可以把这个流程简化一下：我们在这个列表中为每条信息添加一个操作按钮，当用户点击某条信息的操作按钮时，我们就在页面中弹出一个操作面板，用户可以直接选择想要的操作，减少了中间环节（参见上图）。</p>
+<p>由此可见，结构层、表现层、行为层这三者各有所长，共同构造了一个功能完备、体验良好的网页出来。</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://upload-images.jianshu.io/upload_images/7295449-e12f34acf0573ec6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>除了基本的 “三大块” 之外，作为前端工程师，我们还需要掌握以下知识和技能：</p>
+<ul>
+<li><p><strong>HTTP 相关</strong>：由于前端资源都是浏览器通过网络下载的，因此我们有必要了解相关的网络协议。</p>
+</li>
+<li><p><strong>浏览器相关</strong>：前端代码运行在浏览器中，我们需要了解浏览器的各种特性，以及浏览器向我们提供的各种接口。</p>
+</li>
+<li><p><strong>前端性能优化</strong>：让网页更快，减少用户的等待，这也是前端工程师面临的重要课题。优化网页的前端性能，需要我们具备上面两项知识，并且掌握性能优化相关的工具和方法。</p>
+</li>
+<li><p><strong>图形图像</strong>：网页信息不仅包含文字，还包含图片、视频等多媒体信息。图片作为最常用媒体资源，需要我们掌握与其相关的技能。比如了解各种图片格式适用的场景、基本的图片处理方法等等。</p>
+</li>
+</ul>
+<h1 id="前端的开发方式是怎样的？"><a href="#前端的开发方式是怎样的？" class="headerlink" title="前端的开发方式是怎样的？"></a>前端的开发方式是怎样的？</h1><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://upload-images.jianshu.io/upload_images/7295449-34b472450ec69e3e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>前面我们已经介绍了前端技术 “三大块”，然而在如今，当我们在编写这三块的代码时，已经不再 “裸写” 了。这意味着我们在开发阶段编写的代码与实际在浏览器环境中运行的代码已经不一样了，详细来说：</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://upload-images.jianshu.io/upload_images/7295449-1ce0a5c2f93a5d9b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<ul>
+<li>我们通过<strong>模板语言</strong>来生成 HTML。</li>
+<li>通过 <strong>CSS 预处理器</strong>来生成 CSS 代码。</li>
+<li>通过 <strong>ES6+</strong> 的语法和特性来编写 JS 代码。</li>
+</ul>
+<p>举例来看吧，以下三个例子展示了代码书写方式的演化。</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://upload-images.jianshu.io/upload_images/7295449-42d1b15fc47467ff.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>百姓网采用了 <strong>Jade</strong> 和 <strong>Jedi</strong> 这两种模板语言。在上图的代码中，我们仅仅使用了模板语言最基本的标记语法，还没有插入使用模板语言的任何逻辑能力。仅此一步，就可以看出模板语言带来的好处。</p>
+<p>原先我们在写 HTML 代码时，会花费大量的精力在 &lt;、/、&gt; 这样的语法噪音上；同时，识别标签的嵌套关系也很费眼。幸运的是，Jade 和 Jedi 这样的现代模板语言把前端工程师解放了出来。它们通过缩进来表达嵌套关系，层级关系一目了然；语法更精练，表现力更强。</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://upload-images.jianshu.io/upload_images/7295449-561fd9483ef499af.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>在 CSS 预处理器方面：</p>
+<ul>
+<li>通过更简洁的语法减轻开发者的书写负担</li>
+<li>通过内置的逻辑能力增强了代码的表现力。</li>
+</ul>
+<p>举个例子，在使用原生 CSS 来写代码时，不同元素采用的相同颜色只能分散在代码各处；而采用了 CSS 预处理器之后，我们可以把相同意义的颜色通过变量的形式抽象出来，然后在代码各处调用即可。这样不仅便于后期维护，在平时读代码时也更容易理解代码意图。</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://upload-images.jianshu.io/upload_images/7295449-0d378b40785090f3.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>在 JS 方面，我们开始享受 ES6+ 带来的新特征福利。ES（ECMAScript）是定义 JS 这门语言的标准规范，从第六版开始，ES 以每年一版的节奏持续快速地扩展着 JS 语言的能力。</p>
+<p>在以往，如果我们要实现 “在数组中找出符合特定条件的成员” 的需求，往往需要借助 Underscore 这样的工具库，调用它的 <code>_.find()</code> 方法。而在 ES6 中，语言本身就扩展了数组的能力，我们只需要直接调用 <code>Array#find()</code> 接口即可。另外，像箭头函数这样的新语法也可以令代码进一步简化。</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://upload-images.jianshu.io/upload_images/7295449-85e63e473375b874.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>在 HTML、CSS、JS 这三大块，我们放弃 “裸写”，采用 “更高级” 语言的目的在于：</p>
+<ul>
+<li>利用高级语言提供的 “逻辑能力” 来增强代码的表现力。</li>
+<li>利用高级语言的 “语法糖” 和 “新特性” 来提升开发效率和舒适度。</li>
+</ul>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://upload-images.jianshu.io/upload_images/7295449-7af374273e337e9f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>当然，采用这些更高级的语言也不是完全没有成本的。我们在开发阶段所用的语言已经不是纯粹的 HTML、CSS、JS 了，浏览器无法直接识别和运行。因此，当我们放弃 “裸写”，也就意味着：</p>
+<ul>
+<li>在部署流程中需要设立构建环节，把源码编译到浏览器环境可以运行的目标代码。</li>
+<li>在开发阶段，需要有工具来实时监视并编译有变动的源码，以确保页面上呈现的是我们修改过的最新效果。</li>
+</ul>
+<p>在百姓网，前端架构组已经搭建好了必要的开发环境，开发者们只需要关注开发本身就可以了。</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://upload-images.jianshu.io/upload_images/7295449-ca20fd0b221269c8.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>在企业级的前端开发中，我们还需要了解如下知识点：</p>
+<ul>
+<li><p><strong>模块化</strong>：模块化是最常见的编程实践之一，令我们的代码组织更加清晰、易维护。ES6 为 JS 增加了完善的模块化方案，我们的日常开发也已经迁移到了 ES6 模块规范之下。</p>
+</li>
+<li><p><strong>包管理</strong>：如何将开源社区中的优秀组件为我所用？这就不能不提 “npm” 这个最主流的 JS 包管理器。前端界优秀的开源项目几乎都发布到了 npm 的包仓库，我们日常开发中用到的第三方库也都是由 npm 来管理的。打包工具可以把我们写的模块化的源码和第三方包整合到一起，形成页面所需的完整 JS 资源。“包管理器”、“模块化”、“打包工具” 的相互结合，基本上就是日常的 JS 代码组织方式。</p>
+</li>
+<li><p><strong>组件化</strong>：在传统的前端开发中，HTML、CSS、JS 这三块的代码有各自独立的文件，这些文件往往也分散在不同的目录结构中。如果页面功能区块的划分足够清晰，开发者就可以用 “组件” 的概念来把页面拆分，整个页面会被视为多个组件的嵌套和组合；同时，开发者也倾向于把每个组件相关的 HTML、CSS、JS 代码整合到同一个目录（或同一个文件）中，便于管理和维护。这就是 “组件化” 的开发模式。要实现这样的开发模式，通常需要前端框架和构建工具的配合。</p>
+</li>
+<li><p><strong>单页应用</strong>：HTML5 的 History API 为前端提供了控制浏览器导航行为的能力，配合 Ajax 无刷新更新页面内容的特性，我们可以在一个页面内实现应用的多视图切换，避免页面的频繁跳转，提供类似桌面应用的体验。比如 Gmail 等产品就是典型的单页应用模式，百姓网的大多数后台系统也都是单页应用。</p>
+</li>
+</ul>
+<p>其它实用的知识点，就留待大家在工作中慢慢发掘吧。</p>
+<p>今天想跟大家分享的主要内容就是这些了，感谢阅读，再见！</p>
+<h1 id="作者简介"><a href="#作者简介" class="headerlink" title="作者简介"></a>作者简介</h1><blockquote>
+<p><strong>作者</strong>：CSS魔法@前端架构<br><strong>简介</strong>：百姓网前端架构 TL，<strong>《CSS 揭秘》</strong>译者，CSS Conf 讲师，自称 “披着工程师外衣的设计师”。</p>
+</blockquote>
+<blockquote class="blockquote-center">生命的意义不仅是活着，而是我们给别人的生命带来了何种不同。</blockquote>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    <ul class="content">
+        <li class="post-time">
+            <span>发布时间：</span><time datetime="2017-10-17T15:54:28.000Z" itemprop="dateUpdated">2017-10-17 23:54:28</time>
+        </li>
+        <li class="post-time">
+            <span>更新时间：</span>
+            <time datetime="2017-10-17T15:54:28.000Z" itemprop="dateUpdate">2017-10-17 23:54:28</time>
+        </li>
+        <li class="post-time">
+            
+            <span>本文链接：</span><a href="/posts/ca85f766/" target="_blank" rel="external">http://destinytaoer.cn/posts/ca85f766/</a>
+            
+        </li>
+        <li class="post-time">
+            <span>版权声明：</span>本站原创内容转载请注明来源
+        </li>
+    </ul>
+</blockquote>
+
+        
+    <div class="page-reward">
+        <nav class="myreward">
+            <a id="rewardBtn" href="javascript:;"><span>打&nbsp;赏</span><span>装成好像很多人打赏的样子</span></a>
+        </nav>
+    </div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/web前端/">web前端</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://destinytaoer.cn/posts/ca85f766/&title=《给不了解前端的同学讲前端》 — destiny'Note&pic=http://destinytaoer.cnimg/author1.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://destinytaoer.cn/posts/ca85f766/&title=《给不了解前端的同学讲前端》 — destiny'Note&source=
+                
+                    
+                    
+                
+..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://destinytaoer.cn/posts/ca85f766/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《给不了解前端的同学讲前端》 — destiny'Note&url=http://destinytaoer.cn/posts/ca85f766/&via=http://destinytaoer.cn" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://destinytaoer.cn/posts/ca85f766/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/posts/86591ac9/" id="post-prev" class="post-nav-link">
+        <h4 class="title" >
+          上一篇：说说CSS学习中的瓶颈
+        </h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/posts/36a501de/" id="post-next" class="post-nav-link">
+        <h4 class="title" data-hover="下一篇：CSS实现元素的居中显示">下一篇：CSS实现元素的居中显示</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+    
+
+    
+
+    
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'true' == 'true',
+            verify: 'true' == 'true',
+            appId: "BAlEU7J3YXaDNuoOMWC67UT7-gzGzoHsz",
+            appKey: "QjTpNrsX37DRGfvANeuBhGAL",
+            avatar: "mm",
+            placeholder: "来说两句吧~",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "10"
+        })
+    </script>
+    <!-- Valine Comments end -->
+
+
+
+
+</article>
+
+</div>
+
+        <footer class="footer">
+    <div class="footer-content">
+        <span class="power">
+            <i class="icon icon-lg icon-copyright"></i>
+            2016
+            <i class="icon icon-lg icon-heart"></i>
+            <a href="http://destinytaoer.cn">destiny</a>
+            <br/>
+            Power by
+            <a href="https://hexo.io/" target="_blank" rel="external nofollow">Hexo</a>&nbsp;·&nbsp;
+            Theme
+            <a class="tomotoeslink" href="https://github.com/tomotoes/hexo-theme-tomotoes/" target="_blank" rel="external nofollow">tomotoes</a>
+        </span>
+
+        <br/>
+
+        <span id="RunTime" style="color:#a7a7a2;"></span>
+        <br/>
+
+        <span>
+            
+	<i class="icon icon-lg icon-user">
+<span id="busuanzi_container_site_uv" style='display:none'>
+       访问用户：<span id="busuanzi_value_site_uv"></span>
+    </span>人</i>
+    ·
+    <i class="icon icon-lg icon-eye">
+    <span id="busuanzi_container_site_pv" style='display:none'>
+      访问次数：<span id="busuanzi_value_site_pv"></span>
+    </span>次
+    </i>
+
+
+        </span>
+        <br/>
+
+        <span class="license"><a  target="_blank" rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">博客内容遵循 知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+    </div>
+</footer>
+
+    </main>
+    
+        
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        <span>感谢您的鼓励支持！</span>
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" data-img="/img/dog.png" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/weixin.jpg" data-alipay="/img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechatPay">&nbsp;&nbsp;微信&nbsp;&nbsp;</span>
+                <span class="reward-toggle-item alipayPay">支付宝</span>
+            </div>
+        </label>
+        
+        <i class="icon icon-caret-up"></i>
+    </div>
+</div>
+
+
+    
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://destinytaoer.cn/posts/ca85f766/&title=《给不了解前端的同学讲前端》 — destiny'Note&pic=http://destinytaoer.cnimg/author1.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://destinytaoer.cn/posts/ca85f766/&title=《给不了解前端的同学讲前端》 — destiny'Note&source=
+                
+                    
+                    
+                
+..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://destinytaoer.cn/posts/ca85f766/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《给不了解前端的同学讲前端》 — destiny'Note&url=http://destinytaoer.cn/posts/ca85f766/&via=http://destinytaoer.cn" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://destinytaoer.cn/posts/ca85f766/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p class="wechatshare">扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://destinytaoer.cn/posts/ca85f766/" alt="微信分享二维码">
+</div>
+
+
+
+
+    <!-- waves按钮特效 -->
+<script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+
+<!-- 主题配置脚本 -->
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+</script>
+
+<!-- jquery -->
+<script src="/js/jquery.min.js"></script>
+
+<!-- 搜索 -->
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item waves-block waves-effect" onclick="location.href='{path}'">
+    <div class="title ellipsis" title="{title}">{title}</div>
+</li>
+</template>
+
+
+<!-- main博客脚本 -->
+<script src="/js/main.min.js" ></script>
+
+<!-- 动画&配置 -->
+<script src="/js/script.min.js" ></script>
+
+<!-- 脚本管理 -->
+<script>
+
+if(window.innerWidth > 800){
+	/* 3D标题 */
+	// $(".content-header").on("mousemove", threedee);
+
+	/* 底部追随鼠标 */
+	// $(".footer").hover(2);
+
+	/* gotop键的涟漪 */
+	// $("#gotop").hover(1);
+
+	/* 赞赏的粒子雨 */
+	$("#reward").hover(3);
+
+	/* 微信公众号的底部渲染 */
+	$("#wechat").hover(4);
+
+    /* 标题跳动 */
+    // $(".archivestitle").bumpyText();
+
+	/* 图片点击放大 */
+	const postimg = jQuery(".post-content img:not(.github-emoji)");
+	postimg.on("click",function(){
+
+		mask.classList.add("in");
+		main.classList.add("Mask");
+		menu.classList.add("Mask");
+		var myimg = this.cloneNode(true);
+		myimg.classList.add("imgShow");
+
+		setTimeout(function(){
+			jQuery(myimg).animate({
+				opacity:"1"
+			},1000);
+		},0);
+
+		document.body.appendChild(myimg);
+
+		myimg.onclick=function(){
+			document.body.removeChild(myimg);
+			mask.classList.remove("in");
+			main.classList.remove("Mask");
+			menu.classList.remove("Mask");
+		};
+
+	});
+
+}
+
+/* 名字跳动 */
+// $("#name").bumpyText();
+
+
+/* 网站运行时间 */
+<!--setInterval(function () {-->
+	<!--setTime("2017/09/20");-->
+<!--}, 1000);-->
+
+/* 文章块的淡出 */
+// postshow();
+
+/* 座右铭 */
+<!---->
+    <!--elasticText({-->
+        <!--id: "mymotto",-->
+        <!--duration: 100,-->
+        <!--effact: "easeOut",-->
+        <!--content: "Best for the best!"-->
+    <!--});-->
+<!---->
+
+
+/* 粘贴提示 */
+G($(".post-content"), location.href, "destiny");
+
+
+/* 控制台 */
+if (window.console && window.console.log) {
+	setTimeout(function () {
+		console.log("\n %c destiny %c http://destinytaoer.com \n\n", "color:#FFFFFB;background:#1abc9c;padding:5px 0;border-radius:.5rem 0 0 .5rem;", "color:#FFFFFB;background:#fffffb;padding:5px 0;border-radius:0 .5rem .5rem 0;");
+	}, 0);
+}
+
+</script>
+
+
+
+
+<!-- 公式渲染 -->
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+</script>
+
+<script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
+
+
+
+<!-- 不蒜子 -->
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js" async></script>
+
+
+</body>
+</html>

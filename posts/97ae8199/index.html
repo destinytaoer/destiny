@@ -1,0 +1,776 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Language" content="zh-cn">
+    <meta charset="utf-8">
+    
+    
+    <link rel="canonical" href="destinytaoer.cn/posts/97ae8199/">
+    
+    
+    <title>Markdown添加Latex数学公式 | destiny&#39;Note | best for the best!</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    
+    <meta name="theme-color" content="#77AAFF">
+    
+    
+    <meta name="keywords" content="markdown">
+
+    
+
+    
+
+    <!-- Baidu Push -->
+<script>
+	(function(){
+		var bp = document.createElement('script');
+		var curProtocol = window.location.protocol.split(':')[0];
+		if (curProtocol === 'https') {
+			bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+		}
+		else {
+			bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+		}
+		var s = document.getElementsByTagName("script")[0];
+		s.parentNode.insertBefore(bp, s);
+	})();
+
+	var _hmt = _hmt || [];
+</script>
+
+
+
+
+    <meta name="description" content="前言在编辑文章的时候，经常都会有使用数学公式的需求。我查找到一篇文章，总结的比较好，在这里跟你们分享。  需要注意的是，想要在 Markdown 中使用这些数学公式，需要你的编辑器支持这个功能。这里介绍的就是其中一种：Latex。我的博客对数学公式的支持也不是很好，跟 Markdown 的编译插件有所冲突，大家可以查看我的 CSDN 上的文章：Markdown 添加 Latex 数学公式">
+<meta name="keywords" content="markdown">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Markdown添加Latex数学公式">
+<meta property="og:url" content="http://destinytaoer.cn/posts/97ae8199/index.html">
+<meta property="og:site_name" content="destiny&#39;Note">
+<meta property="og:description" content="前言在编辑文章的时候，经常都会有使用数学公式的需求。我查找到一篇文章，总结的比较好，在这里跟你们分享。  需要注意的是，想要在 Markdown 中使用这些数学公式，需要你的编辑器支持这个功能。这里介绍的就是其中一种：Latex。我的博客对数学公式的支持也不是很好，跟 Markdown 的编译插件有所冲突，大家可以查看我的 CSDN 上的文章：Markdown 添加 Latex 数学公式">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-08-06T09:45:02.192Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Markdown添加Latex数学公式">
+<meta name="twitter:description" content="前言在编辑文章的时候，经常都会有使用数学公式的需求。我查找到一篇文章，总结的比较好，在这里跟你们分享。  需要注意的是，想要在 Markdown 中使用这些数学公式，需要你的编辑器支持这个功能。这里介绍的就是其中一种：Latex。我的博客对数学公式的支持也不是很好，跟 Markdown 的编译插件有所冲突，大家可以查看我的 CSDN 上的文章：Markdown 添加 Latex 数学公式">
+    
+        <link rel="alternate" type="application/atom+xml" title="destiny&#39;Note" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/img/favicon.ico">
+    <link id="style" rel="stylesheet" href="/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+    <aside id="menu"   >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" >
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/author1.jpg" alt="avatar">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname" id="name">destiny</h5>
+          
+            <div id="mymotto" class="motto">Best for the best!</div>
+          
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+              <li class="waves-block waves-effect">
+                  <a href="/"  >
+                    <i class="icon icon-lg icon-home"></i>
+                    <span>主 页</span><i class="icon icon-lg icon-caret-left"></i>
+                  </a>
+              </li>
+            
+              <li class="waves-block waves-effect">
+                  <a href="/archives"  >
+                    <i class="icon icon-lg icon-archives"></i>
+                    <span>归 档</span><i class="icon icon-lg icon-caret-left"></i>
+                  </a>
+              </li>
+            
+              <li class="waves-block waves-effect">
+                  <a href="/categories"  >
+                    <i class="icon icon-lg icon-th-list"></i>
+                    <span>分 类</span><i class="icon icon-lg icon-caret-left"></i>
+                  </a>
+              </li>
+            
+              <li class="waves-block waves-effect">
+                  <a href="/tags"  >
+                    <i class="icon icon-lg icon-tags"></i>
+                    <span>标 签</span><i class="icon icon-lg icon-caret-left"></i>
+                  </a>
+              </li>
+            
+              <li class="waves-block waves-effect">
+                  <a href="/about"  >
+                    <i class="icon icon-lg icon-user"></i>
+                    <span>关 于</span><i class="icon icon-lg icon-caret-left"></i>
+                  </a>
+              </li>
+            
+      <div class="nav2">
+          
+              <a class="nav2item" data-title="Email" href="mailto:1848765519@qq.com" target="_parent"title="Email" >
+                <i class="icon icon-lg icon-envelope-o envelope-o"></i>
+              </a>
+          
+              <a class="nav2item" data-title="Github" href="https://github.com/destinytaoer" target="_blank"title="Github" >
+                <i class="icon icon-lg icon-github github"></i>
+              </a>
+          
+              <a class="nav2item" data-title="CSDN" href="https://blog.csdn.net/destinytaoer" target="_blank"title="CSDN" >
+                <i class="icon icon-lg icon-book book"></i>
+              </a>
+          
+              <a class="nav2item" data-title="微信" href="/img/wechat.jpg" target="_blank"title="微信" >
+                <i class="icon icon-lg icon-wechat wechat"></i>
+              </a>
+          
+
+            </div>
+
+      </ul>
+
+    </div>
+  </div>
+
+</aside>
+
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">Markdown添加Latex数学公式</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        <a href="../../atom.xml" target="_blank" class="header-icon waves-effect waves-circle waves-light" id="Rss">
+            <i class="icon icon-lg icon-rss"></i>
+        </a>
+    </div>
+</header>
+<header class="content-header post-header">
+    
+    
+    <div class="container fade-scale">
+        <div id="myheader">
+            <h1 class="title">
+                
+            </h1>
+            <h5 class="subtitle">
+                
+                
+            </h5>
+        </div>
+    </div>
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#前言"><span class="post-toc-text">前言</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Markdown-中添加公式"><span class="post-toc-text">Markdown 中添加公式</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Latex-数学公式语法"><span class="post-toc-text">Latex 数学公式语法</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#角标（上下标）"><span class="post-toc-text">角标（上下标）</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#分式"><span class="post-toc-text">分式</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#根式"><span class="post-toc-text">根式</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#求和与积分"><span class="post-toc-text">求和与积分</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#上、下划线"><span class="post-toc-text">上、下划线</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#上、下括弧"><span class="post-toc-text">上、下括弧</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#数学重音符号"><span class="post-toc-text">数学重音符号</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#堆积符号"><span class="post-toc-text">堆积符号</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#定界符"><span class="post-toc-text">定界符</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#占位宽度"><span class="post-toc-text">占位宽度</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#集合相关的运算命令"><span class="post-toc-text">集合相关的运算命令</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#引自"><span class="post-toc-text">引自</span></a></li></ol>
+        </nav>
+    </aside>
+   
+<article id="post-Markdown添加Latex数学公式"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">Markdown添加Latex数学公式</h1>
+        <ul class="post-meta">
+            <li>
+                <i class="icon icon-lg icon-calendar-o"></i>
+                发表于
+                <time class="post-time" title="2017-12-09 21:05:22" datetime="2017-12-09T13:05:22.000Z"  itemprop="datePublished">2017-12-09</time>
+
+            </li>
+            <li>
+                
+	<i class="icon icon-lg icon-folder-o"></i>
+	分类：<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/前端技术/">前端技术</a></li></ul>
+
+
+            </li>
+            <li>
+                
+<span id="busuanzi_container_page_pv" title="文章总阅读量">
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>次浏览
+</span>
+
+
+            </li>
+        </ul>
+        <div class="post-count-custom">
+            <i class="icon icon-lg icon-comment-o"></i>
+            阅读本文可能花费您&nbsp;<span class="post-count">8</span>&nbsp;分钟
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>在编辑文章的时候，经常都会有使用数学公式的需求。我查找到一篇文章，总结的比较好，在这里跟你们分享。</p>
+<blockquote>
+<p>需要注意的是，想要在 Markdown 中使用这些数学公式，需要你的编辑器支持这个功能。这里介绍的就是其中一种：Latex。<br>我的博客对数学公式的支持也不是很好，跟 Markdown 的编译插件有所冲突，大家可以查看我的 CSDN 上的文章：<br><a href="https://blog.csdn.net/destinytaoer/article/details/78761520" target="_blank" rel="noopener"><br>Markdown 添加 Latex 数学公式</a></p>
+</blockquote>
+<a id="more"></a>
+<h1 id="Markdown-中添加公式"><a href="#Markdown-中添加公式" class="headerlink" title="Markdown 中添加公式"></a>Markdown 中添加公式</h1><p>行内公式<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$行内公式$</span><br></pre></td></tr></table></figure></p>
+<p>行间公式<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$$</span><br><span class="line">行间公式</span><br><span class="line">$$</span><br></pre></td></tr></table></figure></p>
+<h1 id="Latex-数学公式语法"><a href="#Latex-数学公式语法" class="headerlink" title="Latex 数学公式语法"></a>Latex 数学公式语法</h1><h2 id="角标（上下标）"><a href="#角标（上下标）" class="headerlink" title="角标（上下标）"></a>角标（上下标）</h2><p><strong>上标</strong><br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">^&#123;&#125;</span><br></pre></td></tr></table></figure></p>
+<p><strong>下标</strong><br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">_&#123;&#125;</span><br></pre></td></tr></table></figure></p>
+<p>上下标命令用来放在需要插入上下标的地方，花括弧内为上下标的内容，当角标为单个字符时候，可以不使用花括号；如果角标为多字符或者多层次的时候，必须要使用花括号。</p>
+<p>比如：<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">x^2, x_1^2, x^&#123;(n)&#125;_&#123;22&#125;, ^&#123;16&#125;O^&#123;2-&#125;_&#123;32&#125;, x^&#123;y^&#123;z^a&#125;&#125;, x^&#123;y_z&#125;</span><br></pre></td></tr></table></figure></p>
+<p>$$<br>x^2, x_1^2, x^{(n)}<em>{22}, ^{16}O^{2-}</em>{32}, x^{y^{z^a}}, x^{y_z}<br>$$</p>
+<p><strong>使用文字作为角标</strong></p>
+<p><strong>文字模式</strong><br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">\mbox&#123;&#125;</span><br></pre></td></tr></table></figure></p>
+<p><strong>改变文字大小的命令</strong><br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">\tiny</span><br></pre></td></tr></table></figure></p>
+<p>比如：<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">\partial f_&#123;\mbox&#123;\tiny 极大值&#125;&#125;</span><br></pre></td></tr></table></figure></p>
+<p>$$<br>\partial f_{\mbox{\tiny 极大值}}<br>$$</p>
+<p><strong>强制改变角标大小或层次命令</strong><br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">\scriptstyle</span><br></pre></td></tr></table></figure></p>
+<p>比如：<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">y_N, y_&#123;_N&#125;, y_&#123;_&#123;\scriptstyle N&#125;&#125;</span><br></pre></td></tr></table></figure></p>
+<p>$$<br>y_N, y_{<em>N}, y</em>{_{\scriptstyle  N}}<br>$$</p>
+<p>第一种输出为正常输出，但输出效果不明显；第二种是将一级角标改为二级角标，字体也自动变为二级角标字体；第三种将一级角标改为二级角标，但是强制字体改为一级角标字体。</p>
+<h2 id="分式"><a href="#分式" class="headerlink" title="分式"></a>分式</h2><p><strong>分式命令</strong><br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">\frac&#123;分子&#125;&#123;分母&#125;</span><br></pre></td></tr></table></figure></p>
+<p>比如：<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">\frac&#123;x+y&#125;&#123;y+z&#125;</span><br></pre></td></tr></table></figure></p>
+<p>行内分式：$\frac{x+y}{y+z}$<br>行间分式：$$\frac{x+y}{y+z}$$</p>
+<p>表明<strong>行内分式字体比行间字体小</strong>，因为行内分式使用的是角标字体<br>可以人工改变行内分式的字体大小，<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">\displaystyle\frac&#123;x+y&#125;&#123;y+z&#125;</span><br></pre></td></tr></table></figure></p>
+<p>$\displaystyle\frac{x+y}{y+z}$ </p>
+<p><strong>连分式</strong><br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">x_0+\frac&#123;1&#125;&#123;x_1+\frac&#123;1&#125;&#123;x_2+\frac&#123;1&#125;&#123;x_3+\frac&#123;1&#125;&#123;x_4&#125;&#125;&#125;&#125;</span><br></pre></td></tr></table></figure></p>
+<p>$$<br>x_0+\frac{1}{x_1+\frac{1}{x_2+\frac{1}{x_3+\frac{1}{x_4}}}}<br>$$</p>
+<p>可以通过强制改变字体大小使得分子分母字体大小一致：<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">\newcommand&#123;\FS&#125;[2]&#123;\displaystyle\frac&#123;#1&#125;&#123;#2&#125;&#125;x0+\FS&#123;1&#125;&#123;X_1+\FS&#123;1&#125;&#123;X_2+\FS&#123;1&#125;&#123;X_3+\FS&#123;1&#125;&#123;X_4&#125;&#125;&#125;&#125;</span><br></pre></td></tr></table></figure></p>
+<p>第一行命令定义了一个新的分式命令，规定每个调用该命令的分式都按 <code>\displaystyle</code> 的格式显示分式</p>
+<p>分数线长度值是预设为分子分母的最大长度，如果想要使分数线再长一点，可以在分子或分母两端添加一些间隔<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">\frac&#123;1&#125;&#123;2&#125;,\frac&#123;\;1\;&#125;&#123;\;2\;&#125;</span><br></pre></td></tr></table></figure></p>
+<p>$$<br>\frac{1}{2},\frac{\;1\;}{\;2\;}<br>$$</p>
+<p>其中第一个显示是正常的显示，第二个显示是分子分母前后都放入一个间隔命令 <code>\;</code> 中</p>
+<h2 id="根式"><a href="#根式" class="headerlink" title="根式"></a>根式</h2><p><strong>二次根式命令</strong><br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">\sqrt&#123;表达式&#125;</span><br></pre></td></tr></table></figure></p>
+<p>如果表达式是个单个字符，则不需要花括号，但需要在字符和 <code>sqrt</code> 之间加入一个空格</p>
+<p><strong>$n$ 次根式命令</strong><br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">\sqrt[n]&#123;表达式&#125;</span><br></pre></td></tr></table></figure></p>
+<p>被开方表达式字符高度不一致时，根号上面的横线可能不是在同一条直线上</p>
+<p>为了使横线在同一条直线上，可以在被开方表达式插入一个只有高度没有宽度的数学支柱 <code>\mathstut</code><br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">\sqrt&#123;a&#125;+\sqrt&#123;b&#125;+\sqrt&#123;c&#125;,\qquad \sqrt&#123;\mathstrut a&#125;+\sqrt&#123;\mathstrut b&#125;+\sqrt&#123;\mathstrut c&#125;</span><br></pre></td></tr></table></figure></p>
+<p>$$<br>\sqrt{a}+\sqrt{b}+\sqrt{c},\qquad \sqrt{\mathstrut a}+\sqrt{\mathstrut b}+\sqrt{\mathstrut c}<br>$$</p>
+<p>当被开方表达式高时，开方次数的位置显得略低，解决方法为：将开方此时改为上标，并拉近与根式的水平距离，即显示将命令中的 <code>[n]</code> 改为 <code>[^n\!]</code>,其中 <code>^</code> 表示是上标，<code>\!</code> 表示缩小间隔<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">\sqrt&#123;1+\sqrt[^p\!]&#123;1+\sqrt[^q\!]&#123;1+a&#125;&#125;&#125;</span><br></pre></td></tr></table></figure></p>
+<p>注意比较两个根式开方次数的显示位置</p>
+<h2 id="求和与积分"><a href="#求和与积分" class="headerlink" title="求和与积分"></a>求和与积分</h2><p><strong>求和命令</strong><br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">\sum_&#123;k=1&#125;^n表达式（求和项紧随其后,下同）</span><br></pre></td></tr></table></figure></p>
+<p><strong>积分命令</strong><br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">\int_a^b表达式</span><br></pre></td></tr></table></figure></p>
+<p>比如：</p>
+<p>无穷级数 $\sum_{k=1}^\infty\frac{x^n}{n!}$ 可以化为积分 $\int_0^\infty e^x$ 也即是：$\sum_{k=1}^\infty\frac{x^n}{n!} = \int_0^\infty e^x$</p>
+<p><strong>改变上下限位置的命令</strong>：<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">\limits(强制上下限在上下侧) </span><br><span class="line">\nolimits(强制上下限在左右侧)</span><br></pre></td></tr></table></figure></p>
+<p>比如：<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">\sum\limits_&#123;k=1&#125;^n</span><br><span class="line">\sum\nolimits_&#123;k=1&#125;^n</span><br></pre></td></tr></table></figure></p>
+<p> $\sum\limits_{k=1}^n$ 和 $\sum\nolimits_{k=1}^n$</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">\int\limits_0^\infty e^x</span><br><span class="line">\int\nolimits_0^\infty e^x</span><br></pre></td></tr></table></figure>
+<p>$\int\limits_0^\infty e^x$ 和 $\int\nolimits_0^\infty e^x$</p>
+<h2 id="上、下划线"><a href="#上、下划线" class="headerlink" title="上、下划线"></a>上、下划线</h2><p><strong>上划线命令</strong><br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">\overline&#123;公式&#125;</span><br></pre></td></tr></table></figure></p>
+<p><strong>下划线命令</strong><br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">\underline&#123;公式&#125;</span><br></pre></td></tr></table></figure></p>
+<p>比如：<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">\overline&#123;\overline&#123;a^2&#125;+\underline&#123;ab&#125;+\bar&#123;a&#125;^3&#125;</span><br></pre></td></tr></table></figure></p>
+<p>$$\overline{\overline{a^2}+\underline{ab}+\bar{a}^3}$$</p>
+<h2 id="上、下括弧"><a href="#上、下括弧" class="headerlink" title="上、下括弧"></a>上、下括弧</h2><p><strong>上花括弧命令</strong><br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">\overbrace&#123;公式&#125;&#123;说明&#125;</span><br></pre></td></tr></table></figure></p>
+<p><strong>下花括弧命令</strong><br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">\underbrace&#123;公式&#125;_&#123;说明&#125;</span><br></pre></td></tr></table></figure></p>
+<p>比如：<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">\underbrace&#123;a+\overbrace&#123;b+\dots+b&#125;^&#123;m\mbox&#123;\tiny 个&#125;&#125;&#125;_&#123;20\mbox&#123;\scriptsize 个&#125;&#125;</span><br></pre></td></tr></table></figure></p>
+<p>$$\underbrace{a+\overbrace{b+\dots+b}^{m\mbox{\tiny 个}}}_{20\mbox{\scriptsize 个}}$$</p>
+<h2 id="数学重音符号"><a href="#数学重音符号" class="headerlink" title="数学重音符号"></a>数学重音符号</h2><p>这里以 <code>a</code> 为例，如果是字母 <code>i</code> 或 <code>j</code> 带有重音，应该替换为<code>\imath</code>、<code>\jmath</code></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">\hat&#123;a&#125;</span><br><span class="line">\check&#123;a&#125;</span><br><span class="line">\breve&#123;a&#125;</span><br><span class="line">\tilde&#123;a&#125;</span><br><span class="line">\bar&#123;a&#125;</span><br><span class="line">\vec&#123;a&#125;</span><br><span class="line">\acute&#123;a&#125;</span><br><span class="line">\grave&#123;a&#125;</span><br><span class="line">\mathring&#123;a&#125;</span><br><span class="line">\dot&#123;a&#125;</span><br><span class="line">\ddot&#123;a&#125;</span><br></pre></td></tr></table></figure>
+<p>$$<br>\hat{a}<br>\check{a}<br>\breve{a}<br>\tilde{a}<br>\bar{a}<br>\vec{a}<br>\acute{a}<br>\grave{a}<br>\mathring{a}<br>\dot{a}<br>\ddot{a}<br>$$</p>
+<h2 id="堆积符号"><a href="#堆积符号" class="headerlink" title="堆积符号"></a>堆积符号</h2><ul>
+<li><code>\stacrel{上位符号}{基位符号}</code> 基位符号大，上位符号小</li>
+<li><code>{上位公式\atop 下位公式}</code> 上下符号一样大</li>
+<li><code>{上位公式\choose 下位公式}</code> 上下符号一样大；上下符号被包括在圆弧内</li>
+</ul>
+<p>比如：<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">\vec&#123;x&#125;\stackrel&#123;\mathrm&#123;def&#125;&#125;&#123;=&#125;&#123;x_1,\dots,x_n&#125;\\ &#123;n+1 \choose k&#125;=&#123;n \choose k&#125;+&#123;n \choose k-1&#125;\\ \sum_&#123;k_0,k_1,\ldots&gt;0 \atop k_0+k_1+\cdots=n&#125;A_&#123;k_0&#125;A_&#123;k_1&#125;\cdots</span><br></pre></td></tr></table></figure></p>
+<p>$$<br> \vec{x}\stackrel{\mathrm{def}}{=}{x_1,\dots,x_n}\ {n+1 \choose k}={n \choose k}+{n \choose k-1}\ \sum_{k_0,k_1,\ldots&gt;0 \atop k_0+k_1+\cdots=n}A_{k_0}A_{k_1}\cdots<br>$$</p>
+<h2 id="定界符"><a href="#定界符" class="headerlink" title="定界符"></a>定界符</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">()\big(\big) \Big(\Big) \bigg(\bigg) \Bigg(\Bigg)</span><br><span class="line">\big(\Big) \bigg(\Bigg)</span><br></pre></td></tr></table></figure>
+<p>$$<br>()\big(\big) \Big(\Big) \bigg(\bigg) \Bigg(\Bigg)<br>\big(\Big) \bigg(\Bigg)<br>$$</p>
+<p><strong>自适应放大命令</strong><br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">\left</span><br><span class="line">\right</span><br></pre></td></tr></table></figure></p>
+<p>放在左右定界符前，自动随着公式内容大小调整符号大小</p>
+<p>比如：<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">(x)\left(x^&#123;y^z&#125;\right)</span><br></pre></td></tr></table></figure></p>
+<p>$$<br>(x)\left(x^{y^z}\right)<br>$$</p>
+<h2 id="占位宽度"><a href="#占位宽度" class="headerlink" title="占位宽度"></a>占位宽度</h2><ul>
+<li>两个 quad 空格 <code>\qquad</code>， 两个 m 的宽度：$a \qquad b$</li>
+<li>一个 quad 空格 <code>\quad</code>， 一个m的宽度：$a \quad b$</li>
+<li>大空格 <code>\</code>， 1/3m 宽度：$a\ b$</li>
+<li>中等空格 <code>\;</code> 2/7m 宽度：$a\;b$</li>
+<li>小空格 <code>\,</code> 1/6m 宽度：$a\,b$</li>
+<li>没有空格：$ab$</li>
+<li>紧贴 <code>\!</code> ，缩进1/6m宽度：$a!b$</li>
+</ul>
+<p><code>\quad</code> 代表当前字体下接近字符‘M’的宽度（approximately the width of an “M” in the current font）</p>
+<h2 id="集合相关的运算命令"><a href="#集合相关的运算命令" class="headerlink" title="集合相关的运算命令"></a>集合相关的运算命令</h2><p><strong>集合的大括号</strong><br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">\&#123; ...\&#125;</span><br></pre></td></tr></table></figure></p>
+<p>$${ …}$$</p>
+<p><strong>属于</strong><br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">\in</span><br></pre></td></tr></table></figure></p>
+<p>$$\in$$</p>
+<p><strong>不属于</strong><br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">\not\in</span><br></pre></td></tr></table></figure></p>
+<p>$$<br>\not\in<br>$$</p>
+<p><strong>包含于</strong><br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">A\subset B</span><br></pre></td></tr></table></figure></p>
+<p>$$<br>A\subset B<br>$$</p>
+<p><strong>真包含于</strong><br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">A \subsetneqq B</span><br></pre></td></tr></table></figure></p>
+<p>$$<br>A \subsetneqq B<br>$$</p>
+<p><strong>包含</strong><br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">A \supset B</span><br></pre></td></tr></table></figure></p>
+<p>$$<br>A \supset B<br>$$</p>
+<p><strong>真包含</strong><br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">A \supsetneqq B</span><br></pre></td></tr></table></figure></p>
+<p>$$<br>A \supsetneqq B<br>$$</p>
+<p><strong>A不包含于B</strong><br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">A \not \subset B</span><br></pre></td></tr></table></figure></p>
+<p>$$<br>A \not \subset B<br>$$</p>
+<p><strong>A交B</strong><br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">A \cap B</span><br></pre></td></tr></table></figure></p>
+<p> $$<br> A \cap B<br> $$</p>
+<p><strong>A并B</strong><br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">A \cup B</span><br></pre></td></tr></table></figure></p>
+<p>$$<br>A \cup B<br>$$</p>
+<p><strong>A的闭包</strong><br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">\overline&#123;A&#125;</span><br></pre></td></tr></table></figure></p>
+<p>$$<br>\overline{A}<br>$$</p>
+<p><strong>A减去B</strong><br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">A\setminus B</span><br></pre></td></tr></table></figure></p>
+<p>$$<br>A\setminus B<br>$$</p>
+<p><strong>实数集合</strong><br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">\mathbb&#123;R&#125;</span><br></pre></td></tr></table></figure></p>
+<p>$$<br>\mathbb{R}<br>$$</p>
+<p><strong>空集</strong><br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">\emptyset</span><br></pre></td></tr></table></figure></p>
+<p>$$<br>\emptyset<br>$$</p>
+<h1 id="引自"><a href="#引自" class="headerlink" title="引自"></a>引自</h1><blockquote>
+<p>引自：<a href="https://www.cnblogs.com/peaceWang/p/Markdown-tian-jia-Latex-shu-xue-gong-shi.html#toc_1" target="_blank" rel="noopener">Markdown 添加 Latex 数学公式</a></p>
+</blockquote>
+<blockquote class="blockquote-center">生命的意义不仅是活着，而是我们给别人的生命带来了何种不同。</blockquote>
+        </div>
+
+        <blockquote class="post-copyright">
+    <ul class="content">
+        <li class="post-time">
+            <span>发布时间：</span><time datetime="2017-12-09T13:05:22.000Z" itemprop="dateUpdated">2017-12-09 21:05:22</time>
+        </li>
+        <li class="post-time">
+            <span>更新时间：</span>
+            <time datetime="2018-08-05T12:16:03.000Z" itemprop="dateUpdate">2018-08-05 20:16:03</time>
+        </li>
+        <li class="post-time">
+            
+            <span>本文链接：</span><a href="/posts/97ae8199/" target="_blank" rel="external">http://destinytaoer.cn/posts/97ae8199/</a>
+            
+        </li>
+        <li class="post-time">
+            <span>版权声明：</span>本站原创内容转载请注明来源
+        </li>
+    </ul>
+</blockquote>
+
+        
+    <div class="page-reward">
+        <nav class="myreward">
+            <a id="rewardBtn" href="javascript:;"><span>打&nbsp;赏</span><span>装成好像很多人打赏的样子</span></a>
+        </nav>
+    </div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/markdown/">markdown</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://destinytaoer.cn/posts/97ae8199/&title=《Markdown添加Latex数学公式》 — destiny'Note&pic=http://destinytaoer.cnimg/author1.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://destinytaoer.cn/posts/97ae8199/&title=《Markdown添加Latex数学公式》 — destiny'Note&source=前言在编辑文章的时候，经常都会有使用数学公式的需求。我查找到一篇文章，总结的比较好，在这里跟你们分享。
+
+需要注意的是，想要在 Markdown 中使用这..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://destinytaoer.cn/posts/97ae8199/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Markdown添加Latex数学公式》 — destiny'Note&url=http://destinytaoer.cn/posts/97ae8199/&via=http://destinytaoer.cn" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://destinytaoer.cn/posts/97ae8199/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/posts/31a465c1/" id="post-prev" class="post-nav-link">
+        <h4 class="title" >
+          上一篇：JS变量的创建机制
+        </h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/posts/711a3dcc/" id="post-next" class="post-nav-link">
+        <h4 class="title" data-hover="下一篇：前端学习历程">下一篇：前端学习历程</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+    
+
+    
+
+    
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'true' == 'true',
+            verify: 'true' == 'true',
+            appId: "BAlEU7J3YXaDNuoOMWC67UT7-gzGzoHsz",
+            appKey: "QjTpNrsX37DRGfvANeuBhGAL",
+            avatar: "mm",
+            placeholder: "来说两句吧~",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "10"
+        })
+    </script>
+    <!-- Valine Comments end -->
+
+
+
+
+</article>
+
+</div>
+
+        <footer class="footer">
+    <div class="footer-content">
+        <span class="power">
+            <i class="icon icon-lg icon-copyright"></i>
+            2016
+            <i class="icon icon-lg icon-heart"></i>
+            <a href="http://destinytaoer.cn">destiny</a>
+            <br/>
+            Power by
+            <a href="https://hexo.io/" target="_blank" rel="external nofollow">Hexo</a>&nbsp;·&nbsp;
+            Theme
+            <a class="tomotoeslink" href="https://github.com/tomotoes/hexo-theme-tomotoes/" target="_blank" rel="external nofollow">tomotoes</a>
+        </span>
+
+        <br/>
+
+        <span id="RunTime" style="color:#a7a7a2;"></span>
+        <br/>
+
+        <span>
+            
+	<i class="icon icon-lg icon-user">
+<span id="busuanzi_container_site_uv" style='display:none'>
+       访问用户：<span id="busuanzi_value_site_uv"></span>
+    </span>人</i>
+    ·
+    <i class="icon icon-lg icon-eye">
+    <span id="busuanzi_container_site_pv" style='display:none'>
+      访问次数：<span id="busuanzi_value_site_pv"></span>
+    </span>次
+    </i>
+
+
+        </span>
+        <br/>
+
+        <span class="license"><a  target="_blank" rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">博客内容遵循 知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+    </div>
+</footer>
+
+    </main>
+    
+        
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        <span>感谢您的鼓励支持！</span>
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" data-img="/img/dog.png" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/weixin.jpg" data-alipay="/img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechatPay">&nbsp;&nbsp;微信&nbsp;&nbsp;</span>
+                <span class="reward-toggle-item alipayPay">支付宝</span>
+            </div>
+        </label>
+        
+        <i class="icon icon-caret-up"></i>
+    </div>
+</div>
+
+
+    
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://destinytaoer.cn/posts/97ae8199/&title=《Markdown添加Latex数学公式》 — destiny'Note&pic=http://destinytaoer.cnimg/author1.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://destinytaoer.cn/posts/97ae8199/&title=《Markdown添加Latex数学公式》 — destiny'Note&source=前言在编辑文章的时候，经常都会有使用数学公式的需求。我查找到一篇文章，总结的比较好，在这里跟你们分享。
+
+需要注意的是，想要在 Markdown 中使用这..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://destinytaoer.cn/posts/97ae8199/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Markdown添加Latex数学公式》 — destiny'Note&url=http://destinytaoer.cn/posts/97ae8199/&via=http://destinytaoer.cn" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://destinytaoer.cn/posts/97ae8199/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p class="wechatshare">扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://destinytaoer.cn/posts/97ae8199/" alt="微信分享二维码">
+</div>
+
+
+
+
+    <!-- waves按钮特效 -->
+<script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+
+<!-- 主题配置脚本 -->
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+</script>
+
+<!-- jquery -->
+<script src="/js/jquery.min.js"></script>
+
+<!-- 搜索 -->
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item waves-block waves-effect" onclick="location.href='{path}'">
+    <div class="title ellipsis" title="{title}">{title}</div>
+</li>
+</template>
+
+
+<!-- main博客脚本 -->
+<script src="/js/main.min.js" ></script>
+
+<!-- 动画&配置 -->
+<script src="/js/script.min.js" ></script>
+
+<!-- 脚本管理 -->
+<script>
+
+if(window.innerWidth > 800){
+	/* 3D标题 */
+	// $(".content-header").on("mousemove", threedee);
+
+	/* 底部追随鼠标 */
+	// $(".footer").hover(2);
+
+	/* gotop键的涟漪 */
+	// $("#gotop").hover(1);
+
+	/* 赞赏的粒子雨 */
+	$("#reward").hover(3);
+
+	/* 微信公众号的底部渲染 */
+	$("#wechat").hover(4);
+
+    /* 标题跳动 */
+    // $(".archivestitle").bumpyText();
+
+	/* 图片点击放大 */
+	const postimg = jQuery(".post-content img:not(.github-emoji)");
+	postimg.on("click",function(){
+
+		mask.classList.add("in");
+		main.classList.add("Mask");
+		menu.classList.add("Mask");
+		var myimg = this.cloneNode(true);
+		myimg.classList.add("imgShow");
+
+		setTimeout(function(){
+			jQuery(myimg).animate({
+				opacity:"1"
+			},1000);
+		},0);
+
+		document.body.appendChild(myimg);
+
+		myimg.onclick=function(){
+			document.body.removeChild(myimg);
+			mask.classList.remove("in");
+			main.classList.remove("Mask");
+			menu.classList.remove("Mask");
+		};
+
+	});
+
+}
+
+/* 名字跳动 */
+// $("#name").bumpyText();
+
+
+/* 网站运行时间 */
+<!--setInterval(function () {-->
+	<!--setTime("2017/09/20");-->
+<!--}, 1000);-->
+
+/* 文章块的淡出 */
+// postshow();
+
+/* 座右铭 */
+<!---->
+    <!--elasticText({-->
+        <!--id: "mymotto",-->
+        <!--duration: 100,-->
+        <!--effact: "easeOut",-->
+        <!--content: "Best for the best!"-->
+    <!--});-->
+<!---->
+
+
+/* 粘贴提示 */
+G($(".post-content"), location.href, "destiny");
+
+
+/* 控制台 */
+if (window.console && window.console.log) {
+	setTimeout(function () {
+		console.log("\n %c destiny %c http://destinytaoer.com \n\n", "color:#FFFFFB;background:#1abc9c;padding:5px 0;border-radius:.5rem 0 0 .5rem;", "color:#FFFFFB;background:#fffffb;padding:5px 0;border-radius:0 .5rem .5rem 0;");
+	}, 0);
+}
+
+</script>
+
+
+
+
+<!-- 公式渲染 -->
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+</script>
+
+<script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
+
+
+
+<!-- 不蒜子 -->
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js" async></script>
+
+
+</body>
+</html>

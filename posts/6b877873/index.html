@@ -1,0 +1,736 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Language" content="zh-cn">
+    <meta charset="utf-8">
+    
+    
+    <link rel="canonical" href="destinytaoer.cn/posts/6b877873/">
+    
+    
+    <title>关于inline-block问题 | destiny&#39;Note | best for the best!</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    
+    <meta name="theme-color" content="#77AAFF">
+    
+    
+    <meta name="keywords" content="web前端,css">
+
+    
+
+    
+
+    <!-- Baidu Push -->
+<script>
+	(function(){
+		var bp = document.createElement('script');
+		var curProtocol = window.location.protocol.split(':')[0];
+		if (curProtocol === 'https') {
+			bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+		}
+		else {
+			bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+		}
+		var s = document.getElementsByTagName("script")[0];
+		s.parentNode.insertBefore(bp, s);
+	})();
+
+	var _hmt = _hmt || [];
+</script>
+
+
+
+
+    <meta name="description" content="前言在重新学习css，做自己的学习demo时，设置一堆div在一行显示，呈现对比。                                                                                                           结果如图，设置了display:inline-block之后，出现了部分下沉现象。改为float之后，又">
+<meta name="keywords" content="web前端,css">
+<meta property="og:type" content="article">
+<meta property="og:title" content="关于inline-block问题">
+<meta property="og:url" content="http://destinytaoer.cn/posts/6b877873/index.html">
+<meta property="og:site_name" content="destiny&#39;Note">
+<meta property="og:description" content="前言在重新学习css，做自己的学习demo时，设置一堆div在一行显示，呈现对比。                                                                                                           结果如图，设置了display:inline-block之后，出现了部分下沉现象。改为float之后，又">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/7295449-645cd42dd9f41dea.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/7295449-4952b99592ab7302.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/7295449-8ca4720b6246b9de.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/7295449-0a1875e35ac9b536.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/7295449-31a1fde60a029299.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2018-08-06T09:37:34.381Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="关于inline-block问题">
+<meta name="twitter:description" content="前言在重新学习css，做自己的学习demo时，设置一堆div在一行显示，呈现对比。                                                                                                           结果如图，设置了display:inline-block之后，出现了部分下沉现象。改为float之后，又">
+<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/7295449-645cd42dd9f41dea.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+    
+        <link rel="alternate" type="application/atom+xml" title="destiny&#39;Note" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/img/favicon.ico">
+    <link id="style" rel="stylesheet" href="/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+    <aside id="menu"   >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" >
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/author1.jpg" alt="avatar">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname" id="name">destiny</h5>
+          
+            <div id="mymotto" class="motto">Best for the best!</div>
+          
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+              <li class="waves-block waves-effect">
+                  <a href="/"  >
+                    <i class="icon icon-lg icon-home"></i>
+                    <span>主 页</span><i class="icon icon-lg icon-caret-left"></i>
+                  </a>
+              </li>
+            
+              <li class="waves-block waves-effect">
+                  <a href="/archives"  >
+                    <i class="icon icon-lg icon-archives"></i>
+                    <span>归 档</span><i class="icon icon-lg icon-caret-left"></i>
+                  </a>
+              </li>
+            
+              <li class="waves-block waves-effect">
+                  <a href="/categories"  >
+                    <i class="icon icon-lg icon-th-list"></i>
+                    <span>分 类</span><i class="icon icon-lg icon-caret-left"></i>
+                  </a>
+              </li>
+            
+              <li class="waves-block waves-effect">
+                  <a href="/tags"  >
+                    <i class="icon icon-lg icon-tags"></i>
+                    <span>标 签</span><i class="icon icon-lg icon-caret-left"></i>
+                  </a>
+              </li>
+            
+              <li class="waves-block waves-effect">
+                  <a href="/about"  >
+                    <i class="icon icon-lg icon-user"></i>
+                    <span>关 于</span><i class="icon icon-lg icon-caret-left"></i>
+                  </a>
+              </li>
+            
+      <div class="nav2">
+          
+              <a class="nav2item" data-title="Email" href="mailto:1848765519@qq.com" target="_parent"title="Email" >
+                <i class="icon icon-lg icon-envelope-o envelope-o"></i>
+              </a>
+          
+              <a class="nav2item" data-title="Github" href="https://github.com/destinytaoer" target="_blank"title="Github" >
+                <i class="icon icon-lg icon-github github"></i>
+              </a>
+          
+              <a class="nav2item" data-title="CSDN" href="https://blog.csdn.net/destinytaoer" target="_blank"title="CSDN" >
+                <i class="icon icon-lg icon-book book"></i>
+              </a>
+          
+              <a class="nav2item" data-title="微信" href="/img/wechat.jpg" target="_blank"title="微信" >
+                <i class="icon icon-lg icon-wechat wechat"></i>
+              </a>
+          
+
+            </div>
+
+      </ul>
+
+    </div>
+  </div>
+
+</aside>
+
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">关于inline-block问题</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        <a href="../../atom.xml" target="_blank" class="header-icon waves-effect waves-circle waves-light" id="Rss">
+            <i class="icon icon-lg icon-rss"></i>
+        </a>
+    </div>
+</header>
+<header class="content-header post-header">
+    
+    
+    <div class="container fade-scale">
+        <div id="myheader">
+            <h1 class="title">
+                
+            </h1>
+            <h5 class="subtitle">
+                
+                
+            </h5>
+        </div>
+    </div>
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#前言"><span class="post-toc-text">前言</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#一、下沉问题"><span class="post-toc-text">一、下沉问题</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#原因"><span class="post-toc-text">原因</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1-行内元素有一个基线，所有在这一行中的元素都以这条基线为准对齐。"><span class="post-toc-text">1. 行内元素有一个基线，所有在这一行中的元素都以这条基线为准对齐。</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-文本在容器中默认是上对齐的，且不能设置其他垂直对齐方式"><span class="post-toc-text">2. 文本在容器中默认是上对齐的，且不能设置其他垂直对齐方式</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#3-文本是老大，它不迁就别人，只有容器靠下来迁就它。"><span class="post-toc-text">3. 文本是老大，它不迁就别人，只有容器靠下来迁就它。</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#解决方案"><span class="post-toc-text">解决方案</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1-设置vertical-align"><span class="post-toc-text">1. 设置vertical-align</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-使用float等其他方法替换inline-block"><span class="post-toc-text">2. 使用float等其他方法替换inline-block</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#二、间距问题"><span class="post-toc-text">二、间距问题</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#原因-1"><span class="post-toc-text">原因</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#解决方法"><span class="post-toc-text">解决方法</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1-使用margin负值"><span class="post-toc-text">1. 使用margin负值</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-使用font-size-0"><span class="post-toc-text">2. 使用font-size:0</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#3-使用letter-spacing"><span class="post-toc-text">3. 使用letter-spacing</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#4-使用word-spacing"><span class="post-toc-text">4. 使用word-spacing</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#5-其他成品方法"><span class="post-toc-text">5. 其他成品方法</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#感谢"><span class="post-toc-text">感谢</span></a></li></ol>
+        </nav>
+    </aside>
+   
+<article id="post-关于inline-block问题"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">关于inline-block问题</h1>
+        <ul class="post-meta">
+            <li>
+                <i class="icon icon-lg icon-calendar-o"></i>
+                发表于
+                <time class="post-time" title="2017-10-10 19:44:14" datetime="2017-10-10T11:44:14.000Z"  itemprop="datePublished">2017-10-10</time>
+
+            </li>
+            <li>
+                
+	<i class="icon icon-lg icon-folder-o"></i>
+	分类：<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/前端技术/">前端技术</a></li></ul>
+
+
+            </li>
+            <li>
+                
+<span id="busuanzi_container_page_pv" title="文章总阅读量">
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>次浏览
+</span>
+
+
+            </li>
+        </ul>
+        <div class="post-count-custom">
+            <i class="icon icon-lg icon-comment-o"></i>
+            阅读本文可能花费您&nbsp;<span class="post-count">5</span>&nbsp;分钟
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>在重新学习css，做自己的学习demo时，设置一堆div在一行显示，呈现对比。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://upload-images.jianshu.io/upload_images/7295449-645cd42dd9f41dea.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
+<p>结果如图，设置了<code>display:inline-block</code>之后，出现了部分下沉现象。<br>改为<code>float</code>之后，又恢复正常对齐。</p>
+<p>不过，很快就得到了解决。于是，就写了这篇关于inline-block问题的文章，包含了以前分享过的间距问题，在这里与大家分享。</p>
+<a id="more"></a>
+<h1 id="一、下沉问题"><a href="#一、下沉问题" class="headerlink" title="一、下沉问题"></a>一、下沉问题</h1><h2 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h2><h3 id="1-行内元素有一个基线，所有在这一行中的元素都以这条基线为准对齐。"><a href="#1-行内元素有一个基线，所有在这一行中的元素都以这条基线为准对齐。" class="headerlink" title="1. 行内元素有一个基线，所有在这一行中的元素都以这条基线为准对齐。"></a>1. 行内元素有一个基线，所有在这一行中的元素都以这条基线为准对齐。</h3><p>如文字：<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://upload-images.jianshu.io/upload_images/7295449-4952b99592ab7302.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>而行内块元素，如图片等，会以底部为准对齐：<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://upload-images.jianshu.io/upload_images/7295449-8ca4720b6246b9de.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
+<h3 id="2-文本在容器中默认是上对齐的，且不能设置其他垂直对齐方式"><a href="#2-文本在容器中默认是上对齐的，且不能设置其他垂直对齐方式" class="headerlink" title="2. 文本在容器中默认是上对齐的，且不能设置其他垂直对齐方式"></a>2. 文本在容器中默认是上对齐的，且不能设置其他垂直对齐方式</h3><p>要设置垂直居中之类的，只能用p标签或者其他标签包含之后，设置这些标签的对齐方式</p>
+<h3 id="3-文本是老大，它不迁就别人，只有容器靠下来迁就它。"><a href="#3-文本是老大，它不迁就别人，只有容器靠下来迁就它。" class="headerlink" title="3. 文本是老大，它不迁就别人，只有容器靠下来迁就它。"></a>3. 文本是老大，它不迁就别人，只有容器靠下来迁就它。</h3><p>这是个很奇怪的现象，行内块元素的基线原本是底部，在有文本之后，该元素的基线就变成了文本的基线，为了与其他元素对齐，才导致下沉。</p>
+<h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><h3 id="1-设置vertical-align"><a href="#1-设置vertical-align" class="headerlink" title="1. 设置vertical-align"></a>1. 设置<code>vertical-align</code></h3><p>元素的默认<code>vertical-align</code>为<code>baseline</code>，也就是基线。把它的值设置为其他值，就能实现其他方式的对齐，如<code>top</code>、<code>bottom</code>、<code>text-bottom</code>、<code>text-top</code>、<code>middle</code>等，同高度下，效果相同。<br><figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">display</span>: <span class="selector-tag">inline-block</span>;</span><br><span class="line"><span class="selector-tag">verticla-align</span>: <span class="selector-tag">top</span>;</span><br></pre></td></tr></table></figure></p>
+<blockquote>
+<p><a href="http://www.w3school.com.cn/cssref/pr_pos_vertical-align.asp" target="_blank" rel="noopener">CSS vertical-align 属性</a></p>
+</blockquote>
+<h3 id="2-使用float等其他方法替换inline-block"><a href="#2-使用float等其他方法替换inline-block" class="headerlink" title="2. 使用float等其他方法替换inline-block"></a>2. 使用<code>float</code>等其他方法替换<code>inline-block</code></h3><p>当然，在这里说到用其他方法还有很多，已经与<code>inline-block</code>无关了，所以也不多说。</p>
+<h1 id="二、间距问题"><a href="#二、间距问题" class="headerlink" title="二、间距问题"></a>二、间距问题</h1><h2 id="原因-1"><a href="#原因-1" class="headerlink" title="原因"></a>原因</h2><p>行内块元素或者设置成<code>inline-block</code>的元素之间，会自动存在间距。</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://upload-images.jianshu.io/upload_images/7295449-0a1875e35ac9b536.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>这种表现是符合规范的应该有的表现。但是，在某些情况却会对我们的布局造成影响。</p>
+<h2 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h2><h3 id="1-使用margin负值"><a href="#1-使用margin负值" class="headerlink" title="1. 使用margin负值"></a>1. 使用margin负值</h3><figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.space</span> <span class="selector-tag">a</span> &#123; </span><br><span class="line">    <span class="attribute">display</span>: inline-block;</span><br><span class="line">    <span class="attribute">margin-right</span>: -<span class="number">3px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>margin负值的大小与上下文的字体和文字大小相关，其中，间距对应大小值可以参见“<a href="http://www.zhangxinxu.com/wordpress/?p=1194" target="_blank" rel="noopener">基于display:inline-block的列表布局</a>”一文part 6的统计表格：<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://upload-images.jianshu.io/upload_images/7295449-31a1fde60a029299.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="inline-block元素间间隔大小与字体和文字大小之前的关系表截图" title="">
+                </div>
+                <div class="image-caption">inline-block元素间间隔大小与字体和文字大小之前的关系表截图</div>
+            </figure></p>
+<p>例如，对于12像素大小的上下文，Arial字体的<code>margin</code>负值为<code>-3</code>像素，Tahoma和Verdana就是<code>-4</code>像素，而Geneva为<code>-6</code>像素。<br>由于外部环境的不确定性，以及最后一个元素多出的父margin值等问题，这个方法不适合大规模使用。</p>
+<h3 id="2-使用font-size-0"><a href="#2-使用font-size-0" class="headerlink" title="2. 使用font-size:0"></a>2. 使用font-size:0</h3><p>类似下面的代码：<br><figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.space</span> &#123;</span><br><span class="line">    <span class="attribute">font-size</span>: <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.space</span> <span class="selector-tag">a</span> &#123;</span><br><span class="line">    <span class="attribute">font-size</span>: <span class="number">12px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>这个方法，基本上可以解决大部分浏览器下inline-block元素之间的间距(IE7等浏览器有时候会有1像素的间距)。不过有个浏览器，就是Chrome, 其默认有<strong>最小字体大小限制</strong>，因为，考虑到兼容性，我们还需要添加：类似下面的代码：<br><figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.space</span> &#123;</span><br><span class="line">    <span class="attribute">font-size</span>: <span class="number">0</span>;</span><br><span class="line">    <span class="attribute">-webkit-text-size-adjust</span>:none;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<blockquote>
+<p>点击这里查看示例：<a href="http://www.zhangxinxu.com/study/201011/img-font-size-clear-blank.html" target="_blank" rel="noopener">font-size:0清除换行符间隙demo</a></p>
+</blockquote>
+<p><strong>补充：</strong>目前Chrome浏览器已经取消了最小字体限制。因此，上面的-webkit-text-size-adjust:none;代码估计时日不多了。</p>
+<h3 id="3-使用letter-spacing"><a href="#3-使用letter-spacing" class="headerlink" title="3. 使用letter-spacing"></a>3. 使用letter-spacing</h3><p>类似下面的代码：<br><figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.space</span> &#123;</span><br><span class="line">    <span class="attribute">letter-spacing</span>: -<span class="number">3px</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.space</span> <span class="selector-tag">a</span> &#123;</span><br><span class="line">    <span class="attribute">letter-spacing</span>: <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>该方法可以搞定基本上所有浏览器，不过Opera浏览器下有蛋疼的问题：最小间距1像素，然后，<code>letter-spacing</code>再小就还原了。</p>
+<h3 id="4-使用word-spacing"><a href="#4-使用word-spacing" class="headerlink" title="4. 使用word-spacing"></a>4. 使用word-spacing</h3><p>类似下面代码：<br><figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.space</span> &#123;</span><br><span class="line">    <span class="attribute">word-spacing</span>: -<span class="number">6px</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.space</span> <span class="selector-tag">a</span> &#123;</span><br><span class="line">    <span class="attribute">word-spacing</span>: <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>一个是字符间距<code>letter-spacing</code>,一个是单词间距<code>word-spacing</code>，大同小异。据我测试，<code>word-spacing</code>的负值只要大到一定程度，其兼容性上的差异就可以被忽略。因为，貌似，word-spacing即使负值很大，也不会发生重叠。</p>
+<blockquote>
+<p>点击这里查看示例：<a href="http://www.zhangxinxu.com/study/201204/inline-block-space-word-spacing.html" target="_blank" rel="noopener">word-spacing与元素间距去除demo</a></p>
+</blockquote>
+<p>您使用Chrome浏览器，可能看到的是间距依旧存在。确实是有该问题，原因我是不清楚，不过我知道，可以添加<code>display: table;</code>或<code>display:inline-table;</code>让Chrome浏览器也变得乖巧。<br><figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.space</span> &#123;</span><br><span class="line">    <span class="attribute">display</span>: inline-table;</span><br><span class="line">    <span class="attribute">word-spacing</span>: -<span class="number">6px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="5-其他成品方法"><a href="#5-其他成品方法" class="headerlink" title="5. 其他成品方法"></a>5. 其他成品方法</h3><p>下面展示的是<a href="http://yuilibrary.com/yui/docs/cssgrids/" target="_blank" rel="noopener">YUI 3 CSS Grids </a>使用<code>letter-spacing</code>和<code>word-spacing</code>去除格栅单元见间隔方法（注意，其针对的是block水平的元素，因此对IE8-浏览器做了hack处理）：<br><figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.yui3-g</span> &#123;</span><br><span class="line">    <span class="attribute">letter-spacing</span>: -<span class="number">0.31em</span>;<span class="comment">/* webkit */</span></span><br><span class="line">    *letter-spacing: normal; /* IE &lt; 8 重置 */</span><br><span class="line">    <span class="selector-tag">word-spacing</span>: <span class="selector-tag">-0</span><span class="selector-class">.43em</span>; <span class="comment">/* IE &lt; 8 &amp;&amp; gecko */</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.yui3-u</span> &#123;</span><br><span class="line">    <span class="attribute">display</span>: inline-block;</span><br><span class="line">    <span class="attribute">zoom</span>: <span class="number">1</span>;</span><br><span class="line">    *display: inline; /* IE &lt; 8: 伪造 inline-block */</span><br><span class="line">    <span class="selector-tag">letter-spacing</span>: <span class="selector-tag">normal</span>;</span><br><span class="line">    <span class="selector-tag">word-spacing</span>: <span class="selector-tag">normal</span>;</span><br><span class="line">    <span class="selector-tag">vertical-align</span>: <span class="selector-tag">top</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>以下是一个名叫<a href="http://raym31.home.comcast.net/" target="_blank" rel="noopener">RayM</a>的人提供的方法：<br><figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">li</span> &#123;</span><br><span class="line">    <span class="attribute">display</span>:inline-block;</span><br><span class="line">    <span class="attribute">background</span>: orange;</span><br><span class="line">    <span class="attribute">padding</span>:<span class="number">10px</span>;</span><br><span class="line">    <span class="attribute">word-spacing</span>:<span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">ul</span> &#123;</span><br><span class="line">    <span class="attribute">width</span>:<span class="number">100%</span>;</span><br><span class="line">    <span class="attribute">display</span>:table; <span class="comment">/* 调教webkit*/</span></span><br><span class="line">    <span class="attribute">word-spacing</span>:-<span class="number">1em</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.nav</span> <span class="selector-tag">li</span> &#123;</span><br><span class="line">    *display:inline;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>也就是上面一系列CSS方法的组组合合。</p>
+<h1 id="感谢"><a href="#感谢" class="headerlink" title="感谢"></a>感谢</h1><blockquote>
+<p><a href="http://www.zhangxinxu.com/wordpress/2012/04/inline-block-space-remove-%E5%8E%BB%E9%99%A4%E9%97%B4%E8%B7%9D/" target="_blank" rel="noopener">去除inline-block元素间间距的N种方法</a><br><a href="http://blog.csdn.net/qq_27545151/article/details/48598397" target="_blank" rel="noopener">inline-block之后意外发现块下沉</a></p>
+</blockquote>
+<blockquote class="blockquote-center">生命的意义不仅是活着，而是我们给别人的生命带来了何种不同。</blockquote>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    <ul class="content">
+        <li class="post-time">
+            <span>发布时间：</span><time datetime="2017-10-10T11:44:14.000Z" itemprop="dateUpdated">2017-10-10 19:44:14</time>
+        </li>
+        <li class="post-time">
+            <span>更新时间：</span>
+            <time datetime="2017-10-10T11:44:14.000Z" itemprop="dateUpdate">2017-10-10 19:44:14</time>
+        </li>
+        <li class="post-time">
+            
+            <span>本文链接：</span><a href="/posts/6b877873/" target="_blank" rel="external">http://destinytaoer.cn/posts/6b877873/</a>
+            
+        </li>
+        <li class="post-time">
+            <span>版权声明：</span>本站原创内容转载请注明来源
+        </li>
+    </ul>
+</blockquote>
+
+        
+    <div class="page-reward">
+        <nav class="myreward">
+            <a id="rewardBtn" href="javascript:;"><span>打&nbsp;赏</span><span>装成好像很多人打赏的样子</span></a>
+        </nav>
+    </div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css/">css</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/web前端/">web前端</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://destinytaoer.cn/posts/6b877873/&title=《关于inline-block问题》 — destiny'Note&pic=http://destinytaoer.cnimg/author1.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://destinytaoer.cn/posts/6b877873/&title=《关于inline-block问题》 — destiny'Note&source=前言在重新学习css，做自己的学习demo时，设置一堆div在一行显示，呈现对比。
+                
+                  ..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://destinytaoer.cn/posts/6b877873/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《关于inline-block问题》 — destiny'Note&url=http://destinytaoer.cn/posts/6b877873/&via=http://destinytaoer.cn" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://destinytaoer.cn/posts/6b877873/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/posts/c1fd4e78/" id="post-prev" class="post-nav-link">
+        <h4 class="title" >
+          上一篇：Transform 引起的 z-index &#34;失效&#34;
+        </h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/posts/855f23c8/" id="post-next" class="post-nav-link">
+        <h4 class="title" data-hover="下一篇：Sublime Text 实用插件介绍">下一篇：Sublime Text 实用插件介绍</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+    
+
+    
+
+    
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'true' == 'true',
+            verify: 'true' == 'true',
+            appId: "BAlEU7J3YXaDNuoOMWC67UT7-gzGzoHsz",
+            appKey: "QjTpNrsX37DRGfvANeuBhGAL",
+            avatar: "mm",
+            placeholder: "来说两句吧~",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "10"
+        })
+    </script>
+    <!-- Valine Comments end -->
+
+
+
+
+</article>
+
+</div>
+
+        <footer class="footer">
+    <div class="footer-content">
+        <span class="power">
+            <i class="icon icon-lg icon-copyright"></i>
+            2016
+            <i class="icon icon-lg icon-heart"></i>
+            <a href="http://destinytaoer.cn">destiny</a>
+            <br/>
+            Power by
+            <a href="https://hexo.io/" target="_blank" rel="external nofollow">Hexo</a>&nbsp;·&nbsp;
+            Theme
+            <a class="tomotoeslink" href="https://github.com/tomotoes/hexo-theme-tomotoes/" target="_blank" rel="external nofollow">tomotoes</a>
+        </span>
+
+        <br/>
+
+        <span id="RunTime" style="color:#a7a7a2;"></span>
+        <br/>
+
+        <span>
+            
+	<i class="icon icon-lg icon-user">
+<span id="busuanzi_container_site_uv" style='display:none'>
+       访问用户：<span id="busuanzi_value_site_uv"></span>
+    </span>人</i>
+    ·
+    <i class="icon icon-lg icon-eye">
+    <span id="busuanzi_container_site_pv" style='display:none'>
+      访问次数：<span id="busuanzi_value_site_pv"></span>
+    </span>次
+    </i>
+
+
+        </span>
+        <br/>
+
+        <span class="license"><a  target="_blank" rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">博客内容遵循 知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+    </div>
+</footer>
+
+    </main>
+    
+        
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        <span>感谢您的鼓励支持！</span>
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" data-img="/img/dog.png" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/weixin.jpg" data-alipay="/img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechatPay">&nbsp;&nbsp;微信&nbsp;&nbsp;</span>
+                <span class="reward-toggle-item alipayPay">支付宝</span>
+            </div>
+        </label>
+        
+        <i class="icon icon-caret-up"></i>
+    </div>
+</div>
+
+
+    
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://destinytaoer.cn/posts/6b877873/&title=《关于inline-block问题》 — destiny'Note&pic=http://destinytaoer.cnimg/author1.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://destinytaoer.cn/posts/6b877873/&title=《关于inline-block问题》 — destiny'Note&source=前言在重新学习css，做自己的学习demo时，设置一堆div在一行显示，呈现对比。
+                
+                  ..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://destinytaoer.cn/posts/6b877873/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《关于inline-block问题》 — destiny'Note&url=http://destinytaoer.cn/posts/6b877873/&via=http://destinytaoer.cn" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://destinytaoer.cn/posts/6b877873/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p class="wechatshare">扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://destinytaoer.cn/posts/6b877873/" alt="微信分享二维码">
+</div>
+
+
+
+
+    <!-- waves按钮特效 -->
+<script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+
+<!-- 主题配置脚本 -->
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+</script>
+
+<!-- jquery -->
+<script src="/js/jquery.min.js"></script>
+
+<!-- 搜索 -->
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item waves-block waves-effect" onclick="location.href='{path}'">
+    <div class="title ellipsis" title="{title}">{title}</div>
+</li>
+</template>
+
+
+<!-- main博客脚本 -->
+<script src="/js/main.min.js" ></script>
+
+<!-- 动画&配置 -->
+<script src="/js/script.min.js" ></script>
+
+<!-- 脚本管理 -->
+<script>
+
+if(window.innerWidth > 800){
+	/* 3D标题 */
+	// $(".content-header").on("mousemove", threedee);
+
+	/* 底部追随鼠标 */
+	// $(".footer").hover(2);
+
+	/* gotop键的涟漪 */
+	// $("#gotop").hover(1);
+
+	/* 赞赏的粒子雨 */
+	$("#reward").hover(3);
+
+	/* 微信公众号的底部渲染 */
+	$("#wechat").hover(4);
+
+    /* 标题跳动 */
+    // $(".archivestitle").bumpyText();
+
+	/* 图片点击放大 */
+	const postimg = jQuery(".post-content img:not(.github-emoji)");
+	postimg.on("click",function(){
+
+		mask.classList.add("in");
+		main.classList.add("Mask");
+		menu.classList.add("Mask");
+		var myimg = this.cloneNode(true);
+		myimg.classList.add("imgShow");
+
+		setTimeout(function(){
+			jQuery(myimg).animate({
+				opacity:"1"
+			},1000);
+		},0);
+
+		document.body.appendChild(myimg);
+
+		myimg.onclick=function(){
+			document.body.removeChild(myimg);
+			mask.classList.remove("in");
+			main.classList.remove("Mask");
+			menu.classList.remove("Mask");
+		};
+
+	});
+
+}
+
+/* 名字跳动 */
+// $("#name").bumpyText();
+
+
+/* 网站运行时间 */
+<!--setInterval(function () {-->
+	<!--setTime("2017/09/20");-->
+<!--}, 1000);-->
+
+/* 文章块的淡出 */
+// postshow();
+
+/* 座右铭 */
+<!---->
+    <!--elasticText({-->
+        <!--id: "mymotto",-->
+        <!--duration: 100,-->
+        <!--effact: "easeOut",-->
+        <!--content: "Best for the best!"-->
+    <!--});-->
+<!---->
+
+
+/* 粘贴提示 */
+G($(".post-content"), location.href, "destiny");
+
+
+/* 控制台 */
+if (window.console && window.console.log) {
+	setTimeout(function () {
+		console.log("\n %c destiny %c http://destinytaoer.com \n\n", "color:#FFFFFB;background:#1abc9c;padding:5px 0;border-radius:.5rem 0 0 .5rem;", "color:#FFFFFB;background:#fffffb;padding:5px 0;border-radius:0 .5rem .5rem 0;");
+	}, 0);
+}
+
+</script>
+
+
+
+
+<!-- 公式渲染 -->
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+</script>
+
+<script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
+
+
+
+<!-- 不蒜子 -->
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js" async></script>
+
+
+</body>
+</html>

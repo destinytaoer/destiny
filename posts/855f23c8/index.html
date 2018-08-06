@@ -1,0 +1,721 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Language" content="zh-cn">
+    <meta charset="utf-8">
+    
+    
+    <link rel="canonical" href="destinytaoer.cn/posts/855f23c8/">
+    
+    
+    <title>Sublime Text 实用插件介绍 | destiny&#39;Note | best for the best!</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    
+    <meta name="theme-color" content="#77AAFF">
+    
+    
+    <meta name="keywords" content="web前端,sublimetext,编辑器">
+
+    
+
+    
+
+    <!-- Baidu Push -->
+<script>
+	(function(){
+		var bp = document.createElement('script');
+		var curProtocol = window.location.protocol.split(':')[0];
+		if (curProtocol === 'https') {
+			bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+		}
+		else {
+			bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+		}
+		var s = document.getElementsByTagName("script")[0];
+		s.parentNode.insertBefore(bp, s);
+	})();
+
+	var _hmt = _hmt || [];
+</script>
+
+
+
+
+    <meta name="description" content="前言这是一款个人特别喜欢的编辑器，用来写前端代码。特别棒的是最新版本的文件栏中，中文不再出现乱码 本文主要是为自己做笔记以及备份的，介绍自己使用的sublime text插件。希望对大家也有所帮助。  官网地址：Sublime Text">
+<meta name="keywords" content="web前端,sublimetext,编辑器">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Sublime Text 实用插件介绍">
+<meta property="og:url" content="http://destinytaoer.cn/posts/855f23c8/index.html">
+<meta property="og:site_name" content="destiny&#39;Note">
+<meta property="og:description" content="前言这是一款个人特别喜欢的编辑器，用来写前端代码。特别棒的是最新版本的文件栏中，中文不再出现乱码 本文主要是为自己做笔记以及备份的，介绍自己使用的sublime text插件。希望对大家也有所帮助。  官网地址：Sublime Text">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-08-02T00:59:16.245Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Sublime Text 实用插件介绍">
+<meta name="twitter:description" content="前言这是一款个人特别喜欢的编辑器，用来写前端代码。特别棒的是最新版本的文件栏中，中文不再出现乱码 本文主要是为自己做笔记以及备份的，介绍自己使用的sublime text插件。希望对大家也有所帮助。  官网地址：Sublime Text">
+    
+        <link rel="alternate" type="application/atom+xml" title="destiny&#39;Note" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/img/favicon.ico">
+    <link id="style" rel="stylesheet" href="/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+    <aside id="menu"   >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" >
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/author1.jpg" alt="avatar">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname" id="name">destiny</h5>
+          
+            <div id="mymotto" class="motto">Best for the best!</div>
+          
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+              <li class="waves-block waves-effect">
+                  <a href="/"  >
+                    <i class="icon icon-lg icon-home"></i>
+                    <span>主 页</span><i class="icon icon-lg icon-caret-left"></i>
+                  </a>
+              </li>
+            
+              <li class="waves-block waves-effect">
+                  <a href="/archives"  >
+                    <i class="icon icon-lg icon-archives"></i>
+                    <span>归 档</span><i class="icon icon-lg icon-caret-left"></i>
+                  </a>
+              </li>
+            
+              <li class="waves-block waves-effect">
+                  <a href="/categories"  >
+                    <i class="icon icon-lg icon-th-list"></i>
+                    <span>分 类</span><i class="icon icon-lg icon-caret-left"></i>
+                  </a>
+              </li>
+            
+              <li class="waves-block waves-effect">
+                  <a href="/tags"  >
+                    <i class="icon icon-lg icon-tags"></i>
+                    <span>标 签</span><i class="icon icon-lg icon-caret-left"></i>
+                  </a>
+              </li>
+            
+              <li class="waves-block waves-effect">
+                  <a href="/about"  >
+                    <i class="icon icon-lg icon-user"></i>
+                    <span>关 于</span><i class="icon icon-lg icon-caret-left"></i>
+                  </a>
+              </li>
+            
+      <div class="nav2">
+          
+              <a class="nav2item" data-title="Email" href="mailto:1848765519@qq.com" target="_parent"title="Email" >
+                <i class="icon icon-lg icon-envelope-o envelope-o"></i>
+              </a>
+          
+              <a class="nav2item" data-title="Github" href="https://github.com/destinytaoer" target="_blank"title="Github" >
+                <i class="icon icon-lg icon-github github"></i>
+              </a>
+          
+              <a class="nav2item" data-title="CSDN" href="https://blog.csdn.net/destinytaoer" target="_blank"title="CSDN" >
+                <i class="icon icon-lg icon-book book"></i>
+              </a>
+          
+              <a class="nav2item" data-title="微信" href="/img/wechat.jpg" target="_blank"title="微信" >
+                <i class="icon icon-lg icon-wechat wechat"></i>
+              </a>
+          
+
+            </div>
+
+      </ul>
+
+    </div>
+  </div>
+
+</aside>
+
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">Sublime Text 实用插件介绍</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        <a href="../../atom.xml" target="_blank" class="header-icon waves-effect waves-circle waves-light" id="Rss">
+            <i class="icon icon-lg icon-rss"></i>
+        </a>
+    </div>
+</header>
+<header class="content-header post-header">
+    
+    
+    <div class="container fade-scale">
+        <div id="myheader">
+            <h1 class="title">
+                
+            </h1>
+            <h5 class="subtitle">
+                
+                
+            </h5>
+        </div>
+    </div>
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#前言"><span class="post-toc-text">前言</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#插件介绍"><span class="post-toc-text">插件介绍</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#packageControl"><span class="post-toc-text">packageControl</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#emmet"><span class="post-toc-text">emmet</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#ConvertToUTF8"><span class="post-toc-text">ConvertToUTF8</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#SideBar-Enhancements"><span class="post-toc-text">SideBar Enhancements</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#ChineseLocalizations"><span class="post-toc-text">ChineseLocalizations</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#DocBlockr"><span class="post-toc-text">DocBlockr</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Bracket-Highlighte"><span class="post-toc-text">Bracket Highlighte</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Vue-Syntax-Highlight"><span class="post-toc-text">Vue Syntax Highlight</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#AutoFileName"><span class="post-toc-text">AutoFileName</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#AdvancedNewFile"><span class="post-toc-text">AdvancedNewFile</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#FileDiffs"><span class="post-toc-text">FileDiffs</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Alignment"><span class="post-toc-text">Alignment</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#SublimeTmpl"><span class="post-toc-text">SublimeTmpl</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#markdown-preview"><span class="post-toc-text">markdown preview</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#AllAutocomplete"><span class="post-toc-text">AllAutocomplete</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#ColorPicker"><span class="post-toc-text">ColorPicker</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#sublimeLint"><span class="post-toc-text">sublimeLint</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#cssComb"><span class="post-toc-text">cssComb</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#jsformat"><span class="post-toc-text">jsformat</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#SublimeCodeIntel"><span class="post-toc-text">SublimeCodeIntel</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#css3"><span class="post-toc-text">css3</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#sass"><span class="post-toc-text">sass</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+   
+<article id="post-sublimetext-实用插件介绍"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">Sublime Text 实用插件介绍</h1>
+        <ul class="post-meta">
+            <li>
+                <i class="icon icon-lg icon-calendar-o"></i>
+                发表于
+                <time class="post-time" title="2017-09-23 19:09:24" datetime="2017-09-23T11:09:24.000Z"  itemprop="datePublished">2017-09-23</time>
+
+            </li>
+            <li>
+                
+	<i class="icon icon-lg icon-folder-o"></i>
+	分类：<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/资源分享/">资源分享</a></li></ul>
+
+
+            </li>
+            <li>
+                
+<span id="busuanzi_container_page_pv" title="文章总阅读量">
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>次浏览
+</span>
+
+
+            </li>
+        </ul>
+        <div class="post-count-custom">
+            <i class="icon icon-lg icon-comment-o"></i>
+            阅读本文可能花费您&nbsp;<span class="post-count">2</span>&nbsp;分钟
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>这是一款个人特别喜欢的编辑器，用来写前端代码。特别棒的是最新版本的文件栏中，中文不再出现乱码</p>
+<p>本文主要是为自己做笔记以及备份的，介绍自己使用的sublime text插件。希望对大家也有所帮助。</p>
+<blockquote>
+<p>官网地址：<a href="http://www.sublimetext.com/" target="_blank" rel="noopener">Sublime Text</a></p>
+</blockquote>
+<a id="more"></a>
+<blockquote>
+<p>插件官网：<a href="https://packagecontrol.io/" target="_blank" rel="noopener">packageControl</a><br>大神文章：<a href="https://github.com/jikeytang/sublime-text" target="_blank" rel="noopener">详细插件介绍</a></p>
+</blockquote>
+<h2 id="插件介绍"><a href="#插件介绍" class="headerlink" title="插件介绍"></a>插件介绍</h2><ul>
+<li><h3 id="packageControl"><a href="#packageControl" class="headerlink" title="packageControl"></a>packageControl</h3><p>最新版本的sublimetext不再需要复制代码到控制台下载packagecontrol了。而是直接打开命令面板，快捷键<code>ctrl+shift+p</code>，输入<code>ipc</code>选中<code>install packagecontrol</code>，就会自行安装。</p>
+</li>
+<li><h3 id="emmet"><a href="#emmet" class="headerlink" title="emmet"></a>emmet</h3><p>快速生成HTML代码段的插件，强大到无与伦比，必备。</p>
+</li>
+<li><h3 id="ConvertToUTF8"><a href="#ConvertToUTF8" class="headerlink" title="ConvertToUTF8"></a>ConvertToUTF8</h3><p>支持 GBK, BIG5, EUC-KR, EUC-JP, Shift_JIS 等编码的插件，解决编辑中文乱码。</p>
+</li>
+<li><h3 id="SideBar-Enhancements"><a href="#SideBar-Enhancements" class="headerlink" title="SideBar Enhancements"></a>SideBar Enhancements</h3><p>这个插件改进了侧边栏，增加了许多功能</p>
+</li>
+<li><h3 id="ChineseLocalizations"><a href="#ChineseLocalizations" class="headerlink" title="ChineseLocalizations"></a>ChineseLocalizations</h3><p>使菜单栏等支持中文</p>
+</li>
+<li><h3 id="DocBlockr"><a href="#DocBlockr" class="headerlink" title="DocBlockr"></a><a href="https://github.com/spadgos/sublime-jsdocs" target="_blank" rel="noopener">DocBlockr</a></h3><p>自动生成PHPDoc风格的注释，用于增强注释功能</p>
+</li>
+<li><h3 id="Bracket-Highlighte"><a href="#Bracket-Highlighte" class="headerlink" title="Bracket Highlighte"></a>Bracket Highlighte</h3><p>用于匹配括号，引号和html标签。</p>
+</li>
+<li><h3 id="Vue-Syntax-Highlight"><a href="#Vue-Syntax-Highlight" class="headerlink" title="Vue Syntax Highlight"></a>Vue Syntax Highlight</h3><p>vue的高亮显示</p>
+</li>
+<li><h3 id="AutoFileName"><a href="#AutoFileName" class="headerlink" title="AutoFileName"></a>AutoFileName</h3><p>文件路径自动提示</p>
+</li>
+<li><h3 id="AdvancedNewFile"><a href="#AdvancedNewFile" class="headerlink" title="AdvancedNewFile"></a><a href="https://github.com/skuroda/Sublime-AdvancedNewFile" target="_blank" rel="noopener">AdvancedNewFile</a></h3><p>允许在项目中更快的创建文件</p>
+</li>
+<li><h3 id="FileDiffs"><a href="#FileDiffs" class="headerlink" title="FileDiffs"></a>FileDiffs</h3><p>用来比较文件差异</p>
+</li>
+<li><h3 id="Alignment"><a href="#Alignment" class="headerlink" title="Alignment"></a>Alignment</h3><p>等号对齐 <code>Ctrl+Alt+A</code><br><strong>添加冒号对齐</strong><br>在<code>Preferences -&gt; package settings -&gt; Alignment -&gt; Settings User</code>中添加下面代码：</p>
+</li>
+</ul>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line"> <span class="attr">"align_indent"</span>: <span class="literal">false</span>,</span><br><span class="line"> <span class="attr">"alignment_chars"</span>: [<span class="string">"="</span>, <span class="string">":"</span>],</span><br><span class="line"> <span class="attr">"alignment_space_chars"</span>: [<span class="string">"="</span>, <span class="string">":"</span>]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li><h3 id="SublimeTmpl"><a href="#SublimeTmpl" class="headerlink" title="SublimeTmpl"></a><a href="https://github.com/kairyou/SublimeTmpl" target="_blank" rel="noopener">SublimeTmpl</a></h3>新建文件的模版插件</li>
+</ul>
+<blockquote>
+<p>详情请见：<a href="https://github.com/kairyou/SublimeTmpl" target="_blank" rel="noopener">SublimeTmpl</a></p>
+</blockquote>
+<ul>
+<li><h3 id="markdown-preview"><a href="#markdown-preview" class="headerlink" title="markdown preview"></a><a href="https://github.com/revolunet/sublimetext-markdown-preview" target="_blank" rel="noopener">markdown preview</a></h3><p>markdown编辑</p>
+</li>
+<li><h3 id="AllAutocomplete"><a href="#AllAutocomplete" class="headerlink" title="AllAutocomplete"></a><a href="https://github.com/alienhard/SublimeAllAutocomplete" target="_blank" rel="noopener">AllAutocomplete</a></h3><p>SublimeText默认的Autocomplete功能只考虑当前的文件，而AllAutocomplete插件会搜索所有打开的文件来寻找匹配的提示词。</p>
+</li>
+<li><h3 id="ColorPicker"><a href="#ColorPicker" class="headerlink" title="ColorPicker"></a>ColorPicker</h3><p>颜色选择器<code>Ctrl+Shift+C</code></p>
+</li>
+<li><h3 id="sublimeLint"><a href="#sublimeLint" class="headerlink" title="sublimeLint"></a>sublimeLint</h3><p>代码错误提示</p>
+</li>
+<li><h3 id="cssComb"><a href="#cssComb" class="headerlink" title="cssComb"></a>cssComb</h3><p>css属性排序</p>
+</li>
+<li><h3 id="jsformat"><a href="#jsformat" class="headerlink" title="jsformat"></a>jsformat</h3><p>js格式化 <code>Ctrl+Alt+F</code></p>
+</li>
+<li><h3 id="SublimeCodeIntel"><a href="#SublimeCodeIntel" class="headerlink" title="SublimeCodeIntel"></a>SublimeCodeIntel</h3><p>代码提示插件，支持多种编程语言</p>
+</li>
+<li><h3 id="css3"><a href="#css3" class="headerlink" title="css3"></a>css3</h3><p>css3代码提示</p>
+</li>
+<li><h3 id="sass"><a href="#sass" class="headerlink" title="sass"></a>sass</h3><p>sass语法编译高亮、代码提示</p>
+</li>
+</ul>
+<blockquote class="blockquote-center">生命的意义不仅是活着，而是我们给别人的生命带来了何种不同。</blockquote>
+        </div>
+
+        <blockquote class="post-copyright">
+    <ul class="content">
+        <li class="post-time">
+            <span>发布时间：</span><time datetime="2017-09-23T11:09:24.000Z" itemprop="dateUpdated">2017-09-23 19:09:24</time>
+        </li>
+        <li class="post-time">
+            <span>更新时间：</span>
+            <time datetime="2017-09-23T11:09:24.000Z" itemprop="dateUpdate">2017-09-23 19:09:24</time>
+        </li>
+        <li class="post-time">
+            
+            <span>本文链接：</span><a href="/posts/855f23c8/" target="_blank" rel="external">http://destinytaoer.cn/posts/855f23c8/</a>
+            
+        </li>
+        <li class="post-time">
+            <span>版权声明：</span>本站原创内容转载请注明来源
+        </li>
+    </ul>
+</blockquote>
+
+        
+    <div class="page-reward">
+        <nav class="myreward">
+            <a id="rewardBtn" href="javascript:;"><span>打&nbsp;赏</span><span>装成好像很多人打赏的样子</span></a>
+        </nav>
+    </div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/sublimetext/">sublimetext</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/web前端/">web前端</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/编辑器/">编辑器</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://destinytaoer.cn/posts/855f23c8/&title=《Sublime Text 实用插件介绍》 — destiny'Note&pic=http://destinytaoer.cnimg/author1.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://destinytaoer.cn/posts/855f23c8/&title=《Sublime Text 实用插件介绍》 — destiny'Note&source=前言这是一款个人特别喜欢的编辑器，用来写前端代码。特别棒的是最新版本的文件栏中，中文不再出现乱码
+本文主要是为自己做笔记以及备份的，介绍自己使用的subl..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://destinytaoer.cn/posts/855f23c8/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Sublime Text 实用插件介绍》 — destiny'Note&url=http://destinytaoer.cn/posts/855f23c8/&via=http://destinytaoer.cn" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://destinytaoer.cn/posts/855f23c8/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/posts/6b877873/" id="post-prev" class="post-nav-link">
+        <h4 class="title" >
+          上一篇：关于inline-block问题
+        </h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/posts/e1d994bf/" id="post-next" class="post-nav-link">
+        <h4 class="title" data-hover="下一篇：hexo + next主题高级配置">下一篇：hexo + next主题高级配置</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+    
+
+    
+
+    
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'true' == 'true',
+            verify: 'true' == 'true',
+            appId: "BAlEU7J3YXaDNuoOMWC67UT7-gzGzoHsz",
+            appKey: "QjTpNrsX37DRGfvANeuBhGAL",
+            avatar: "mm",
+            placeholder: "来说两句吧~",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "10"
+        })
+    </script>
+    <!-- Valine Comments end -->
+
+
+
+
+</article>
+
+</div>
+
+        <footer class="footer">
+    <div class="footer-content">
+        <span class="power">
+            <i class="icon icon-lg icon-copyright"></i>
+            2016
+            <i class="icon icon-lg icon-heart"></i>
+            <a href="http://destinytaoer.cn">destiny</a>
+            <br/>
+            Power by
+            <a href="https://hexo.io/" target="_blank" rel="external nofollow">Hexo</a>&nbsp;·&nbsp;
+            Theme
+            <a class="tomotoeslink" href="https://github.com/tomotoes/hexo-theme-tomotoes/" target="_blank" rel="external nofollow">tomotoes</a>
+        </span>
+
+        <br/>
+
+        <span id="RunTime" style="color:#a7a7a2;"></span>
+        <br/>
+
+        <span>
+            
+	<i class="icon icon-lg icon-user">
+<span id="busuanzi_container_site_uv" style='display:none'>
+       访问用户：<span id="busuanzi_value_site_uv"></span>
+    </span>人</i>
+    ·
+    <i class="icon icon-lg icon-eye">
+    <span id="busuanzi_container_site_pv" style='display:none'>
+      访问次数：<span id="busuanzi_value_site_pv"></span>
+    </span>次
+    </i>
+
+
+        </span>
+        <br/>
+
+        <span class="license"><a  target="_blank" rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">博客内容遵循 知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+    </div>
+</footer>
+
+    </main>
+    
+        
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        <span>感谢您的鼓励支持！</span>
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" data-img="/img/dog.png" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/weixin.jpg" data-alipay="/img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechatPay">&nbsp;&nbsp;微信&nbsp;&nbsp;</span>
+                <span class="reward-toggle-item alipayPay">支付宝</span>
+            </div>
+        </label>
+        
+        <i class="icon icon-caret-up"></i>
+    </div>
+</div>
+
+
+    
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://destinytaoer.cn/posts/855f23c8/&title=《Sublime Text 实用插件介绍》 — destiny'Note&pic=http://destinytaoer.cnimg/author1.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://destinytaoer.cn/posts/855f23c8/&title=《Sublime Text 实用插件介绍》 — destiny'Note&source=前言这是一款个人特别喜欢的编辑器，用来写前端代码。特别棒的是最新版本的文件栏中，中文不再出现乱码
+本文主要是为自己做笔记以及备份的，介绍自己使用的subl..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://destinytaoer.cn/posts/855f23c8/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Sublime Text 实用插件介绍》 — destiny'Note&url=http://destinytaoer.cn/posts/855f23c8/&via=http://destinytaoer.cn" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://destinytaoer.cn/posts/855f23c8/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p class="wechatshare">扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://destinytaoer.cn/posts/855f23c8/" alt="微信分享二维码">
+</div>
+
+
+
+
+    <!-- waves按钮特效 -->
+<script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+
+<!-- 主题配置脚本 -->
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+</script>
+
+<!-- jquery -->
+<script src="/js/jquery.min.js"></script>
+
+<!-- 搜索 -->
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item waves-block waves-effect" onclick="location.href='{path}'">
+    <div class="title ellipsis" title="{title}">{title}</div>
+</li>
+</template>
+
+
+<!-- main博客脚本 -->
+<script src="/js/main.min.js" ></script>
+
+<!-- 动画&配置 -->
+<script src="/js/script.min.js" ></script>
+
+<!-- 脚本管理 -->
+<script>
+
+if(window.innerWidth > 800){
+	/* 3D标题 */
+	// $(".content-header").on("mousemove", threedee);
+
+	/* 底部追随鼠标 */
+	// $(".footer").hover(2);
+
+	/* gotop键的涟漪 */
+	// $("#gotop").hover(1);
+
+	/* 赞赏的粒子雨 */
+	$("#reward").hover(3);
+
+	/* 微信公众号的底部渲染 */
+	$("#wechat").hover(4);
+
+    /* 标题跳动 */
+    // $(".archivestitle").bumpyText();
+
+	/* 图片点击放大 */
+	const postimg = jQuery(".post-content img:not(.github-emoji)");
+	postimg.on("click",function(){
+
+		mask.classList.add("in");
+		main.classList.add("Mask");
+		menu.classList.add("Mask");
+		var myimg = this.cloneNode(true);
+		myimg.classList.add("imgShow");
+
+		setTimeout(function(){
+			jQuery(myimg).animate({
+				opacity:"1"
+			},1000);
+		},0);
+
+		document.body.appendChild(myimg);
+
+		myimg.onclick=function(){
+			document.body.removeChild(myimg);
+			mask.classList.remove("in");
+			main.classList.remove("Mask");
+			menu.classList.remove("Mask");
+		};
+
+	});
+
+}
+
+/* 名字跳动 */
+// $("#name").bumpyText();
+
+
+/* 网站运行时间 */
+<!--setInterval(function () {-->
+	<!--setTime("2017/09/20");-->
+<!--}, 1000);-->
+
+/* 文章块的淡出 */
+// postshow();
+
+/* 座右铭 */
+<!---->
+    <!--elasticText({-->
+        <!--id: "mymotto",-->
+        <!--duration: 100,-->
+        <!--effact: "easeOut",-->
+        <!--content: "Best for the best!"-->
+    <!--});-->
+<!---->
+
+
+/* 粘贴提示 */
+G($(".post-content"), location.href, "destiny");
+
+
+/* 控制台 */
+if (window.console && window.console.log) {
+	setTimeout(function () {
+		console.log("\n %c destiny %c http://destinytaoer.com \n\n", "color:#FFFFFB;background:#1abc9c;padding:5px 0;border-radius:.5rem 0 0 .5rem;", "color:#FFFFFB;background:#fffffb;padding:5px 0;border-radius:0 .5rem .5rem 0;");
+	}, 0);
+}
+
+</script>
+
+
+
+
+<!-- 公式渲染 -->
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+</script>
+
+<script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
+
+
+
+<!-- 不蒜子 -->
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js" async></script>
+
+
+</body>
+</html>
