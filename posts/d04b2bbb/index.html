@@ -226,6 +226,12 @@
 
 
             </li>
+        </ul>
+        <ul class="post-meta">
+            <li>
+                <i class="icon icon-comment-o icon-pr"></i><span id="comments-number" style="padding-right: 5px">0</span>评论
+
+            </li>
             <li>
                 
 <span id="busuanzi_container_page_pv" title="文章总阅读量">
@@ -262,14 +268,14 @@
                 <div class="image-caption"></div>
             </figure><br>获取到你的id</p>
 <h2 id="二、博客文件配置"><a href="#二、博客文件配置" class="headerlink" title="二、博客文件配置"></a>二、博客文件配置</h2><h3 id="1-创建uyan-ejs文件"><a href="#1-创建uyan-ejs文件" class="headerlink" title="1. 创建uyan.ejs文件"></a>1. 创建uyan.ejs文件</h3><p>在<code>hexo\themes\yilia\layout_partial\post\</code>下新建一个<code>uyan.ejs</code>的文件<br>将上述代码copy到该文件中。</p>
-<h3 id="2-修改article-ejs文件"><a href="#2-修改article-ejs文件" class="headerlink" title="2. 修改article.ejs文件"></a>2. 修改article.ejs文件</h3><p>修改<code>hexo\themes\yilia\layout\_partial\article.ejs</code>,找到<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;% if (!index &amp;&amp; post.comments)&#123; %&gt;</span><br></pre></td></tr></table></figure></p>
-<p>在此下方添加下列代码：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;% if (theme.uyan)&#123; %&gt;</span><br><span class="line"> &lt;%- partial(&apos;post/uyan&apos;, &#123;</span><br><span class="line"> 		key: post.slug,</span><br><span class="line"> 		title: post.title,</span><br><span class="line"> 		url: config.url+url_for(post.path)</span><br><span class="line"> 	&#125;) %&gt;</span><br><span class="line"> &lt;% &#125; %&gt;</span><br></pre></td></tr></table></figure></p>
-<h3 id="3-修改yilia主题配置文件-config-yml"><a href="#3-修改yilia主题配置文件-config-yml" class="headerlink" title="3. 修改yilia主题配置文件_config.yml"></a>3. 修改yilia主题配置文件_config.yml</h3><p>修改<code>hexo\themes\yilia</code>下的<code>_config.yml</code>,在空白处,添加如下配置:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">uyan: &apos;你的友言id&apos;</span><br></pre></td></tr></table></figure></p>
+<h3 id="2-修改article-ejs文件"><a href="#2-修改article-ejs文件" class="headerlink" title="2. 修改article.ejs文件"></a>2. 修改article.ejs文件</h3><p>修改<code>hexo\themes\yilia\layout\_partial\article.ejs</code>,找到<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;% if (!index &amp;&amp; post.comments)&#123; %&gt;</span><br></pre></td></tr></table></figure></p>
+<p>在此下方添加下列代码：<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;% if (theme.uyan)&#123; %&gt;</span><br><span class="line"> &lt;%- partial(&apos;post/uyan&apos;, &#123;</span><br><span class="line"> 		key: post.slug,</span><br><span class="line"> 		title: post.title,</span><br><span class="line"> 		url: config.url+url_for(post.path)</span><br><span class="line"> 	&#125;) %&gt;</span><br><span class="line"> &lt;% &#125; %&gt;</span><br></pre></td></tr></table></figure></p>
+<h3 id="3-修改yilia主题配置文件-config-yml"><a href="#3-修改yilia主题配置文件-config-yml" class="headerlink" title="3. 修改yilia主题配置文件_config.yml"></a>3. 修改yilia主题配置文件_config.yml</h3><p>修改<code>hexo\themes\yilia</code>下的<code>_config.yml</code>,在空白处,添加如下配置:<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">uyan: &apos;你的友言id&apos;</span><br></pre></td></tr></table></figure></p>
 <blockquote>
 <p>注意：<br>要用<strong>引号</strong>包含你的id<br>uyan: 后面必须添加一个<strong>空格</strong>，这是Hexo博客的配置要求</p>
 </blockquote>
 <p>这样友言已经配置好了,重新编译，运行:<br>hexo clean<br>hexo g<br>hexo s<br>访问： <a href="http://localhost:4000" target="_blank" rel="noopener">http://localhost:4000</a><br><strong>本地实现评论系统成功！</strong></p>
-<h2 id="三、解决Github发生错误"><a href="#三、解决Github发生错误" class="headerlink" title="三、解决Github发生错误"></a>三、解决Github发生错误</h2><p>上传到github上后，打开你的github页面，发现评论并没有出现。按F12，发现报错：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">The page at &apos;https...&apos; was loaded over HTTPS,</span><br><span class="line"> but requested an insecure stylesheet &apos;http://..../css/1_6/background.css&apos;. </span><br><span class="line">This request has been blocked; the content must be served over HTTPS.</span><br></pre></td></tr></table></figure></p>
+<h2 id="三、解决Github发生错误"><a href="#三、解决Github发生错误" class="headerlink" title="三、解决Github发生错误"></a>三、解决Github发生错误</h2><p>上传到github上后，打开你的github页面，发现评论并没有出现。按F12，发现报错：<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">The page at &apos;https...&apos; was loaded over HTTPS,</span><br><span class="line"> but requested an insecure stylesheet &apos;http://..../css/1_6/background.css&apos;. </span><br><span class="line">This request has been blocked; the content must be served over HTTPS.</span><br></pre></td></tr></table></figure></p>
 <p>原因：<strong>https下的http加载会被阻塞</strong>，也就是无法加载友言的那个js文件</p>
 <p>查明之后，发现友言并不支持https，但是仍然有人实现了，并没有详细的解说。而我注意到域名的更改，如果改了域名，那么就不是https下了。实践证明，是可行的。</p>
 <h3 id="1-域名注册"><a href="#1-域名注册" class="headerlink" title="1. 域名注册"></a>1. 域名注册</h3><p>这里不详细说明，没有域名可自行百度：腾讯云、阿里云、万网等注册。<br>域名不贵，基本就几块、十几块一年，毫无问题</p>
@@ -296,7 +302,7 @@
 <blockquote>
 <p>原因：<br><strong>根链接发生错误</strong>，在不添加域名的时候，你的<code>root</code>会添加<code>/仓库名/</code>,各种链接都会自动添加这个根，而在添加域名后，域名直接指向你的仓库，此时链接仍然会自行添加根而发生链接错误。</p>
 </blockquote>
-<h3 id="博客目录下的-config-yml文件"><a href="#博客目录下的-config-yml文件" class="headerlink" title="博客目录下的_config.yml文件"></a>博客目录下的_config.yml文件</h3><p>修改根为’/‘<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">root: /</span><br></pre></td></tr></table></figure></p>
+<h3 id="博客目录下的-config-yml文件"><a href="#博客目录下的-config-yml文件" class="headerlink" title="博客目录下的_config.yml文件"></a>博客目录下的_config.yml文件</h3><p>修改根为’/‘<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">root: /</span><br></pre></td></tr></table></figure></p>
 <h3 id="主题目录下的-config-yml文件"><a href="#主题目录下的-config-yml文件" class="headerlink" title="主题目录下的_config.yml文件"></a>主题目录下的_config.yml文件</h3><p>修改根同上，并去掉头像等链接的仓库名</p>
 <p><strong>此时就大功告成了！</strong></p>
 <h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><blockquote>
@@ -454,21 +460,10 @@
     <div class="footer-content">
         <span class="power">
             <i class="icon icon-lg icon-copyright"></i>
-            2016
+            2016-2018
             <i class="icon icon-lg icon-heart"></i>
             <a href="http://destinytaoer.cn">destiny</a>
             <br/>
-            Power by
-            <a href="https://hexo.io/" target="_blank" rel="external nofollow">Hexo</a>&nbsp;·&nbsp;
-            Theme
-            <a class="tomotoeslink" href="https://github.com/tomotoes/hexo-theme-tomotoes/" target="_blank" rel="external nofollow">tomotoes</a>
-        </span>
-
-        <br/>
-
-        <span id="RunTime" style="color:#a7a7a2;"></span>
-        <br/>
-
         <span>
             
 	<i class="icon icon-lg icon-user">
@@ -719,6 +714,7 @@ MathJax.Hub.Queue(function() {
 
 <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js" async></script>
 
+<script src="/js/comments-number.min.js"></script>
 
 </body>
 </html>

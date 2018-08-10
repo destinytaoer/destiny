@@ -221,6 +221,12 @@
 
 
             </li>
+        </ul>
+        <ul class="post-meta">
+            <li>
+                <i class="icon icon-comment-o icon-pr"></i><span id="comments-number" style="padding-right: 5px">0</span>评论
+
+            </li>
             <li>
                 
 <span id="busuanzi_container_page_pv" title="文章总阅读量">
@@ -270,7 +276,7 @@
 <li><h3 id="Alignment"><a href="#Alignment" class="headerlink" title="Alignment"></a>Alignment</h3><p>等号对齐 <code>Ctrl+Alt+A</code><br><strong>添加冒号对齐</strong><br>在<code>Preferences -&gt; package settings -&gt; Alignment -&gt; Settings User</code>中添加下面代码：</p>
 </li>
 </ul>
-<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line"> <span class="attr">"align_indent"</span>: <span class="literal">false</span>,</span><br><span class="line"> <span class="attr">"alignment_chars"</span>: [<span class="string">"="</span>, <span class="string">":"</span>],</span><br><span class="line"> <span class="attr">"alignment_space_chars"</span>: [<span class="string">"="</span>, <span class="string">":"</span>]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight json"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line"> <span class="attr">"align_indent"</span>: <span class="literal">false</span>,</span><br><span class="line"> <span class="attr">"alignment_chars"</span>: [<span class="string">"="</span>, <span class="string">":"</span>],</span><br><span class="line"> <span class="attr">"alignment_space_chars"</span>: [<span class="string">"="</span>, <span class="string">":"</span>]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <ul>
 <li><h3 id="SublimeTmpl"><a href="#SublimeTmpl" class="headerlink" title="SublimeTmpl"></a><a href="https://github.com/kairyou/SublimeTmpl" target="_blank" rel="noopener">SublimeTmpl</a></h3>新建文件的模版插件</li>
 </ul>
@@ -450,21 +456,10 @@
     <div class="footer-content">
         <span class="power">
             <i class="icon icon-lg icon-copyright"></i>
-            2016
+            2016-2018
             <i class="icon icon-lg icon-heart"></i>
             <a href="http://destinytaoer.cn">destiny</a>
             <br/>
-            Power by
-            <a href="https://hexo.io/" target="_blank" rel="external nofollow">Hexo</a>&nbsp;·&nbsp;
-            Theme
-            <a class="tomotoeslink" href="https://github.com/tomotoes/hexo-theme-tomotoes/" target="_blank" rel="external nofollow">tomotoes</a>
-        </span>
-
-        <br/>
-
-        <span id="RunTime" style="color:#a7a7a2;"></span>
-        <br/>
-
         <span>
             
 	<i class="icon icon-lg icon-user">
@@ -716,6 +711,7 @@ MathJax.Hub.Queue(function() {
 
 <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js" async></script>
 
+<script src="/js/comments-number.min.js"></script>
 
 </body>
 </html>

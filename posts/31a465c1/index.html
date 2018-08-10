@@ -41,18 +41,18 @@
 
 
 
-    <meta name="description" content="前言JS 怎么创建变量？相信大家都会：12var a;function b()&amp;#123;&amp;#125; 那么它们具体存储在哪里，又是怎么运行的呢？ 这次，就聊一聊 JS 的堆栈内存和变量的创建机制。（这里只介绍 ES5 的机制）">
+    <meta name="description" content="前言JS 怎么创建变量？相信大家都会：var a;function b()&amp;#123;&amp;#125; 那么它们具体存储在哪里，又是怎么运行的呢？ 这次，就聊一聊 JS 的堆栈内存和变量的创建机制。（这里只介绍 ES5 的机制）">
 <meta name="keywords" content="web前端,JavaScript">
 <meta property="og:type" content="article">
 <meta property="og:title" content="JS变量的创建机制">
 <meta property="og:url" content="http://destinytaoer.cn/posts/31a465c1/index.html">
 <meta property="og:site_name" content="destiny&#39;Note">
-<meta property="og:description" content="前言JS 怎么创建变量？相信大家都会：12var a;function b()&amp;#123;&amp;#125; 那么它们具体存储在哪里，又是怎么运行的呢？ 这次，就聊一聊 JS 的堆栈内存和变量的创建机制。（这里只介绍 ES5 的机制）">
+<meta property="og:description" content="前言JS 怎么创建变量？相信大家都会：var a;function b()&amp;#123;&amp;#125; 那么它们具体存储在哪里，又是怎么运行的呢？ 这次，就聊一聊 JS 的堆栈内存和变量的创建机制。（这里只介绍 ES5 的机制）">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-08-06T05:50:15.565Z">
+<meta property="og:updated_time" content="2018-08-06T10:51:00.597Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JS变量的创建机制">
-<meta name="twitter:description" content="前言JS 怎么创建变量？相信大家都会：12var a;function b()&amp;#123;&amp;#125; 那么它们具体存储在哪里，又是怎么运行的呢？ 这次，就聊一聊 JS 的堆栈内存和变量的创建机制。（这里只介绍 ES5 的机制）">
+<meta name="twitter:description" content="前言JS 怎么创建变量？相信大家都会：var a;function b()&amp;#123;&amp;#125; 那么它们具体存储在哪里，又是怎么运行的呢？ 这次，就聊一聊 JS 的堆栈内存和变量的创建机制。（这里只介绍 ES5 的机制）">
     
         <link rel="alternate" type="application/atom+xml" title="destiny&#39;Note" href="/atom.xml">
     
@@ -221,6 +221,12 @@
 
 
             </li>
+        </ul>
+        <ul class="post-meta">
+            <li>
+                <i class="icon icon-comment-o icon-pr"></i><span id="comments-number" style="padding-right: 5px">0</span>评论
+
+            </li>
             <li>
                 
 <span id="busuanzi_container_page_pv" title="文章总阅读量">
@@ -235,7 +241,7 @@
             阅读本文可能花费您&nbsp;<span class="post-count">4</span>&nbsp;分钟
         </div>
         <div class="post-content" id="post-content" itemprop="postContent">
-            <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>JS 怎么创建变量？相信大家都会：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">b</span>(<span class="params"></span>)</span>&#123;&#125;</span><br></pre></td></tr></table></figure></p>
+            <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>JS 怎么创建变量？相信大家都会：<br><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> a;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">b</span>(<span class="params"></span>)</span>&#123;&#125;</span><br></pre></td></tr></table></figure></p>
 <p>那么它们具体存储在哪里，又是怎么运行的呢？</p>
 <p>这次，就聊一聊 JS 的堆栈内存和变量的创建机制。（这里只介绍 ES5 的机制）</p>
 <a id="more"></a>
@@ -272,7 +278,7 @@
 <li>然后开辟一个新的内存空间，把对象中的键值对依次存储起来（此空间有个 16 进制的地址）</li>
 <li>让变量与空间地址关联起来（把空间地址赋值给变量）</li>
 </ul>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = &#123;</span><br><span class="line">  n: <span class="number">10</span>,</span><br><span class="line">  m: obj.n * <span class="number">10</span></span><br><span class="line">  <span class="comment">//=&gt; Uncaught TypeError: Cannot read property 'n' of undefined</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="built_in">console</span>.log(obj.m);</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = &#123;</span><br><span class="line">  n: <span class="number">10</span>,</span><br><span class="line">  m: obj.n * <span class="number">10</span></span><br><span class="line">  <span class="comment">//=&gt; Uncaught TypeError: Cannot read property 'n' of undefined</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="built_in">console</span>.log(obj.m);</span><br></pre></td></tr></table></figure>
 <p>原因分析</p>
 <ol>
 <li>形成一个全局作用域（栈内存）</li>
@@ -282,9 +288,9 @@
 </ul>
 </li>
 </ol>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = &#123;</span><br><span class="line">  n: <span class="number">10</span></span><br><span class="line">&#125;;</span><br><span class="line">obj.m = obj.n * <span class="number">10</span>; <span class="comment">// 此时的 obj 已经有值了</span></span><br><span class="line"><span class="built_in">console</span>.log(obj.m); <span class="comment">//=&gt; 100</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = &#123;</span><br><span class="line">  n: <span class="number">10</span></span><br><span class="line">&#125;;</span><br><span class="line">obj.m = obj.n * <span class="number">10</span>; <span class="comment">// 此时的 obj 已经有值了</span></span><br><span class="line"><span class="built_in">console</span>.log(obj.m); <span class="comment">//=&gt; 100</span></span><br></pre></td></tr></table></figure>
 <p>引用类型不是按照值来操作，它操作的是空间的地址：把原有空间地址赋值给新的变量，但是原来的空间没有被克隆，还是同一个空间，这样就会出现多个变量关联的是相同的空间，相互之间就会存在影响。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr1 = [<span class="number">3</span>, <span class="number">4</span>];</span><br><span class="line"><span class="keyword">var</span> arr2 = arr1;</span><br><span class="line">arr2[<span class="number">0</span>] = <span class="number">1</span>;</span><br><span class="line">arr2 = [<span class="number">4</span>, <span class="number">5</span>];</span><br><span class="line">arr2[<span class="number">1</span>] = <span class="number">2</span>;</span><br><span class="line">arr1[<span class="number">1</span>] = <span class="number">0</span>;</span><br><span class="line"><span class="built_in">console</span>.log(arr1, arr2); <span class="comment">//=&gt; 1, 0, 4, 2</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> arr1 = [<span class="number">3</span>, <span class="number">4</span>];</span><br><span class="line"><span class="keyword">var</span> arr2 = arr1;</span><br><span class="line">arr2[<span class="number">0</span>] = <span class="number">1</span>;</span><br><span class="line">arr2 = [<span class="number">4</span>, <span class="number">5</span>];</span><br><span class="line">arr2[<span class="number">1</span>] = <span class="number">2</span>;</span><br><span class="line">arr1[<span class="number">1</span>] = <span class="number">0</span>;</span><br><span class="line"><span class="built_in">console</span>.log(arr1, arr2); <span class="comment">//=&gt; 1, 0, 4, 2</span></span><br></pre></td></tr></table></figure>
 <p>原因分析：</p>
 <ol>
 <li>数组也是对象，属于引用类型，会开辟一个新的堆内存保存 <code>[3,4]</code></li>
@@ -305,7 +311,7 @@
         </li>
         <li class="post-time">
             <span>更新时间：</span>
-            <time datetime="2018-07-30T12:57:57.000Z" itemprop="dateUpdate">2018-07-30 20:57:57</time>
+            <time datetime="2018-08-05T12:57:57.000Z" itemprop="dateUpdate">2018-08-05 20:57:57</time>
         </li>
         <li class="post-time">
             
@@ -349,9 +355,9 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://destinytaoer.cn/posts/31a465c1/&title=《JS变量的创建机制》 — destiny'Note&source=前言JS 怎么创建变量？相信大家都会：12var a;function b()&#123;&#125;
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://destinytaoer.cn/posts/31a465c1/&title=《JS变量的创建机制》 — destiny'Note&source=前言JS 怎么创建变量？相信大家都会：var a;function b()&#123;&#125;
 那么它们具体存储在哪里，又是怎么运行的呢？
-这次，..." data-title=" QQ">
+这次，就聊..." data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
@@ -449,21 +455,10 @@
     <div class="footer-content">
         <span class="power">
             <i class="icon icon-lg icon-copyright"></i>
-            2016
+            2016-2018
             <i class="icon icon-lg icon-heart"></i>
             <a href="http://destinytaoer.cn">destiny</a>
             <br/>
-            Power by
-            <a href="https://hexo.io/" target="_blank" rel="external nofollow">Hexo</a>&nbsp;·&nbsp;
-            Theme
-            <a class="tomotoeslink" href="https://github.com/tomotoes/hexo-theme-tomotoes/" target="_blank" rel="external nofollow">tomotoes</a>
-        </span>
-
-        <br/>
-
-        <span id="RunTime" style="color:#a7a7a2;"></span>
-        <br/>
-
         <span>
             
 	<i class="icon icon-lg icon-user">
@@ -534,9 +529,9 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://destinytaoer.cn/posts/31a465c1/&title=《JS变量的创建机制》 — destiny'Note&source=前言JS 怎么创建变量？相信大家都会：12var a;function b()&#123;&#125;
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://destinytaoer.cn/posts/31a465c1/&title=《JS变量的创建机制》 — destiny'Note&source=前言JS 怎么创建变量？相信大家都会：var a;function b()&#123;&#125;
 那么它们具体存储在哪里，又是怎么运行的呢？
-这次，..." data-title=" QQ">
+这次，就聊..." data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
@@ -716,6 +711,7 @@ MathJax.Hub.Queue(function() {
 
 <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js" async></script>
 
+<script src="/js/comments-number.min.js"></script>
 
 </body>
 </html>

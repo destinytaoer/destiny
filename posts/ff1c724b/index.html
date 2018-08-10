@@ -225,6 +225,12 @@
 
 
             </li>
+        </ul>
+        <ul class="post-meta">
+            <li>
+                <i class="icon icon-comment-o icon-pr"></i><span id="comments-number" style="padding-right: 5px">0</span>评论
+
+            </li>
             <li>
                 
 <span id="busuanzi_container_page_pv" title="文章总阅读量">
@@ -236,7 +242,7 @@
         </ul>
         <div class="post-count-custom">
             <i class="icon icon-lg icon-comment-o"></i>
-            阅读本文可能花费您&nbsp;<span class="post-count">5</span>&nbsp;分钟
+            阅读本文可能花费您&nbsp;<span class="post-count">4</span>&nbsp;分钟
         </div>
         <div class="post-content" id="post-content" itemprop="postContent">
             <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>本文仅仅是使用hexo以及gitHubPages 快速搭建个人博客，后续还会分享详细的内容</p>
@@ -249,17 +255,17 @@
 <blockquote>
 <p>过程中使用的是cnpm，下载node会自带npm，下面使用的是<a href="https://npm.taobao.org/" target="_blank" rel="noopener">淘宝镜像cnpm</a></p>
 </blockquote>
-<h3 id="1-安装Hexo"><a href="#1-安装Hexo" class="headerlink" title="1. 安装Hexo"></a>1. 安装Hexo</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cnpm install -g hexo</span><br></pre></td></tr></table></figure>
+<h3 id="1-安装Hexo"><a href="#1-安装Hexo" class="headerlink" title="1. 安装Hexo"></a>1. 安装Hexo</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">cnpm install -g hexo</span><br></pre></td></tr></table></figure>
 <p>-g为全局安装</p>
 <h3 id="2-创建博客根文件夹"><a href="#2-创建博客根文件夹" class="headerlink" title="2. 创建博客根文件夹"></a>2. 创建博客根文件夹</h3><p>进入要创建博客的文件夹下（如E:\Hexo），执行以下指令，Hexo 即会自动在目标文件夹建立网站所需要的所有文件。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo init  &quot;文件夹名&quot;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">hexo init  &quot;文件夹名&quot;</span><br></pre></td></tr></table></figure>
 <p>文件夹名称可以不写，那样就会把所有文件放在你先前进入的文件夹</p>
-<h3 id="3-安装依赖包"><a href="#3-安装依赖包" class="headerlink" title="3. 安装依赖包"></a>3. 安装依赖包</h3><p>进入到你的博客文件夹下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cnpm install</span><br></pre></td></tr></table></figure></p>
+<h3 id="3-安装依赖包"><a href="#3-安装依赖包" class="headerlink" title="3. 安装依赖包"></a>3. 安装依赖包</h3><p>进入到你的博客文件夹下：<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">cnpm install</span><br></pre></td></tr></table></figure></p>
 <p>把package.json文件所定义的所有依赖项全部安装</p>
 <h3 id="4-运行"><a href="#4-运行" class="headerlink" title="4. 运行"></a>4. 运行</h3><p>常用命令</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">hexo g #完整命令为hexo generate,用于生成静态文件</span><br><span class="line">hexo s #完整命令为hexo server,用于启动服务器，主要用来本地预览</span><br><span class="line">hexo d #完整命令为hexo deploy,用于将本地文件发布到github上</span><br><span class="line">hexo n #完整命令为hexo new,用于新建一篇文章</span><br><span class="line">hexo g -d #两个命令的合成，一般在修改或者添加博文后直接使用这个命令</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">hexo g #完整命令为hexo generate,用于生成静态文件</span><br><span class="line">hexo s #完整命令为hexo server,用于启动服务器，主要用来本地预览</span><br><span class="line">hexo d #完整命令为hexo deploy,用于将本地文件发布到github上</span><br><span class="line">hexo n #完整命令为hexo new,用于新建一篇文章</span><br><span class="line">hexo g -d #两个命令的合成，一般在修改或者添加博文后直接使用这个命令</span><br></pre></td></tr></table></figure>
 <p>运行下面代码：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hexo g</span><br><span class="line">hexo s</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">hexo g</span><br><span class="line">hexo s</span><br></pre></td></tr></table></figure>
 <p>访问<a href="http://localhost:4000，" target="_blank" rel="noopener">http://localhost:4000，</a> 此时，你就能看到了一个漂亮的博客。<br>默认主题为：landscape</p>
 <h2 id="三、注册Github帐号"><a href="#三、注册Github帐号" class="headerlink" title="三、注册Github帐号"></a>三、注册Github帐号</h2><p>已经有Github帐号跳过此步</p>
 <ol>
@@ -287,15 +293,15 @@
                 <div class="image-caption"></div>
             </figure>
 <p>source选中 master bransh ，然后save，就会出现一个网址。</p>
-<h2 id="四、部署本地文件到github"><a href="#四、部署本地文件到github" class="headerlink" title="四、部署本地文件到github"></a>四、部署本地文件到github</h2><h3 id="1-安装依赖"><a href="#1-安装依赖" class="headerlink" title="1. 安装依赖"></a>1. 安装依赖</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cnpm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
+<h2 id="四、部署本地文件到github"><a href="#四、部署本地文件到github" class="headerlink" title="四、部署本地文件到github"></a>四、部署本地文件到github</h2><h3 id="1-安装依赖"><a href="#1-安装依赖" class="headerlink" title="1. 安装依赖"></a>1. 安装依赖</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">cnpm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
 <h3 id="2-编辑配置文件"><a href="#2-编辑配置文件" class="headerlink" title="2. 编辑配置文件"></a>2. 编辑配置文件</h3><p>编辑博客文件夹下的_config.yml文件。</p>
-<p>在_config.yml最下方，添加如下配置：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deploy: </span><br><span class="line">    type: git</span><br><span class="line">    repo: https://github.com/用户名/仓库名/</span><br><span class="line">    branch: master</span><br></pre></td></tr></table></figure></p>
+<p>在_config.yml最下方，添加如下配置：<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">deploy: </span><br><span class="line">    type: git</span><br><span class="line">    repo: https://github.com/用户名/仓库名/</span><br><span class="line">    branch: master</span><br></pre></td></tr></table></figure></p>
 <h3 id="3-配置SSH"><a href="#3-配置SSH" class="headerlink" title="3. 配置SSH"></a>3. 配置SSH</h3><p>输入一下命令：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh -T git@github.com</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">ssh -T git@github.com</span><br></pre></td></tr></table></figure>
 <p>你应该会看到有警告，但是会有选项（yes/no），输入“yes”就好</p>
-<h3 id="4-运行-1"><a href="#4-运行-1" class="headerlink" title="4. 运行"></a>4. 运行</h3><p>在命令行中运行<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo g -d</span><br></pre></td></tr></table></figure></p>
+<h3 id="4-运行-1"><a href="#4-运行-1" class="headerlink" title="4. 运行"></a>4. 运行</h3><p>在命令行中运行<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">hexo g -d</span><br></pre></td></tr></table></figure></p>
 <p>完成后，打开原先的仓库网址，就能看到你的博客。</p>
-<h2 id="五、写博文"><a href="#五、写博文" class="headerlink" title="五、写博文"></a>五、写博文</h2><h3 id="1-新建博文"><a href="#1-新建博文" class="headerlink" title="1.  新建博文"></a>1.  新建博文</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo new &quot;my new post&quot;</span><br></pre></td></tr></table></figure>
+<h2 id="五、写博文"><a href="#五、写博文" class="headerlink" title="五、写博文"></a>五、写博文</h2><h3 id="1-新建博文"><a href="#1-新建博文" class="headerlink" title="1.  新建博文"></a>1.  新建博文</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">hexo new &quot;my new post&quot;</span><br></pre></td></tr></table></figure>
 <h3 id="2-编辑博文"><a href="#2-编辑博文" class="headerlink" title="2. 编辑博文"></a>2. 编辑博文</h3><blockquote>
 <p>博文使用的是markdown语言，如果有不会使用的，请参考我的博文：<br><a href="http://destinytaoer.cn/2017/07/markdown%E8%AF%AD%E6%B3%95/">mardown学习总结</a></p>
 </blockquote>
@@ -303,15 +309,15 @@
 <h3 id="3-Front-matter"><a href="#3-Front-matter" class="headerlink" title="3. Front-matter"></a>3. Front-matter</h3><blockquote>
 <p>博文的头部，官方文档介绍：<a href="https://github.com/hexojs/site/edit/master/source/zh-cn/docs/front-matter.md" target="_blank" rel="noopener">Front-matter</a></p>
 </blockquote>
-<p>Front-matter 是文件最上方以 —分隔的区域，用于指定个别文件的变量，如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">title: Hello World   #博文标题名</span><br><span class="line">date: 2013/7/13 20:46:25  #发布时间</span><br><span class="line">update:              #更新时间</span><br><span class="line">categories: blog     #文章文类</span><br><span class="line">tags: [life，travel]  #文章标签 只有一个标签时：tags: travel</span><br><span class="line">comments: true       #是否能够评论</span><br><span class="line">---</span><br><span class="line">#这里是正文，用markdown写</span><br><span class="line">#你可以选择写一段显示在首页的简介后，加上&lt;!--more--&gt;</span><br><span class="line">#在&lt;!--more--&gt;之前的内容会显示在首页，之后的内容会被隐藏，当游客点击Read more才能看到。</span><br></pre></td></tr></table></figure></p>
+<p>Front-matter 是文件最上方以 —分隔的区域，用于指定个别文件的变量，如：<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">title: Hello World   #博文标题名</span><br><span class="line">date: 2013/7/13 20:46:25  #发布时间</span><br><span class="line">update:              #更新时间</span><br><span class="line">categories: blog     #文章文类</span><br><span class="line">tags: [life，travel]  #文章标签 只有一个标签时：tags: travel</span><br><span class="line">comments: true       #是否能够评论</span><br><span class="line">---</span><br><span class="line">#这里是正文，用markdown写</span><br><span class="line">#你可以选择写一段显示在首页的简介后，加上&lt;!--more--&gt;</span><br><span class="line">#在&lt;!--more--&gt;之前的内容会显示在首页，之后的内容会被隐藏，当游客点击Read more才能看到。</span><br></pre></td></tr></table></figure></p>
 <p>写完文章后，你可以直接运行hexo g -d 上传到github。</p>
-<h2 id="六、创建页面"><a href="#六、创建页面" class="headerlink" title="六、创建页面"></a>六、创建页面</h2><p>使用命令：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo new page &quot;pagename&quot;</span><br></pre></td></tr></table></figure></p>
-<h3 id="1-归档页面"><a href="#1-归档页面" class="headerlink" title="1. 归档页面"></a>1. 归档页面</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo new page &quot;archives&quot;</span><br></pre></td></tr></table></figure>
-<p>进入博客目录的<code>source/archives/index.md</code>，添加<code>type</code>值：<br><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="attr">type:</span> <span class="string">archives</span></span><br><span class="line"><span class="meta">---</span></span><br></pre></td></tr></table></figure></p>
-<h3 id="2-分类页面"><a href="#2-分类页面" class="headerlink" title="2. 分类页面"></a>2. 分类页面</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo new page &quot;categories&quot;</span><br></pre></td></tr></table></figure>
-<p>进入博客目录的<code>source/categories/index.md</code>，添加<code>type</code>值：<br><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="attr">type:</span> <span class="string">categories</span></span><br><span class="line"><span class="meta">---</span></span><br></pre></td></tr></table></figure></p>
-<h3 id="3-标签页面"><a href="#3-标签页面" class="headerlink" title="3. 标签页面"></a>3. 标签页面</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo new page &quot;tags&quot;</span><br></pre></td></tr></table></figure>
-<p>进入博客目录的<code>source/tags/index.md</code>，添加<code>type</code>值：<br><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="attr">type:</span> <span class="string">tags</span></span><br><span class="line"><span class="meta">---</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="六、创建页面"><a href="#六、创建页面" class="headerlink" title="六、创建页面"></a>六、创建页面</h2><p>使用命令：<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">hexo new page &quot;pagename&quot;</span><br></pre></td></tr></table></figure></p>
+<h3 id="1-归档页面"><a href="#1-归档页面" class="headerlink" title="1. 归档页面"></a>1. 归档页面</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">hexo new page &quot;archives&quot;</span><br></pre></td></tr></table></figure>
+<p>进入博客目录的<code>source/archives/index.md</code>，添加<code>type</code>值：<br><figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="attr">type:</span> <span class="string">archives</span></span><br><span class="line"><span class="meta">---</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="2-分类页面"><a href="#2-分类页面" class="headerlink" title="2. 分类页面"></a>2. 分类页面</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">hexo new page &quot;categories&quot;</span><br></pre></td></tr></table></figure>
+<p>进入博客目录的<code>source/categories/index.md</code>，添加<code>type</code>值：<br><figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="attr">type:</span> <span class="string">categories</span></span><br><span class="line"><span class="meta">---</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="3-标签页面"><a href="#3-标签页面" class="headerlink" title="3. 标签页面"></a>3. 标签页面</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">hexo new page &quot;tags&quot;</span><br></pre></td></tr></table></figure>
+<p>进入博客目录的<code>source/tags/index.md</code>，添加<code>type</code>值：<br><figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="attr">type:</span> <span class="string">tags</span></span><br><span class="line"><span class="meta">---</span></span><br></pre></td></tr></table></figure></p>
 <blockquote>
 <p><strong>注意</strong>：上述页面都有对应插件生成，只需更改<code>type</code>值</p>
 </blockquote>
@@ -481,21 +487,10 @@
     <div class="footer-content">
         <span class="power">
             <i class="icon icon-lg icon-copyright"></i>
-            2016
+            2016-2018
             <i class="icon icon-lg icon-heart"></i>
             <a href="http://destinytaoer.cn">destiny</a>
             <br/>
-            Power by
-            <a href="https://hexo.io/" target="_blank" rel="external nofollow">Hexo</a>&nbsp;·&nbsp;
-            Theme
-            <a class="tomotoeslink" href="https://github.com/tomotoes/hexo-theme-tomotoes/" target="_blank" rel="external nofollow">tomotoes</a>
-        </span>
-
-        <br/>
-
-        <span id="RunTime" style="color:#a7a7a2;"></span>
-        <br/>
-
         <span>
             
 	<i class="icon icon-lg icon-user">
@@ -748,6 +743,7 @@ MathJax.Hub.Queue(function() {
 
 <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js" async></script>
 
+<script src="/js/comments-number.min.js"></script>
 
 </body>
 </html>

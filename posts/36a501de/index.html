@@ -221,6 +221,12 @@
 
 
             </li>
+        </ul>
+        <ul class="post-meta">
+            <li>
+                <i class="icon icon-comment-o icon-pr"></i><span id="comments-number" style="padding-right: 5px">0</span>评论
+
+            </li>
             <li>
                 
 <span id="busuanzi_container_page_pv" title="文章总阅读量">
@@ -240,7 +246,7 @@
 <p>为本文制作的demo：<a href="https://codepen.io/destiny0904/pen/rGomoB" target="_blank" rel="noopener">元素居中显示</a><br><a id="more"></a></p>
 </blockquote>
 <h1 id="一、单行文本"><a href="#一、单行文本" class="headerlink" title="一、单行文本"></a>一、单行文本</h1><p>这里的单行文本不仅是指单行显示的文本以及<strong>行内元素</strong>（设置了<code>display: inline;</code>的也是行内元素），当然这些元素也只有包含文本才有意义，才能显示出来。</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* 父元素*/</span></span><br><span class="line"><span class="selector-tag">div</span> &#123;</span><br><span class="line">  text-align: center;//水平居中</span><br><span class="line">  light-height: heightValue;//垂直居中</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="comment">/* 父元素*/</span></span><br><span class="line"><span class="selector-tag">div</span> &#123;</span><br><span class="line">  text-align: center;//水平居中</span><br><span class="line">  light-height: heightValue;//垂直居中</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p><strong>注意</strong>：</p>
 <ul>
 <li>这里的<code>heightValue</code>指的是<code>height</code>属性值，即行高值 = 高度值，才能实现垂直居中。</li>
@@ -250,14 +256,14 @@
 <p>具体原因请参考文章：<a href="http://www.jianshu.com/p/dc324a36ba84" target="_blank" rel="noopener">对文字和行高的理解</a></p>
 </blockquote>
 <h1 id="二、多行文本"><a href="#二、多行文本" class="headerlink" title="二、多行文本"></a>二、多行文本</h1><p>这里的多行文本，实际上应该说是<strong>不定行</strong>，这个方法能自适应的居中。</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* 父元素*/</span></span><br><span class="line"><span class="selector-tag">div</span> &#123;</span><br><span class="line">  <span class="attribute">text-align</span>: center;</span><br><span class="line">  <span class="attribute">display</span>: table-cell;</span><br><span class="line">  <span class="attribute">vertical-align</span>: middle;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="comment">/* 父元素*/</span></span><br><span class="line"><span class="selector-tag">div</span> &#123;</span><br><span class="line">  <span class="attribute">text-align</span>: center;</span><br><span class="line">  <span class="attribute">display</span>: table-cell;</span><br><span class="line">  <span class="attribute">vertical-align</span>: middle;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>这里设置<code>table-cell</code>，创建类似表格单元的元素，就可以使用<code>vertical-align</code>设置垂直对齐方式。</p>
 <blockquote>
 <p><strong>注意</strong>：在一些文章中，我看到还需要设置其子元素的<code>vertical-align</code>，但是在实践中发现并不需要。与下面使用<code>table-cell</code>的方法有所区别</p>
 </blockquote>
 <h1 id="三、图片"><a href="#三、图片" class="headerlink" title="三、图片"></a>三、图片</h1><p>这里图片泛指<strong>行内块元素</strong></p>
 <ul>
-<li><h3 id="table-cell-vertical-align"><a href="#table-cell-vertical-align" class="headerlink" title="table-cell + vertical-align"></a>table-cell + vertical-align</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* 父元素*/</span></span><br><span class="line"><span class="selector-tag">div</span> &#123;</span><br><span class="line">  <span class="attribute">display</span>: table-cell;</span><br><span class="line">  <span class="attribute">text-align</span>: center;</span><br><span class="line">  <span class="attribute">vertical-align</span>: middle;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/* 子元素img*/</span></span><br><span class="line"><span class="selector-tag">img</span>&#123;</span><br><span class="line">  <span class="attribute">vertical-align</span>:middle;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<li><h3 id="table-cell-vertical-align"><a href="#table-cell-vertical-align" class="headerlink" title="table-cell + vertical-align"></a>table-cell + vertical-align</h3><figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="comment">/* 父元素*/</span></span><br><span class="line"><span class="selector-tag">div</span> &#123;</span><br><span class="line">  <span class="attribute">display</span>: table-cell;</span><br><span class="line">  <span class="attribute">text-align</span>: center;</span><br><span class="line">  <span class="attribute">vertical-align</span>: middle;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/* 子元素img*/</span></span><br><span class="line"><span class="selector-tag">img</span>&#123;</span><br><span class="line">  <span class="attribute">vertical-align</span>:middle;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>这个方法与上面的有区分，子元素必须加上<code>vertical-align</code>，否则不同大小的图片显示效果不一样</p>
 </li>
@@ -267,7 +273,7 @@
 <p><strong>注意</strong>：在一些文章中，在父元素上还添加了<code>font-size</code>的大小控制，在我的实践中，不添加<code>font-size</code>可以实现效果。但是，当<code>font-size</code>达到一定程度的时候，会有影响。</p>
 </blockquote>
 <ul>
-<li><h3 id="vertical-align-font-size"><a href="#vertical-align-font-size" class="headerlink" title="vertical-align + font-size"></a>vertical-align + font-size</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* 父元素*/</span></span><br><span class="line"><span class="selector-tag">div</span> &#123;</span><br><span class="line"><span class="attribute">font-size</span>:<span class="number">128px</span>; </span><br><span class="line"><span class="attribute">vertical-align</span>: middle;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/* 子元素img*/</span></span><br><span class="line"><span class="selector-tag">img</span>&#123;</span><br><span class="line">  <span class="attribute">vertical-align</span>: middle;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<li><h3 id="vertical-align-font-size"><a href="#vertical-align-font-size" class="headerlink" title="vertical-align + font-size"></a>vertical-align + font-size</h3><figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="comment">/* 父元素*/</span></span><br><span class="line"><span class="selector-tag">div</span> &#123;</span><br><span class="line"><span class="attribute">font-size</span>:<span class="number">128px</span>; </span><br><span class="line"><span class="attribute">vertical-align</span>: middle;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/* 子元素img*/</span></span><br><span class="line"><span class="selector-tag">img</span>&#123;</span><br><span class="line">  <span class="attribute">vertical-align</span>: middle;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 <p><code>font-size</code>达到一定大小就会影响行内元素的垂直位置，具体是什么原因不明确，但是感觉是跟<code>vertical-align</code>以及行高有关。</p>
@@ -278,12 +284,12 @@
 <li><h3 id="其他方法参照下面的块元素实现"><a href="#其他方法参照下面的块元素实现" class="headerlink" title="其他方法参照下面的块元素实现"></a>其他方法参照下面的块元素实现</h3></li>
 </ul>
 <h1 id="四、盒子"><a href="#四、盒子" class="headerlink" title="四、盒子"></a>四、盒子</h1><p>盒子主要指<strong>块元素</strong>和<strong>行内块</strong>，下面分享的是布局中主要用到的。<code>margin: 0 auto</code>就不做介绍了。</p>
-<h2 id="1-position-负margin"><a href="#1-position-负margin" class="headerlink" title="1. position + 负margin"></a>1. position + 负margin</h2><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* 父元素 */</span></span><br><span class="line"><span class="selector-class">.demo</span>&#123;</span><br><span class="line">  <span class="attribute">position</span>: relative;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/* 子元素 */</span></span><br><span class="line"><span class="selector-class">.box</span>&#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">100px</span>;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">100px</span>;</span><br><span class="line">  <span class="attribute">position</span>: absolute;</span><br><span class="line">  <span class="attribute">top</span>: <span class="number">50%</span>;</span><br><span class="line">  <span class="attribute">left</span>: <span class="number">50%</span>;</span><br><span class="line">  <span class="attribute">margin-top</span>: -<span class="number">50px</span>; <span class="comment">/* img高度的一半*/</span></span><br><span class="line">  <span class="attribute">margin-left</span>: -<span class="number">50px</span>;<span class="comment">/* img宽度的一半*/</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="1-position-负margin"><a href="#1-position-负margin" class="headerlink" title="1. position + 负margin"></a>1. position + 负margin</h2><figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="comment">/* 父元素 */</span></span><br><span class="line"><span class="selector-class">.demo</span>&#123;</span><br><span class="line">  <span class="attribute">position</span>: relative;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/* 子元素 */</span></span><br><span class="line"><span class="selector-class">.box</span>&#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">100px</span>;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">100px</span>;</span><br><span class="line">  <span class="attribute">position</span>: absolute;</span><br><span class="line">  <span class="attribute">top</span>: <span class="number">50%</span>;</span><br><span class="line">  <span class="attribute">left</span>: <span class="number">50%</span>;</span><br><span class="line">  <span class="attribute">margin-top</span>: -<span class="number">50px</span>; <span class="comment">/* img高度的一半*/</span></span><br><span class="line">  <span class="attribute">margin-left</span>: -<span class="number">50px</span>;<span class="comment">/* img宽度的一半*/</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>利用<code>position</code>移动父元素宽高的一半，再利用负<code>margin</code>往回移动子元素宽高的一半，刚好居中对齐。适合固定宽高的元素。</p>
-<h2 id="2-position-translate"><a href="#2-position-translate" class="headerlink" title="2.position + translate"></a>2.position + translate</h2><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* 父元素 */</span></span><br><span class="line"><span class="selector-class">.demo</span>&#123;</span><br><span class="line">  <span class="attribute">position</span>: relative;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/* 子元素 */</span></span><br><span class="line"><span class="selector-class">.box</span>&#123;</span><br><span class="line">  <span class="attribute">position</span>: absolute;</span><br><span class="line">  <span class="attribute">top</span>: <span class="number">50%</span>;</span><br><span class="line">  <span class="attribute">left</span>: <span class="number">50%</span>;</span><br><span class="line">  <span class="attribute">transform</span>:<span class="built_in">translate3d</span>(-50%,-50%,0);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="2-position-translate"><a href="#2-position-translate" class="headerlink" title="2.position + translate"></a>2.position + translate</h2><figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="comment">/* 父元素 */</span></span><br><span class="line"><span class="selector-class">.demo</span>&#123;</span><br><span class="line">  <span class="attribute">position</span>: relative;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/* 子元素 */</span></span><br><span class="line"><span class="selector-class">.box</span>&#123;</span><br><span class="line">  <span class="attribute">position</span>: absolute;</span><br><span class="line">  <span class="attribute">top</span>: <span class="number">50%</span>;</span><br><span class="line">  <span class="attribute">left</span>: <span class="number">50%</span>;</span><br><span class="line">  <span class="attribute">transform</span>:<span class="built_in">translate3d</span>(-50%,-50%,0);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>同上理，这里利用<code>translate3d</code>往回移动。子元素不固定宽高也适用。</p>
 <h2 id="3-table-cell-vertical-align"><a href="#3-table-cell-vertical-align" class="headerlink" title="3. table-cell + vertical-align"></a>3. table-cell + vertical-align</h2><p>这就是前面图片提到的方法，只不过要设置子元素为<code>display: inline-block;</code></p>
-<h2 id="4-flex"><a href="#4-flex" class="headerlink" title="4. flex"></a>4. flex</h2><p>这才是真正的布局神器。适用于所有，但也需要灵活应用。<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.demo</span> &#123;</span><br><span class="line">  <span class="attribute">display</span>: flex;</span><br><span class="line">  <span class="attribute">align-items</span>: center;</span><br><span class="line">  <span class="attribute">justify-content</span>: center;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="4-flex"><a href="#4-flex" class="headerlink" title="4. flex"></a>4. flex</h2><p>这才是真正的布局神器。适用于所有，但也需要灵活应用。<br><figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.demo</span> &#123;</span><br><span class="line">  <span class="attribute">display</span>: flex;</span><br><span class="line">  <span class="attribute">align-items</span>: center;</span><br><span class="line">  <span class="attribute">justify-content</span>: center;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p>简洁、高效，在低版本IE存在兼容问题，但是现在几乎不用考虑了。</p>
 <blockquote>
 <p>详细语法请查看我的博文：<a href="http://www.jianshu.com/p/90dbbbecdf3b" target="_blank" rel="noopener">关于Flex布局</a></p>
@@ -440,21 +446,10 @@
     <div class="footer-content">
         <span class="power">
             <i class="icon icon-lg icon-copyright"></i>
-            2016
+            2016-2018
             <i class="icon icon-lg icon-heart"></i>
             <a href="http://destinytaoer.cn">destiny</a>
             <br/>
-            Power by
-            <a href="https://hexo.io/" target="_blank" rel="external nofollow">Hexo</a>&nbsp;·&nbsp;
-            Theme
-            <a class="tomotoeslink" href="https://github.com/tomotoes/hexo-theme-tomotoes/" target="_blank" rel="external nofollow">tomotoes</a>
-        </span>
-
-        <br/>
-
-        <span id="RunTime" style="color:#a7a7a2;"></span>
-        <br/>
-
         <span>
             
 	<i class="icon icon-lg icon-user">
@@ -705,6 +700,7 @@ MathJax.Hub.Queue(function() {
 
 <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js" async></script>
 
+<script src="/js/comments-number.min.js"></script>
 
 </body>
 </html>
