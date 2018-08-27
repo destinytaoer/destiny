@@ -5,16 +5,16 @@
     <meta charset="utf-8">
     
     
-    <link rel="canonical" href="destinytaoer.cn/posts/c52c9c94/">
+    <link rel="canonical" href="destinytaoer.cn/posts/8c41410f/">
     
     
-    <title>DOM的映射机制 | destiny&#39;Note | best for the best!</title>
+    <title>JS堆栈内存 | destiny&#39;Note | best for the best!</title>
     <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
     
     <meta name="theme-color" content="#77AAFF">
     
     
-    <meta name="keywords" content="web前端,JavaScript,DOM">
+    <meta name="keywords" content="web前端,JavaScript">
 
     
 
@@ -41,18 +41,18 @@
 
 
 
-    <meta name="description" content="前言这在我们平常操作 DOM 的时候司空见惯。就比如：我通过获取一个元素来改变其样式，自然而然的反映到 HTML 页面中。 但是，我们操作 JS 对象的时候，本质上操作的是 JS 堆内存，为什么会反映到页面中呢？就是因为浏览器存在这个 DOM 的映射机制。">
-<meta name="keywords" content="web前端,JavaScript,DOM">
+    <meta name="description" content="堆栈内存的作用JS 中的内存堆内存和栈内存，所有堆栈内存的处理，浏览器会自行在内部执行 栈内存：  提供一个供 JS 代码自上而下执行的环境（作用域，代码都是在栈内存中执行的） 由于基本类型比较简单，它们都是直接在栈内存中开辟一个位置，直接把值存储进去的  堆内存：引用值对应的空间存储引用类型的（对象：键值对，函数：代码字符串）">
+<meta name="keywords" content="web前端,JavaScript">
 <meta property="og:type" content="article">
-<meta property="og:title" content="DOM的映射机制">
-<meta property="og:url" content="http://destinytaoer.cn/posts/c52c9c94/index.html">
+<meta property="og:title" content="JS堆栈内存">
+<meta property="og:url" content="http://destinytaoer.cn/posts/8c41410f/index.html">
 <meta property="og:site_name" content="destiny&#39;Note">
-<meta property="og:description" content="前言这在我们平常操作 DOM 的时候司空见惯。就比如：我通过获取一个元素来改变其样式，自然而然的反映到 HTML 页面中。 但是，我们操作 JS 对象的时候，本质上操作的是 JS 堆内存，为什么会反映到页面中呢？就是因为浏览器存在这个 DOM 的映射机制。">
+<meta property="og:description" content="堆栈内存的作用JS 中的内存堆内存和栈内存，所有堆栈内存的处理，浏览器会自行在内部执行 栈内存：  提供一个供 JS 代码自上而下执行的环境（作用域，代码都是在栈内存中执行的） 由于基本类型比较简单，它们都是直接在栈内存中开辟一个位置，直接把值存储进去的  堆内存：引用值对应的空间存储引用类型的（对象：键值对，函数：代码字符串）">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-08-27T07:46:13.685Z">
+<meta property="og:updated_time" content="2018-08-27T07:54:35.225Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="DOM的映射机制">
-<meta name="twitter:description" content="前言这在我们平常操作 DOM 的时候司空见惯。就比如：我通过获取一个元素来改变其样式，自然而然的反映到 HTML 页面中。 但是，我们操作 JS 对象的时候，本质上操作的是 JS 堆内存，为什么会反映到页面中呢？就是因为浏览器存在这个 DOM 的映射机制。">
+<meta name="twitter:title" content="JS堆栈内存">
+<meta name="twitter:description" content="堆栈内存的作用JS 中的内存堆内存和栈内存，所有堆栈内存的处理，浏览器会自行在内部执行 栈内存：  提供一个供 JS 代码自上而下执行的环境（作用域，代码都是在栈内存中执行的） 由于基本类型比较简单，它们都是直接在栈内存中开辟一个位置，直接把值存储进去的  堆内存：引用值对应的空间存储引用类型的（对象：键值对，函数：代码字符串）">
     
         <link rel="alternate" type="application/atom+xml" title="destiny&#39;Note" href="/atom.xml">
     
@@ -158,7 +158,7 @@
         <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
           <i class="icon icon-lg icon-navicon"></i>
         </a>
-        <div class="flex-col header-title ellipsis">DOM的映射机制</div>
+        <div class="flex-col header-title ellipsis">JS堆栈内存</div>
         
         <div class="search-wrap" id="search-wrap">
             <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
@@ -198,20 +198,20 @@
     <aside class="post-widget">
         <nav class="post-toc-wrap" id="post-toc">
             <h4>TOC</h4>
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#前言"><span class="post-toc-text">前言</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#1-什么是-DOM-的映射机制？"><span class="post-toc-text">1. 什么是 DOM 的映射机制？</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#2-形成映射的几种情形"><span class="post-toc-text">2. 形成映射的几种情形</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#改变元素对象的属性"><span class="post-toc-text">改变元素对象的属性</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#在元素内部继续添加元素"><span class="post-toc-text">在元素内部继续添加元素</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#在页面中追加已有元素"><span class="post-toc-text">在页面中追加已有元素</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#3-特殊情况"><span class="post-toc-text">3. 特殊情况</span></a></li></ol>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#堆栈内存的作用"><span class="post-toc-text">堆栈内存的作用</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#堆内存的释放"><span class="post-toc-text">堆内存的释放</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#栈内存的释放"><span class="post-toc-text">栈内存的释放</span></a></li></ol>
         </nav>
     </aside>
    
-<article id="post-DOM的映射机制"
+<article id="post-JS堆栈内存"
   class="post-article article-type-post fade" itemprop="blogPost">
 
     <div class="post-card">
-        <h1 class="post-card-title">DOM的映射机制</h1>
+        <h1 class="post-card-title">JS堆栈内存</h1>
         <ul class="post-meta">
             <li>
                 <i class="icon icon-lg icon-calendar-o"></i>
                 发表于
-                <time class="post-time" title="2018-08-10 21:15:24" datetime="2018-08-10T13:15:24.000Z"  itemprop="datePublished">2018-08-10</time>
+                <time class="post-time" title="2018-08-23 11:01:53" datetime="2018-08-23T03:01:53.000Z"  itemprop="datePublished">2018-08-23</time>
 
             </li>
             <li>
@@ -238,33 +238,22 @@
         </ul>
         <div class="post-count-custom">
             <i class="icon icon-lg icon-comment-o"></i>
-            阅读本文可能花费您&nbsp;<span class="post-count">4</span>&nbsp;分钟
+            阅读本文可能花费您&nbsp;<span class="post-count">2</span>&nbsp;分钟
         </div>
         <div class="post-content" id="post-content" itemprop="postContent">
-            <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>这在我们平常操作 DOM 的时候司空见惯。就比如：我通过获取一个元素来改变其样式，自然而然的反映到 HTML 页面中。</p>
-<p>但是，我们操作 JS 对象的时候，本质上操作的是 JS 堆内存，为什么会反映到页面中呢？就是因为浏览器存在这个 DOM 的映射机制。</p>
-<a id="more"></a>
-<h1 id="1-什么是-DOM-的映射机制？"><a href="#1-什么是-DOM-的映射机制？" class="headerlink" title="1. 什么是 DOM 的映射机制？"></a>1. 什么是 DOM 的映射机制？</h1><p>我们使用 JS 从页面获取到的元素对象，或者自己手动创建的已经插入页面的元素对象，与页面中的 HTML 元素是绑定在一起的。也就是说修改其中一个，另一个也会跟着自动修改。这就是 DOM 的映射机制。</p>
-<h1 id="2-形成映射的几种情形"><a href="#2-形成映射的几种情形" class="headerlink" title="2. 形成映射的几种情形"></a>2. 形成映射的几种情形</h1><h2 id="改变元素对象的属性"><a href="#改变元素对象的属性" class="headerlink" title="改变元素对象的属性"></a>改变元素对象的属性</h2><p>这是我们最常用到的一种情形。当我们需要为元素添加自定义属性、或者修改属性等，就可以从页面中获取到元素对象，然后对其进行修改，就能够自动反映到 HTML 页面元素上。<br><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">//=&gt; 修改从页面中获取的元素样式</span></span><br><span class="line">Div.style.color = <span class="string">'red'</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">//=&gt; 修改已经插入页面的元素的属性</span></span><br><span class="line"><span class="keyword">var</span> p = <span class="built_in">document</span>.createElement(<span class="string">'p'</span>);</span><br><span class="line">box.appendChild(p);</span><br><span class="line">p.dataset.index = <span class="number">1</span>;</span><br></pre></td></tr></table></figure></p>
-<p>这两种方式得到的元素对象，修改其属性，都能够直接反映到页面中，不需要再次插入页面中。</p>
-<h2 id="在元素内部继续添加元素"><a href="#在元素内部继续添加元素" class="headerlink" title="在元素内部继续添加元素"></a>在元素内部继续添加元素</h2><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">//=&gt; 在其内部插入标签或文本</span></span><br><span class="line"><span class="keyword">var</span> list = Div.getElementsByTagName(<span class="string">'li'</span>);</span><br><span class="line"><span class="built_in">console</span>.log(list); <span class="comment">// 空的元素集合</span></span><br><span class="line">Div.innerHTML(<span class="string">'&lt;li&gt;&lt;/li&gt;'</span>);</span><br><span class="line"><span class="built_in">console</span>.log(list); <span class="comment">// 有一个元素集合</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//=&gt; 添加自己创建的元素对象，同样原理</span></span><br><span class="line">Div.appendChild(p);</span><br></pre></td></tr></table></figure>
-<p>在容器中的数据绑定前，我们获取容器中元素，得到一个空的元素集合，容器数据绑定后，我们不需要重新获取，DOM 的映射机制会帮我们把新增加的元素映射到之前获取的空集合中，让其变为有元素的集合。</p>
-<h2 id="在页面中追加已有元素"><a href="#在页面中追加已有元素" class="headerlink" title="在页面中追加已有元素"></a>在页面中追加已有元素</h2><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">list = Div.getElementsByTagName(<span class="string">'li'</span>)[<span class="number">0</span>];</span><br><span class="line">Div.appendChild(list);</span><br></pre></td></tr></table></figure>
-<p><code>appendChild</code> 在追加元素对象的时候，如果这个元素在容器中已经存在，此时<strong>并不是克隆一份新的追加到末尾，而是把原有的元素移动到末尾。</strong></p>
-<blockquote>
-<p>其根本原因在于，同一个元素在页面中，只能够有一个位置。把 JS 元素对象插入页面中某个位置，实际上就是把其绑定的 HTML 元素移动到那个位置上。</p>
-</blockquote>
-<p>这里的元素已经存在有两种情形：</p>
+            <h1 id="堆栈内存的作用"><a href="#堆栈内存的作用" class="headerlink" title="堆栈内存的作用"></a>堆栈内存的作用</h1><p>JS 中的内存堆内存和栈内存，所有堆栈内存的处理，浏览器会自行在内部执行</p>
+<p>栈内存：</p>
 <ul>
-<li>元素是从页面中获取到的</li>
-<li>创建的元素已经添加过一次，再次添加时</li>
+<li>提供一个供 JS 代码自上而下执行的环境（作用域，代码都是在栈内存中执行的）</li>
+<li>由于基本类型比较简单，它们都是直接在栈内存中开辟一个位置，直接把值存储进去的</li>
 </ul>
-<p>因此，就无需手动移除原先的元素，再进行添加。直接插入即可。</p>
-<h1 id="3-特殊情况"><a href="#3-特殊情况" class="headerlink" title="3. 特殊情况"></a>3. 特殊情况</h1><p><code>querySelectAll</code> 获取的集合是静态集合（staticNodeList），不存在上述所谓的映射机制，基于这个方法，数据绑定完成后需要重新获取一次才可以。<br><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> box = <span class="built_in">document</span>.querySelectorAll(<span class="string">'#box'</span>);</span><br><span class="line"><span class="keyword">var</span> box1 = <span class="built_in">document</span>.getElementById(<span class="string">'box'</span>);</span><br><span class="line"><span class="built_in">console</span>.log(box); <span class="comment">//=&gt; 获取到的是 NodeList 对象</span></span><br><span class="line"><span class="built_in">console</span>.dir(box1); <span class="comment">//=&gt; 而这里获取到的是 HTMLElement 的实例</span></span><br></pre></td></tr></table></figure></p>
-<p>这个特殊的 NodeList 不存在与 HTML 页面元素的映射，而且没有很多 HTMLElement 实例才拥有的方法。因此，使用这个方法的时候每次操作时，都应该重新获取。</p>
-<p>另外，jQuery 中获取的元素同样不存在这些映射，实现映射需要使用其内部的方法，而且要使用原生 HTMLElement 实例的方法，需要通过后面加 <code>[0]</code> 的方法转换为原生元素对象。</p>
-<p>另外，由于存在这种映射机制，在使用循环 DOM 中，改变了 DOM 的顺序，那么循环原本的顺序也就改变了。<br><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">[].forEach.call(children, (item)=&gt; &#123;</span><br><span class="line">  parent.appendChild(item);</span><br><span class="line">&#125;);</span><br><span class="line"><span class="comment">//=&gt; 这样做你会发现，循环完成后 children 改变了，不符合预期</span></span><br></pre></td></tr></table></figure></p>
-<p>因此，真实项目中，不应该过分依赖于 DOM 的映射机制。</p>
+<p>堆内存：引用值对应的空间<br>存储引用类型的（对象：键值对，函数：代码字符串）<br><a id="more"></a></p>
+<h1 id="堆内存的释放"><a href="#堆内存的释放" class="headerlink" title="堆内存的释放"></a>堆内存的释放</h1><p>让所有引用堆内存空间地址的变量赋值为 <code>null</code> 即可，当堆内存没有被任何的变量或者其他东西引用时，就会在浏览器执行垃圾回收的时候，被销毁掉。</p>
+<p>堆内存释放后，里面存储的值也就会被释放掉。</p>
+<h1 id="栈内存的释放"><a href="#栈内存的释放" class="headerlink" title="栈内存的释放"></a>栈内存的释放</h1><p>全局作用域会在页面关闭或者刷新的时候释放。（栈内存释放后，存储在栈内存中的值也都会销毁。<br>）</p>
+<p>私有作用域：一般情况下，当函数执行完成，所形成的私有作用域（栈内存）都会自动释放掉，但是也有特殊的情况。</p>
+<p>函数执行完成，当前形成的栈内存中，某些内容被栈内存意外的变量一直占用，此时栈内存不能释放，栈内存中存储的基本值也不会被释放，一直保存下来。最典型的就是闭包。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> i = <span class="number">1</span>;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params">i</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params">n</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(n + (++i));</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> f = fn(<span class="number">2</span>); <span class="comment">//=&gt; i = 2</span></span><br><span class="line">f(<span class="number">3</span>); <span class="comment">//=&gt;7, i = 2 n =3，执行 n + (++i) =&gt; 3 + 3 = 6</span></span><br><span class="line">fn(<span class="number">5</span>)(<span class="number">6</span>); <span class="comment">//=&gt;12, i = 5 n = 6，执行 n + (++i) =&gt; 6 + 6 = 12</span></span><br><span class="line">fn(<span class="number">7</span>)(<span class="number">8</span>); <span class="comment">//=&gt;16, i = 7 n = 8，执行 n + (++i) =&gt; 8 + 8 = 16</span></span><br><span class="line">f(<span class="number">4</span>); <span class="comment">//=&gt;8, i = 3 n = 4，执行 n + (++i) =&gt; 4 + 4 = 8</span></span><br></pre></td></tr></table></figure>
 <blockquote class="blockquote-center">生命的意义不仅是活着，而是我们给别人的生命带来了何种不同。</blockquote>
 
         </div>
@@ -272,15 +261,15 @@
         <blockquote class="post-copyright">
     <ul class="content">
         <li class="post-time">
-            <span>发布时间：</span><time datetime="2018-08-10T13:15:24.000Z" itemprop="dateUpdated">2018-08-10 21:15:24</time>
+            <span>发布时间：</span><time datetime="2018-08-23T03:01:53.000Z" itemprop="dateUpdated">2018-08-23 11:01:53</time>
         </li>
         <li class="post-time">
             <span>更新时间：</span>
-            <time datetime="2018-08-27T07:46:24.000Z" itemprop="dateUpdate">2018-08-27 15:46:24</time>
+            <time datetime="2018-08-23T03:01:53.000Z" itemprop="dateUpdate">2018-08-23 11:01:53</time>
         </li>
         <li class="post-time">
             
-            <span>本文链接：</span><a href="/posts/c52c9c94/" target="_blank" rel="external">http://destinytaoer.cn/posts/c52c9c94/</a>
+            <span>本文链接：</span><a href="/posts/8c41410f/" target="_blank" rel="external">http://destinytaoer.cn/posts/8c41410f/</a>
             
         </li>
         <li class="post-time">
@@ -300,7 +289,7 @@
 
         <div class="post-footer">
             
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/DOM/">DOM</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/web前端/">web前端</a></li></ul>
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/web前端/">web前端</a></li></ul>
 
 
             
@@ -310,7 +299,7 @@
 <div class="page-share" id="pageShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://destinytaoer.cn/posts/c52c9c94/&title=《DOM的映射机制》 — destiny'Note&pic=http://destinytaoer.cnimg/author1.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://destinytaoer.cn/posts/8c41410f/&title=《JS堆栈内存》 — destiny'Note&pic=http://destinytaoer.cnimg/author1.jpg" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -320,23 +309,25 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://destinytaoer.cn/posts/c52c9c94/&title=《DOM的映射机制》 — destiny'Note&source=前言这在我们平常操作 DOM 的时候司空见惯。就比如：我通过获取一个元素来改变其样式，自然而然的反映到 HTML 页面中。
-但是，我们操作 JS 对象的时..." data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://destinytaoer.cn/posts/8c41410f/&title=《JS堆栈内存》 — destiny'Note&source=堆栈内存的作用JS 中的内存堆内存和栈内存，所有堆栈内存的处理，浏览器会自行在内部执行
+栈内存：
+
+提供一个供 JS 代码自上而下执行的环境（作用域，代码..." data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://destinytaoer.cn/posts/c52c9c94/" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://destinytaoer.cn/posts/8c41410f/" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《DOM的映射机制》 — destiny'Note&url=http://destinytaoer.cn/posts/c52c9c94/&via=http://destinytaoer.cn" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《JS堆栈内存》 — destiny'Note&url=http://destinytaoer.cn/posts/8c41410f/&via=http://destinytaoer.cn" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://destinytaoer.cn/posts/c52c9c94/" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://destinytaoer.cn/posts/8c41410f/" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -356,21 +347,13 @@
     </div>
 
     
-<nav class="post-nav flex-row flex-justify-between">
-  
-    <div class="waves-block waves-effect prev">
-      <a href="/posts/bd208f70/" id="post-prev" class="post-nav-link">
-        <h4 class="title" >
-          上一篇：JS变量提升
-        </h4>
-      </a>
-    </div>
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
   
 
   
     <div class="waves-block waves-effect next">
-      <a href="/posts/ce1c69ab/" id="post-next" class="post-nav-link">
-        <h4 class="title" data-hover="下一篇：记第一次博客改版更新">下一篇：记第一次博客改版更新</h4>
+      <a href="/posts/bd208f70/" id="post-next" class="post-nav-link">
+        <h4 class="title" data-hover="下一篇：JS变量提升">下一篇：JS变量提升</h4>
       </a>
     </div>
   
@@ -483,7 +466,7 @@
 <div class="global-share" id="globalShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://destinytaoer.cn/posts/c52c9c94/&title=《DOM的映射机制》 — destiny'Note&pic=http://destinytaoer.cnimg/author1.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://destinytaoer.cn/posts/8c41410f/&title=《JS堆栈内存》 — destiny'Note&pic=http://destinytaoer.cnimg/author1.jpg" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -493,23 +476,25 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://destinytaoer.cn/posts/c52c9c94/&title=《DOM的映射机制》 — destiny'Note&source=前言这在我们平常操作 DOM 的时候司空见惯。就比如：我通过获取一个元素来改变其样式，自然而然的反映到 HTML 页面中。
-但是，我们操作 JS 对象的时..." data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://destinytaoer.cn/posts/8c41410f/&title=《JS堆栈内存》 — destiny'Note&source=堆栈内存的作用JS 中的内存堆内存和栈内存，所有堆栈内存的处理，浏览器会自行在内部执行
+栈内存：
+
+提供一个供 JS 代码自上而下执行的环境（作用域，代码..." data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://destinytaoer.cn/posts/c52c9c94/" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://destinytaoer.cn/posts/8c41410f/" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《DOM的映射机制》 — destiny'Note&url=http://destinytaoer.cn/posts/c52c9c94/&via=http://destinytaoer.cn" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《JS堆栈内存》 — destiny'Note&url=http://destinytaoer.cn/posts/8c41410f/&via=http://destinytaoer.cn" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://destinytaoer.cn/posts/c52c9c94/" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://destinytaoer.cn/posts/8c41410f/" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -520,7 +505,7 @@
 <div class="page-modal wx-share" id="wxShare">
     <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p class="wechatshare">扫一扫，分享到微信</p>
-    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://destinytaoer.cn/posts/c52c9c94/" alt="微信分享二维码">
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://destinytaoer.cn/posts/8c41410f/" alt="微信分享二维码">
 </div>
 
 

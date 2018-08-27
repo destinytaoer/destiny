@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Language" content="zh-cn">
+    <meta charset="utf-8">
+    
+    
+    <link rel="canonical" href="destinytaoer.cn/posts/bd208f70/">
+    
+    
+    <title>JS变量提升 | destiny&#39;Note | best for the best!</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    
+    <meta name="theme-color" content="#77AAFF">
+    
+    
+    <meta name="keywords" content="web前端,JavaScript">
+
+    
+
+    
+
+    <!-- Baidu Push -->
+<script>
+	(function(){
+		var bp = document.createElement('script');
+		var curProtocol = window.location.protocol.split(':')[0];
+		if (curProtocol === 'https') {
+			bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+		}
+		else {
+			bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+		}
+		var s = document.getElementsByTagName("script")[0];
+		s.parentNode.insertBefore(bp, s);
+	})();
+
+	var _hmt = _hmt || [];
+</script>
+
+
+
+
+    <meta name="description" content="1. 变量提升的概念变量提升的概念：当栈内存（作用域）形成，JS 代码自上而下执行之前，浏览器首先会把所有带 var / function 关键字开头的进行提前声明或者定义，这种预先处理机制称为“变量提升”。  声明（declare）：var a （默认 undefined）定义（defined）：a = 12（定义其实就是赋值操作）">
+<meta name="keywords" content="web前端,JavaScript">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JS变量提升">
+<meta property="og:url" content="http://destinytaoer.cn/posts/bd208f70/index.html">
+<meta property="og:site_name" content="destiny&#39;Note">
+<meta property="og:description" content="1. 变量提升的概念变量提升的概念：当栈内存（作用域）形成，JS 代码自上而下执行之前，浏览器首先会把所有带 var / function 关键字开头的进行提前声明或者定义，这种预先处理机制称为“变量提升”。  声明（declare）：var a （默认 undefined）定义（defined）：a = 12（定义其实就是赋值操作）">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-08-27T07:54:35.222Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JS变量提升">
+<meta name="twitter:description" content="1. 变量提升的概念变量提升的概念：当栈内存（作用域）形成，JS 代码自上而下执行之前，浏览器首先会把所有带 var / function 关键字开头的进行提前声明或者定义，这种预先处理机制称为“变量提升”。  声明（declare）：var a （默认 undefined）定义（defined）：a = 12（定义其实就是赋值操作）">
+    
+        <link rel="alternate" type="application/atom+xml" title="destiny&#39;Note" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/img/favicon.ico">
+    <link id="style" rel="stylesheet" href="/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+    <aside id="menu"   >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" >
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/author1.jpg" alt="avatar">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname" id="name">destiny</h5>
+          
+            <div id="mymotto" class="motto">Best for the best!</div>
+          
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+              <li class="waves-block waves-effect">
+                  <a href="/"  >
+                    <i class="icon icon-lg icon-home"></i>
+                    <span>主 页</span><i class="icon icon-lg icon-caret-left"></i>
+                  </a>
+              </li>
+            
+              <li class="waves-block waves-effect">
+                  <a href="/archives"  >
+                    <i class="icon icon-lg icon-archives"></i>
+                    <span>归 档</span><i class="icon icon-lg icon-caret-left"></i>
+                  </a>
+              </li>
+            
+              <li class="waves-block waves-effect">
+                  <a href="/categories"  >
+                    <i class="icon icon-lg icon-th-list"></i>
+                    <span>分 类</span><i class="icon icon-lg icon-caret-left"></i>
+                  </a>
+              </li>
+            
+              <li class="waves-block waves-effect">
+                  <a href="/tags"  >
+                    <i class="icon icon-lg icon-tags"></i>
+                    <span>标 签</span><i class="icon icon-lg icon-caret-left"></i>
+                  </a>
+              </li>
+            
+              <li class="waves-block waves-effect">
+                  <a href="/about"  >
+                    <i class="icon icon-lg icon-user"></i>
+                    <span>关 于</span><i class="icon icon-lg icon-caret-left"></i>
+                  </a>
+              </li>
+            
+      <div class="nav2">
+          
+              <a class="nav2item" data-title="Email" href="mailto:1848765519@qq.com" target="_parent"title="Email" >
+                <i class="icon icon-lg icon-envelope-o envelope-o"></i>
+              </a>
+          
+              <a class="nav2item" data-title="Github" href="https://github.com/destinytaoer" target="_blank"title="Github" >
+                <i class="icon icon-lg icon-github github"></i>
+              </a>
+          
+              <a class="nav2item" data-title="CSDN" href="https://blog.csdn.net/destinytaoer" target="_blank"title="CSDN" >
+                <i class="icon icon-lg icon-book book"></i>
+              </a>
+          
+              <a class="nav2item" data-title="微信" href="/img/wechat.jpg" target="_blank"title="微信" >
+                <i class="icon icon-lg icon-wechat wechat"></i>
+              </a>
+          
+
+            </div>
+
+      </ul>
+
+    </div>
+  </div>
+
+</aside>
+
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">JS变量提升</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        <a href="../../atom.xml" target="_blank" class="header-icon waves-effect waves-circle waves-light" id="Rss">
+            <i class="icon icon-lg icon-rss"></i>
+        </a>
+    </div>
+</header>
+<header class="content-header post-header">
+    
+    
+    <div class="container fade-scale">
+        <div id="myheader">
+            <h1 class="title">
+                
+            </h1>
+            <h5 class="subtitle">
+                
+                
+            </h5>
+        </div>
+    </div>
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#1-变量提升的概念"><span class="post-toc-text">1. 变量提升的概念</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#深入理解变量提升"><span class="post-toc-text">深入理解变量提升</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#2-带-var-和-不带-var-的区别"><span class="post-toc-text">2. 带 var 和 不带 var 的区别</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#3-变量提升的特殊情况"><span class="post-toc-text">3. 变量提升的特殊情况</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#4-重名问题的处理"><span class="post-toc-text">4. 重名问题的处理</span></a></li></ol>
+        </nav>
+    </aside>
+   
+<article id="post-JS变量提升"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">JS变量提升</h1>
+        <ul class="post-meta">
+            <li>
+                <i class="icon icon-lg icon-calendar-o"></i>
+                发表于
+                <time class="post-time" title="2018-08-20 19:34:53" datetime="2018-08-20T11:34:53.000Z"  itemprop="datePublished">2018-08-20</time>
+
+            </li>
+            <li>
+                
+	<i class="icon icon-lg icon-folder-o"></i>
+	分类：<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/前端技术/">前端技术</a></li></ul>
+
+
+            </li>
+        </ul>
+        <ul class="post-meta">
+            <li>
+                <i class="icon icon-comment-o icon-pr"></i><span id="comments-number" style="padding-right: 5px">0</span>评论
+
+            </li>
+            <li>
+                
+<span id="busuanzi_container_page_pv" title="文章总阅读量">
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>次浏览
+</span>
+
+
+            </li>
+        </ul>
+        <div class="post-count-custom">
+            <i class="icon icon-lg icon-comment-o"></i>
+            阅读本文可能花费您&nbsp;<span class="post-count">8</span>&nbsp;分钟
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="1-变量提升的概念"><a href="#1-变量提升的概念" class="headerlink" title="1. 变量提升的概念"></a>1. 变量提升的概念</h1><p>变量提升的概念：<br>当栈内存（作用域）形成，JS 代码自上而下执行之前，浏览器首先会把所有带 <code>var / function</code> 关键字开头的进行提前声明或者定义，这种预先处理机制称为“变量提升”。</p>
+<blockquote>
+<p>声明（declare）：<code>var a</code> （默认 <code>undefined</code>）<br>定义（defined）：<code>a = 12</code>（定义其实就是赋值操作）</p>
+</blockquote>
+<a id="more"></a>
+<p>在变量提升阶段：</p>
+<ul>
+<li>带 <code>var</code>  是只提升声明未定义（给个默认值 <code>undefined</code>）</li>
+<li>带 <code>function</code> 是提升声明和定义都完成了</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(a); <span class="comment">//=&gt; undefined，如果后面都没有声明，那么就会报错</span></span><br><span class="line"><span class="keyword">var</span> a = <span class="number">12</span>;</span><br><span class="line"></span><br><span class="line">b(); <span class="comment">//=&gt; 1，可以直接使用，如果后面没有定义，那么会报错</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">b</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="number">1</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>因为用 <code>function</code> 关键字声明的函数 ，在变量提升阶段已经赋好值了，所以我们可以在 JS 文件中的任意位置调用这个函数</p>
+</blockquote>
+<h2 id="深入理解变量提升"><a href="#深入理解变量提升" class="headerlink" title="深入理解变量提升"></a>深入理解变量提升</h2><p><strong>变量提升只发生在当前作用域</strong><br>开始加载页面的时候只对全局作用域下进行变量提升，因为此时函数中存储的都是字符串而已</p>
+<p>在全局作用域下声明的函数或者变量是全局变量，同理，在私有作用域下声明的变量是私有变量[带 <code>var/function</code> 的才是声明]</p>
+<p><strong>代码执行时，跳过已提升的声明和定义</strong><br>浏览器很懒，做过的事情不会重复执行第二遍，也就是当代码执行遇到创建函数这部分代码后，直接跳过即可。遇到变量声明时，也会直接跳过声明，进行赋值。因为在提升阶段就已经完成变量的声明和函数的赋值操作。</p>
+<p><strong>函数执行，形成私有作用域后，也会进行变量提升</strong><br>私有作用域形成后，会先进行形参赋值，然后进行变量提升</p>
+<p><strong>ES5 中的作用域</strong><br>在 ES5 语法规范中，只有全局作用域和函数执行的私有作用域，其他大括号不会形成栈内存</p>
+<h1 id="2-带-var-和-不带-var-的区别"><a href="#2-带-var-和-不带-var-的区别" class="headerlink" title="2. 带 var 和 不带 var 的区别"></a>2. 带 var 和 不带 var 的区别</h1><p>在全局作用域下声明一个变量，也相当于个 <code>window</code> 全局对象设置了一个属性，变量值就是属性值。而私有作用域中声明的私有变量和 <code>window</code> 没有关系。<br><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">a; <span class="comment">//=&gt; undefined</span></span><br><span class="line"><span class="built_in">window</span>.a; <span class="comment">//=&gt; undefined</span></span><br><span class="line"><span class="string">'a'</span> <span class="keyword">in</span> <span class="built_in">window</span>; <span class="comment">//=&gt; true 在变量提升阶段，在全局作用域中声明了一个变量 a，此时就已经把 a 当作属性添加到 window 上了，只不过此时还没有给 a 赋值，默认值为 undefined</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> a = <span class="number">12</span>; </span><br><span class="line">a; <span class="comment">//=&gt; 全局变量 a 12</span></span><br><span class="line"><span class="built_in">window</span>.a; <span class="comment">//=&gt; window 的属性 a 12</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//=&gt; 全局变量和 window 中的属性存在映射机制</span></span><br><span class="line">a = <span class="number">13</span>;</span><br><span class="line"><span class="built_in">window</span>.a; <span class="comment">//=&gt; 13</span></span><br><span class="line"><span class="built_in">window</span>.a = <span class="number">14</span>;</span><br><span class="line">a; <span class="comment">//=&gt; 14</span></span><br></pre></td></tr></table></figure></p>
+<p>全局作用域中：<br>不带 <code>var</code> 时，本质是给 <code>window</code> 添加属性<br>在读取属性时，首先检测其是否是变量，是变量则读取其值，不是变量，则读取 <code>window</code> 中的属性，<code>window</code> 也没有这个属性，则报错。<br><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">a; <span class="comment">//=&gt; 报错</span></span><br><span class="line"><span class="built_in">window</span>.a; <span class="comment">//=&gt; undefined，这里是对象机制，没有这个属性则返回 undefined</span></span><br><span class="line"><span class="string">'a'</span> <span class="keyword">in</span> <span class="built_in">window</span>; <span class="comment">//=&gt; false，说明 window 中没有 a</span></span><br><span class="line">a = <span class="number">12</span>; <span class="comment">//=&gt; 相当于 window.a = 12，此时的 a 不是变量，而是 window 的属性</span></span><br><span class="line">a;<span class="comment">//=&gt; 12</span></span><br><span class="line"><span class="built_in">window</span>.a; <span class="comment">//=&gt; 12</span></span><br></pre></td></tr></table></figure></p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="number">12</span>, b = <span class="number">13</span>; </span><br><span class="line"><span class="comment">//=&gt; 此时 b 是带 var 的，相当于 var a = 12; var b = 13;</span></span><br><span class="line"><span class="keyword">var</span> a = b = <span class="number">12</span>;</span><br><span class="line"><span class="comment">//=&gt; 此时 b 不带 var 的，相当于 var a = 12; b = 12;</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(a, b); <span class="comment">//=&gt; undefined undefined</span></span><br><span class="line"><span class="keyword">var</span> a = <span class="number">12</span>, b = <span class="number">12</span>;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(a,b); <span class="comment">//=&gt; undefined 12</span></span><br><span class="line">  <span class="keyword">var</span> a = b = <span class="number">13</span>;</span><br><span class="line">  <span class="built_in">console</span>.log(a, b); <span class="comment">//=&gt; 13, 13</span></span><br><span class="line">&#125;</span><br><span class="line">fn();</span><br><span class="line"><span class="built_in">console</span>.log(a,b); <span class="comment">//=&gt; 12, 13</span></span><br></pre></td></tr></table></figure>
+<p>私有作用域中：</p>
+<ul>
+<li>带 var 的在私有作用域变量提升阶段，都声明为私有变量，和外界没有任何关系</li>
+<li>不带 var 的不是私有变量，会向它的上级作用域查找，一直找到 window 为止（我们把这种查找机制叫做作用域链）</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  b = <span class="number">12</span>;</span><br><span class="line">  <span class="string">'b'</span> <span class="keyword">in</span> <span class="built_in">window</span>;</span><br><span class="line">  <span class="comment">//=&gt; true，在作用域链查找过程中，如果知道找到全局作用域 window 中也没有这个变量，则是相当于给 window 设置了一个属性 b</span></span><br><span class="line">  <span class="built_in">console</span>.log(b); <span class="comment">//=&gt; 12</span></span><br><span class="line">&#125;</span><br><span class="line">fn();</span><br><span class="line"><span class="built_in">console</span>.log(b); <span class="comment">//=&gt; 12，此时读取的也是 window 的属性</span></span><br></pre></td></tr></table></figure>
+<p>具体分析：<br><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">a(); <span class="comment">//=&gt; f 函数体</span></span><br><span class="line"><span class="keyword">var</span> a = <span class="number">10</span>;</span><br><span class="line"><span class="keyword">var</span> a = <span class="number">20</span>;</span><br><span class="line"><span class="built_in">console</span>.log(a) <span class="comment">//=&gt; 20</span></span><br><span class="line">a(); <span class="comment">//=&gt; 报错，此时 a=20，不是函数</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">a</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(a);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> * 变量提升过程：</span></span><br><span class="line"><span class="comment"> * var a; function a = xxxfff000</span></span><br><span class="line"><span class="comment"> * 代码执行</span></span><br><span class="line"><span class="comment"> * a() --&gt; a 执行，里面输出 a，也就是地址对应函数</span></span><br><span class="line"><span class="comment"> * a = 10; --&gt; 这是的变量 a 从地址变成了数字 10</span></span><br><span class="line"><span class="comment"> * a = 20; --&gt; 这时的变量 a 从数字 10 变成数字 20</span></span><br><span class="line"><span class="comment"> * console.log(a); --&gt; 输出变量 20</span></span><br><span class="line"><span class="comment"> * a() --&gt; a 执行，相当于 20()，不是函数，所以直接报错：a is not a function</span></span><br><span class="line"><span class="comment"> */</span></span><br></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">fn();// 15</span><br><span class="line">var n = 13;</span><br><span class="line">console.log(n); // 13</span><br><span class="line">fn(); // 15</span><br><span class="line">console.log(n);//15</span><br><span class="line">function fn()&#123;</span><br><span class="line">  n = 15;</span><br><span class="line">  console.log(n);</span><br><span class="line">&#125;</span><br><span class="line">fn(); // 15</span><br><span class="line">alert(n);//15</span><br><span class="line">// 在变量提升阶段   n :undefined</span><br><span class="line">// fn()           n : 15</span><br><span class="line">// n = 13;        n : 13</span><br><span class="line">// fn()           n : 15</span><br></pre></td></tr></table></figure>
+<h1 id="3-变量提升的特殊情况"><a href="#3-变量提升的特殊情况" class="headerlink" title="3. 变量提升的特殊情况"></a>3. 变量提升的特殊情况</h1><p>（1）等号右边的不会进行变量提升<br><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">fn(); <span class="comment">//=&gt; 变量提升，可以执行</span></span><br><span class="line">a(); <span class="comment">//=&gt; 变量提升，只提升了声明未定义，报错 a is not a function</span></span><br><span class="line">f(); <span class="comment">//=&gt; 不提升，报错，f is not defined</span></span><br><span class="line"><span class="keyword">var</span> a = <span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params"></span>)</span>&#123;&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params"></span>) </span>&#123;&#125;</span><br></pre></td></tr></table></figure></p>
+<p>（2）条件语句中的变量提升</p>
+<ul>
+<li>对于 <code>var</code> 没有影响的，不管条件是否成立，都会进行变量提升</li>
+<li>对于 <code>function</code> 比较特殊：<ul>
+<li>在老版本浏览器渲染机制下，声明加定义都提升</li>
+<li>为了迎合 ES6 中的块级作用域，新版本浏览器对于函数，不管条件是否成立，都只提升声明，没有定义，类似 <code>var</code></li>
+</ul>
+</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(sum2,sum3); <span class="comment">//=&gt; undefined undefined</span></span><br><span class="line"><span class="built_in">console</span>.log(f,g); <span class="comment">//=&gt; undefined undefined</span></span><br><span class="line"><span class="keyword">if</span>(<span class="number">1</span> &gt; <span class="number">2</span>)&#123;</span><br><span class="line">  <span class="keyword">var</span> f = <span class="number">12</span>;</span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">sum2</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="number">12</span>)</span><br><span class="line">  &#125;</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">  <span class="keyword">var</span> g = <span class="number">14</span>;</span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">sum3</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="number">13</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(sum2,sum3); <span class="comment">//=&gt; undefined f:function sum3()&#123;&#125;</span></span><br><span class="line"><span class="built_in">console</span>.log(f,g); <span class="comment">//=&gt; undefined 14</span></span><br></pre></td></tr></table></figure>
+<p>当条件成立，进入到判断体中（在 ES6 中它是一个块级作用域，不完整的块级作用域），第一件事并不是代码执行，而是类似于变量提升一样先把函数进行定义，也就是判断体中代码执行之前，函数就已经赋值了。<br><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(fn); <span class="comment">//=&gt; undefined</span></span><br><span class="line"><span class="keyword">if</span> (<span class="number">1</span> === <span class="number">1</span>) &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(fn); <span class="comment">//=&gt; 函数本身</span></span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="number">1</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>（3）匿名函数、自执行函数、等号右边函数和 <code>return</code> 返回的函数都不会有变量提升，只有开头直接使用 <code>function</code> 声明的才会变量提升<br><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">//=&gt; 即使加上函数名，也不会变量提升</span></span><br><span class="line">(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  </span><br><span class="line">&#125;)()</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> a = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;&#125;</span><br><span class="line"></span><br><span class="line">obj.onclick = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">a</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="comment">//=&gt; e 不会提升</span></span><br><span class="line">  <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> <span class="title">e</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  </span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>（4）函数的形参与变量提升<br><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> a=<span class="number">12</span>;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn1</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(a);</span><br><span class="line">  <span class="keyword">var</span> a=<span class="number">13</span>;</span><br><span class="line">&#125;</span><br><span class="line">fn1(); <span class="comment">//=&gt; undefined</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> n=<span class="number">13</span>;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn2</span>(<span class="params">n</span>)</span>&#123;</span><br><span class="line">  <span class="comment">// 在变量提升之前就有了一个形参赋值的过程，也就是相当于</span></span><br><span class="line">  <span class="comment">// n = 13</span></span><br><span class="line">  <span class="comment">// var n 这里 n 的值不会改变，仍是 13</span></span><br><span class="line">  <span class="comment">// console.log(n); //13</span></span><br><span class="line">  <span class="built_in">console</span>.log(n);</span><br><span class="line">  <span class="keyword">var</span> n=<span class="number">14</span>;</span><br><span class="line">  <span class="built_in">console</span>.log(n);</span><br><span class="line">&#125;</span><br><span class="line">fn2(n);<span class="comment">//=&gt; 13 14</span></span><br></pre></td></tr></table></figure></p>
+<h1 id="4-重名问题的处理"><a href="#4-重名问题的处理" class="headerlink" title="4. 重名问题的处理"></a>4. 重名问题的处理</h1><ol>
+<li><code>var</code> 和 <code>function</code> 关键字声明的名字，都是变量，只是存储的值不同。取相同的名字，也是重名</li>
+<li><strong>关于重名的处理：如果名字重复了，不会重新声明，但是会重新的定义（赋值），不管是变量提升阶段还是代码执行阶段都是如此。</strong></li>
+</ol>
+<blockquote>
+<p>需要注意的是：在变量提升时，如果变量没有值，才会给它默认的值 <code>undefined</code>，如果已经有值，那么这一步不会执行</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> * 变量提升阶段</span></span><br><span class="line"><span class="comment"> * function a 定义，后面的 var a 重名，不会重新声明，所以被忽略</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">a</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(a);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> a = <span class="number">12</span>;</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> * 变量提升阶段</span></span><br><span class="line"><span class="comment"> * 会把函数声明和定义全部提升，重名的时候，也是在这个阶段进行重新定义</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * 后面代码执行会忽略全部变量声明、函数声明和定义</span></span><br><span class="line"><span class="comment"> * </span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line">fn(); <span class="comment">//=&gt; 4</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params"></span>) </span>&#123;<span class="built_in">console</span>.log(<span class="number">1</span>);&#125;</span><br><span class="line">fn(); <span class="comment">//=&gt; 4</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params"></span>) </span>&#123;<span class="built_in">console</span>.log(<span class="number">2</span>);&#125;</span><br><span class="line">fn(); <span class="comment">//=&gt; 4</span></span><br><span class="line"><span class="keyword">var</span> fn = <span class="number">100</span>;</span><br><span class="line">fn(); <span class="comment">//=&gt; 报错，fn is not a function</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params"></span>) </span>&#123;<span class="built_in">console</span>.log(<span class="number">3</span>);&#125;</span><br><span class="line">fn();</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params"></span>) </span>&#123;<span class="built_in">console</span>.log(<span class="number">4</span>);&#125;</span><br><span class="line">fn();</span><br></pre></td></tr></table></figure>
+<blockquote class="blockquote-center">生命的意义不仅是活着，而是我们给别人的生命带来了何种不同。</blockquote>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    <ul class="content">
+        <li class="post-time">
+            <span>发布时间：</span><time datetime="2018-08-20T11:34:53.000Z" itemprop="dateUpdated">2018-08-20 19:34:53</time>
+        </li>
+        <li class="post-time">
+            <span>更新时间：</span>
+            <time datetime="2018-08-20T11:34:53.000Z" itemprop="dateUpdate">2018-08-20 19:34:53</time>
+        </li>
+        <li class="post-time">
+            
+            <span>本文链接：</span><a href="/posts/bd208f70/" target="_blank" rel="external">http://destinytaoer.cn/posts/bd208f70/</a>
+            
+        </li>
+        <li class="post-time">
+            <span>版权声明：</span>本站原创内容转载请注明来源
+        </li>
+    </ul>
+</blockquote>
+
+        
+    <div class="page-reward">
+        <nav class="myreward">
+            <a id="rewardBtn" href="javascript:;"><span>打&nbsp;赏</span><span>装成好像很多人打赏的样子</span></a>
+        </nav>
+    </div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/web前端/">web前端</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://destinytaoer.cn/posts/bd208f70/&title=《JS变量提升》 — destiny'Note&pic=http://destinytaoer.cnimg/author1.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://destinytaoer.cn/posts/bd208f70/&title=《JS变量提升》 — destiny'Note&source=1. 变量提升的概念变量提升的概念：当栈内存（作用域）形成，JS 代码自上而下执行之前，浏览器首先会把所有带 var / function 关键字开头的进..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://destinytaoer.cn/posts/bd208f70/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《JS变量提升》 — destiny'Note&url=http://destinytaoer.cn/posts/bd208f70/&via=http://destinytaoer.cn" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://destinytaoer.cn/posts/bd208f70/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/posts/8c41410f/" id="post-prev" class="post-nav-link">
+        <h4 class="title" >
+          上一篇：JS堆栈内存
+        </h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/posts/c52c9c94/" id="post-next" class="post-nav-link">
+        <h4 class="title" data-hover="下一篇：DOM的映射机制">下一篇：DOM的映射机制</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+    
+
+    
+
+    
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'true' == 'true',
+            verify: 'true' == 'true',
+            appId: "BAlEU7J3YXaDNuoOMWC67UT7-gzGzoHsz",
+            appKey: "QjTpNrsX37DRGfvANeuBhGAL",
+            avatar: "mm",
+            placeholder: "来说两句吧~",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "10"
+        })
+    </script>
+    <!-- Valine Comments end -->
+
+
+
+
+</article>
+
+</div>
+
+        <footer class="footer">
+    <div class="footer-content">
+        <span class="power">
+            <i class="icon icon-lg icon-copyright"></i>
+            2016-2018
+            <i class="icon icon-lg icon-heart"></i>
+            <a href="http://destinytaoer.cn">destiny</a>
+            <br/>
+        <span>
+            
+	<i class="icon icon-lg icon-user">
+<span id="busuanzi_container_site_uv" style='display:none'>
+       访问用户：<span id="busuanzi_value_site_uv"></span>
+    </span>人</i>
+    ·
+    <i class="icon icon-lg icon-eye">
+    <span id="busuanzi_container_site_pv" style='display:none'>
+      访问次数：<span id="busuanzi_value_site_pv"></span>
+    </span>次
+    </i>
+
+
+        </span>
+        <br/>
+
+        <span class="license"><a  target="_blank" rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">博客内容遵循 知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+    </div>
+</footer>
+
+    </main>
+    
+        
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        <span>感谢您的鼓励支持！</span>
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" data-img="/img/dog.png" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/weixin.jpg" data-alipay="/img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechatPay">&nbsp;&nbsp;微信&nbsp;&nbsp;</span>
+                <span class="reward-toggle-item alipayPay">支付宝</span>
+            </div>
+        </label>
+        
+        <i class="icon icon-caret-up"></i>
+    </div>
+</div>
+
+
+    
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://destinytaoer.cn/posts/bd208f70/&title=《JS变量提升》 — destiny'Note&pic=http://destinytaoer.cnimg/author1.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://destinytaoer.cn/posts/bd208f70/&title=《JS变量提升》 — destiny'Note&source=1. 变量提升的概念变量提升的概念：当栈内存（作用域）形成，JS 代码自上而下执行之前，浏览器首先会把所有带 var / function 关键字开头的进..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://destinytaoer.cn/posts/bd208f70/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《JS变量提升》 — destiny'Note&url=http://destinytaoer.cn/posts/bd208f70/&via=http://destinytaoer.cn" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://destinytaoer.cn/posts/bd208f70/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p class="wechatshare">扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://destinytaoer.cn/posts/bd208f70/" alt="微信分享二维码">
+</div>
+
+
+
+
+    <!-- waves按钮特效 -->
+<script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+
+<!-- 主题配置脚本 -->
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+</script>
+
+<!-- jquery -->
+<script src="/js/jquery.min.js"></script>
+
+<!-- 搜索 -->
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item waves-block waves-effect" onclick="location.href='{path}'">
+    <div class="title ellipsis" title="{title}">{title}</div>
+</li>
+</template>
+
+
+<!-- main博客脚本 -->
+<script src="/js/main.min.js" ></script>
+
+<!-- 动画&配置 -->
+<script src="/js/script.min.js" ></script>
+
+<!-- 脚本管理 -->
+<script>
+
+if(window.innerWidth > 800){
+	/* 3D标题 */
+	// $(".content-header").on("mousemove", threedee);
+
+	/* 底部追随鼠标 */
+	// $(".footer").hover(2);
+
+	/* gotop键的涟漪 */
+	// $("#gotop").hover(1);
+
+	/* 赞赏的粒子雨 */
+	$("#reward").hover(3);
+
+	/* 微信公众号的底部渲染 */
+	$("#wechat").hover(4);
+
+    /* 标题跳动 */
+    // $(".archivestitle").bumpyText();
+
+	/* 图片点击放大 */
+	const postimg = jQuery(".post-content img:not(.github-emoji)");
+	postimg.on("click",function(){
+
+		mask.classList.add("in");
+		main.classList.add("Mask");
+		menu.classList.add("Mask");
+		var myimg = this.cloneNode(true);
+		myimg.classList.add("imgShow");
+
+		setTimeout(function(){
+			jQuery(myimg).animate({
+				opacity:"1"
+			},1000);
+		},0);
+
+		document.body.appendChild(myimg);
+
+		myimg.onclick=function(){
+			document.body.removeChild(myimg);
+			mask.classList.remove("in");
+			main.classList.remove("Mask");
+			menu.classList.remove("Mask");
+		};
+
+	});
+
+}
+
+/* 名字跳动 */
+// $("#name").bumpyText();
+
+
+/* 网站运行时间 */
+<!--setInterval(function () {-->
+	<!--setTime("2017/09/20");-->
+<!--}, 1000);-->
+
+/* 文章块的淡出 */
+// postshow();
+
+/* 座右铭 */
+<!---->
+    <!--elasticText({-->
+        <!--id: "mymotto",-->
+        <!--duration: 100,-->
+        <!--effact: "easeOut",-->
+        <!--content: "Best for the best!"-->
+    <!--});-->
+<!---->
+
+
+/* 粘贴提示 */
+G($(".post-content"), location.href, "destiny");
+
+
+/* 控制台 */
+if (window.console && window.console.log) {
+	setTimeout(function () {
+		console.log("\n %c destiny %c http://destinytaoer.com \n\n", "color:#FFFFFB;background:#1abc9c;padding:5px 0;border-radius:.5rem 0 0 .5rem;", "color:#FFFFFB;background:#fffffb;padding:5px 0;border-radius:0 .5rem .5rem 0;");
+	}, 0);
+}
+
+</script>
+
+
+
+
+<!-- 公式渲染 -->
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+</script>
+
+<script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
+
+
+
+<!-- 不蒜子 -->
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js" async></script>
+
+<script src="/js/comments-number.min.js"></script>
+
+</body>
+</html>
